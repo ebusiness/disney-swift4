@@ -13,6 +13,12 @@
 		1FB1510E1F5D354200BE4A7D /* disneyNavigationPreview.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1FB1510C1F5D354200BE4A7D /* disneyNavigationPreview.xcdatamodeld */; };
 		1FB151101F5D354200BE4A7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FB1510F1F5D354200BE4A7D /* Assets.xcassets */; };
 		1FB151131F5D354200BE4A7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FB151111F5D354200BE4A7D /* LaunchScreen.storyboard */; };
+		1FB1511D1F5D3CDE00BE4A7D /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 1FB1511C1F5D3CDE00BE4A7D /* Cartfile */; };
+		1FB151231F5D479300BE4A7D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FB1511F1F5D479300BE4A7D /* Alamofire.framework */; };
+		1FB151241F5D479300BE4A7D /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FB151201F5D479300BE4A7D /* RxSwift.framework */; };
+		1FB151251F5D479300BE4A7D /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FB151211F5D479300BE4A7D /* RxCocoa.framework */; };
+		1FB151261F5D479300BE4A7D /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FB151221F5D479300BE4A7D /* RxBlocking.framework */; };
+		1FB151291F5D4B3600BE4A7D /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 1FB151281F5D4B3600BE4A7D /* .swiftlint.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,12 @@
 		1FB1510F1F5D354200BE4A7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1FB151121F5D354200BE4A7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1FB151141F5D354200BE4A7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1FB1511C1F5D3CDE00BE4A7D /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		1FB1511F1F5D479300BE4A7D /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		1FB151201F5D479300BE4A7D /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		1FB151211F5D479300BE4A7D /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		1FB151221F5D479300BE4A7D /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
+		1FB151281F5D4B3600BE4A7D /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +43,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FB151231F5D479300BE4A7D /* Alamofire.framework in Frameworks */,
+				1FB151241F5D479300BE4A7D /* RxSwift.framework in Frameworks */,
+				1FB151251F5D479300BE4A7D /* RxCocoa.framework in Frameworks */,
+				1FB151261F5D479300BE4A7D /* RxBlocking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,8 +56,11 @@
 		1FB150F91F5D354200BE4A7D = {
 			isa = PBXGroup;
 			children = (
+				1FB151281F5D4B3600BE4A7D /* .swiftlint.yml */,
+				1FB1511C1F5D3CDE00BE4A7D /* Cartfile */,
 				1FB151041F5D354200BE4A7D /* disneyNavigationPreview */,
 				1FB151031F5D354200BE4A7D /* Products */,
+				1FB1511E1F5D479300BE4A7D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +86,17 @@
 			path = disneyNavigationPreview;
 			sourceTree = "<group>";
 		};
+		1FB1511E1F5D479300BE4A7D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1FB1511F1F5D479300BE4A7D /* Alamofire.framework */,
+				1FB151221F5D479300BE4A7D /* RxBlocking.framework */,
+				1FB151211F5D479300BE4A7D /* RxCocoa.framework */,
+				1FB151201F5D479300BE4A7D /* RxSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,6 +107,7 @@
 				1FB150FE1F5D354200BE4A7D /* Sources */,
 				1FB150FF1F5D354200BE4A7D /* Frameworks */,
 				1FB151001F5D354200BE4A7D /* Resources */,
+				1FB151271F5D47C400BE4A7D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -126,13 +157,35 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FB151291F5D4B3600BE4A7D /* .swiftlint.yml in Resources */,
 				1FB151131F5D354200BE4A7D /* LaunchScreen.storyboard in Resources */,
 				1FB151101F5D354200BE4A7D /* Assets.xcassets in Resources */,
+				1FB1511D1F5D3CDE00BE4A7D /* Cartfile in Resources */,
 				1FB1510B1F5D354200BE4A7D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1FB151271F5D47C400BE4A7D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n\n/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1FB150FE1F5D354200BE4A7D /* Sources */ = {
@@ -280,6 +333,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6P96PVYDRL;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = disneyNavigationPreview/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.e-business.disneyNavigationPreview";
@@ -295,6 +352,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6P96PVYDRL;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = disneyNavigationPreview/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.e-business.disneyNavigationPreview";

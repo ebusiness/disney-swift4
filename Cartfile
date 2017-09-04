@@ -1,0 +1,2 @@
+github "ReactiveX/RxSwift" "16083c3"
+github "Alamofire/Alamofire" ~> 4.5
