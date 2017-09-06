@@ -6,9 +6,12 @@
 //  Copyright © 2017年 ebuser. All rights reserved.
 //
 
+import RxSwift
 import UIKit
 
 class BaseInfoViewController: UIViewController {
+
+    private let disposeBag = DisposeBag()
 
     private var collectionView: UICollectionView
 
@@ -50,6 +53,19 @@ class BaseInfoViewController: UIViewController {
         collectionView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor).isActive = true
         collectionView.delegate = self
         collectionView.dataSource = self
+    }
+
+    fileprivate func presentParkPicker() {
+        let parkpicker = BaseInfoParkPickVC(park: visitPark)
+        parkpicker
+            .currentPark
+            .asObservable()
+            .subscribe(onNext: { [weak self] park in
+                self?.visitPark = park
+                self?.collectionView.reloadItems(at: [IndexPath(row: 0, section: 0)])
+            })
+            .disposed(by: disposeBag)
+        present(parkpicker, animated: false, completion: nil)
     }
 }
 
@@ -116,5 +132,21 @@ extension BaseInfoViewController: UICollectionViewDelegateFlowLayout, UICollecti
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 12
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            switch indexPath.row {
+            case 0:
+                presentParkPicker()
+            case 1:
+                break
+            default:
+                break
+            }
+        default:
+            break
+        }
     }
 }
