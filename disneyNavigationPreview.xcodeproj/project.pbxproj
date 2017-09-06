@@ -7,9 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F0D7BEE1F5E7675006AC4DB /* BaseInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7BED1F5E7675006AC4DB /* BaseInfoViewController.swift */; };
+		1F0D7BF01F5E76CA006AC4DB /* BaseInfoNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7BEF1F5E76CA006AC4DB /* BaseInfoNavigationController.swift */; };
+		1F0D7BF31F5E7B47006AC4DB /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7BF21F5E7B47006AC4DB /* ColorExtension.swift */; };
+		1F0D7BF51F5E801B006AC4DB /* BaseInfoEssentialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7BF41F5E801B006AC4DB /* BaseInfoEssentialCell.swift */; };
+		1F0D7BF71F5E807A006AC4DB /* Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7BF61F5E807A006AC4DB /* Localize.swift */; };
+		1F0D7BF91F5E877E006AC4DB /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7BF81F5E877E006AC4DB /* BaseModel.swift */; };
+		1F0D7BFD1F5E8B8F006AC4DB /* BaseModel.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F0D7BFF1F5E8B8F006AC4DB /* BaseModel.strings */; };
+		1F0D7C0B1F5FA343006AC4DB /* BaseInfo.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F0D7C0D1F5FA343006AC4DB /* BaseInfo.strings */; };
 		1FB151061F5D354200BE4A7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB151051F5D354200BE4A7D /* AppDelegate.swift */; };
 		1FB151081F5D354200BE4A7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB151071F5D354200BE4A7D /* ViewController.swift */; };
-		1FB1510B1F5D354200BE4A7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FB151091F5D354200BE4A7D /* Main.storyboard */; };
 		1FB1510E1F5D354200BE4A7D /* disneyNavigationPreview.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1FB1510C1F5D354200BE4A7D /* disneyNavigationPreview.xcdatamodeld */; };
 		1FB151101F5D354200BE4A7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FB1510F1F5D354200BE4A7D /* Assets.xcassets */; };
 		1FB151131F5D354200BE4A7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FB151111F5D354200BE4A7D /* LaunchScreen.storyboard */; };
@@ -22,10 +29,23 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F0D7BED1F5E7675006AC4DB /* BaseInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoViewController.swift; sourceTree = "<group>"; };
+		1F0D7BEF1F5E76CA006AC4DB /* BaseInfoNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoNavigationController.swift; sourceTree = "<group>"; };
+		1F0D7BF21F5E7B47006AC4DB /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		1F0D7BF41F5E801B006AC4DB /* BaseInfoEssentialCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoEssentialCell.swift; sourceTree = "<group>"; };
+		1F0D7BF61F5E807A006AC4DB /* Localize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localize.swift; sourceTree = "<group>"; };
+		1F0D7BF81F5E877E006AC4DB /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		1F0D7BFE1F5E8B8F006AC4DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BaseModel.strings; sourceTree = "<group>"; };
+		1F0D7C031F5E8C7C006AC4DB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/BaseModel.strings"; sourceTree = "<group>"; };
+		1F0D7C051F5E8C82006AC4DB /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/BaseModel.strings"; sourceTree = "<group>"; };
+		1F0D7C071F5E8C86006AC4DB /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/BaseModel.strings; sourceTree = "<group>"; };
+		1F0D7C0C1F5FA343006AC4DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BaseInfo.strings; sourceTree = "<group>"; };
+		1F0D7C0E1F5FA34D006AC4DB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/BaseInfo.strings"; sourceTree = "<group>"; };
+		1F0D7C0F1F5FA34F006AC4DB /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/BaseInfo.strings"; sourceTree = "<group>"; };
+		1F0D7C101F5FA350006AC4DB /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/BaseInfo.strings; sourceTree = "<group>"; };
 		1FB151021F5D354200BE4A7D /* disneyNavigationPreview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = disneyNavigationPreview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FB151051F5D354200BE4A7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FB151071F5D354200BE4A7D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		1FB1510A1F5D354200BE4A7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1FB1510D1F5D354200BE4A7D /* disneyNavigationPreview.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = disneyNavigationPreview.xcdatamodel; sourceTree = "<group>"; };
 		1FB1510F1F5D354200BE4A7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1FB151121F5D354200BE4A7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,6 +73,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F0D7BEC1F5E75AC006AC4DB /* BaseInfo */ = {
+			isa = PBXGroup;
+			children = (
+				1F0D7BEF1F5E76CA006AC4DB /* BaseInfoNavigationController.swift */,
+				1F0D7BED1F5E7675006AC4DB /* BaseInfoViewController.swift */,
+				1F0D7BF41F5E801B006AC4DB /* BaseInfoEssentialCell.swift */,
+			);
+			path = BaseInfo;
+			sourceTree = "<group>";
+		};
+		1F0D7BF11F5E7B24006AC4DB /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1F0D7BF21F5E7B47006AC4DB /* ColorExtension.swift */,
+				1F0D7BF61F5E807A006AC4DB /* Localize.swift */,
+				1F0D7BF81F5E877E006AC4DB /* BaseModel.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		1FB150F91F5D354200BE4A7D = {
 			isa = PBXGroup;
 			children = (
@@ -75,13 +115,16 @@
 		1FB151041F5D354200BE4A7D /* disneyNavigationPreview */ = {
 			isa = PBXGroup;
 			children = (
+				1F0D7BF11F5E7B24006AC4DB /* Utils */,
+				1F0D7BEC1F5E75AC006AC4DB /* BaseInfo */,
 				1FB151051F5D354200BE4A7D /* AppDelegate.swift */,
 				1FB151071F5D354200BE4A7D /* ViewController.swift */,
-				1FB151091F5D354200BE4A7D /* Main.storyboard */,
 				1FB1510F1F5D354200BE4A7D /* Assets.xcassets */,
 				1FB151111F5D354200BE4A7D /* LaunchScreen.storyboard */,
 				1FB151141F5D354200BE4A7D /* Info.plist */,
 				1FB1510C1F5D354200BE4A7D /* disneyNavigationPreview.xcdatamodeld */,
+				1F0D7BFF1F5E8B8F006AC4DB /* BaseModel.strings */,
+				1F0D7C0D1F5FA343006AC4DB /* BaseInfo.strings */,
 			);
 			path = disneyNavigationPreview;
 			sourceTree = "<group>";
@@ -141,6 +184,9 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
+				"zh-Hant",
+				ja,
 			);
 			mainGroup = 1FB150F91F5D354200BE4A7D;
 			productRefGroup = 1FB151031F5D354200BE4A7D /* Products */;
@@ -157,11 +203,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F0D7BFD1F5E8B8F006AC4DB /* BaseModel.strings in Resources */,
 				1FB151291F5D4B3600BE4A7D /* .swiftlint.yml in Resources */,
 				1FB151131F5D354200BE4A7D /* LaunchScreen.storyboard in Resources */,
+				1F0D7C0B1F5FA343006AC4DB /* BaseInfo.strings in Resources */,
 				1FB151101F5D354200BE4A7D /* Assets.xcassets in Resources */,
 				1FB1511D1F5D3CDE00BE4A7D /* Cartfile in Resources */,
-				1FB1510B1F5D354200BE4A7D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,8 +239,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F0D7BF91F5E877E006AC4DB /* BaseModel.swift in Sources */,
 				1FB1510E1F5D354200BE4A7D /* disneyNavigationPreview.xcdatamodeld in Sources */,
+				1F0D7BF01F5E76CA006AC4DB /* BaseInfoNavigationController.swift in Sources */,
+				1F0D7BEE1F5E7675006AC4DB /* BaseInfoViewController.swift in Sources */,
+				1F0D7BF31F5E7B47006AC4DB /* ColorExtension.swift in Sources */,
+				1F0D7BF71F5E807A006AC4DB /* Localize.swift in Sources */,
 				1FB151081F5D354200BE4A7D /* ViewController.swift in Sources */,
+				1F0D7BF51F5E801B006AC4DB /* BaseInfoEssentialCell.swift in Sources */,
 				1FB151061F5D354200BE4A7D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,12 +254,26 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1FB151091F5D354200BE4A7D /* Main.storyboard */ = {
+		1F0D7BFF1F5E8B8F006AC4DB /* BaseModel.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1FB1510A1F5D354200BE4A7D /* Base */,
+				1F0D7BFE1F5E8B8F006AC4DB /* en */,
+				1F0D7C031F5E8C7C006AC4DB /* zh-Hans */,
+				1F0D7C051F5E8C82006AC4DB /* zh-Hant */,
+				1F0D7C071F5E8C86006AC4DB /* ja */,
 			);
-			name = Main.storyboard;
+			name = BaseModel.strings;
+			sourceTree = "<group>";
+		};
+		1F0D7C0D1F5FA343006AC4DB /* BaseInfo.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F0D7C0C1F5FA343006AC4DB /* en */,
+				1F0D7C0E1F5FA34D006AC4DB /* zh-Hans */,
+				1F0D7C0F1F5FA34F006AC4DB /* zh-Hant */,
+				1F0D7C101F5FA350006AC4DB /* ja */,
+			);
+			name = BaseInfo.strings;
 			sourceTree = "<group>";
 		};
 		1FB151111F5D354200BE4A7D /* LaunchScreen.storyboard */ = {
@@ -224,6 +291,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -268,7 +336,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -281,6 +349,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -319,7 +388,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
