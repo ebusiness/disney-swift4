@@ -9,7 +9,7 @@
 import RxSwift
 import UIKit
 
-class BaseInfoViewController: UIViewController {
+final class BaseInfoViewController: UIViewController {
 
     private let disposeBag = DisposeBag()
 
@@ -55,7 +55,7 @@ class BaseInfoViewController: UIViewController {
         collectionView.dataSource = self
     }
 
-    fileprivate func presentParkPicker() {
+    private func presentParkPicker() {
         let parkpicker = BaseInfoParkPickVC(park: visitPark)
         parkpicker
             .currentPark
@@ -66,6 +66,19 @@ class BaseInfoViewController: UIViewController {
             })
             .disposed(by: disposeBag)
         present(parkpicker, animated: false, completion: nil)
+    }
+
+    private func presentDatePicker() {
+        let datePicker = BaseInfoDatePickVC(date: visitDate)
+        datePicker
+            .currentDate
+            .asObservable()
+            .subscribe(onNext: { [weak self] date in
+                self?.visitDate = date
+                self?.collectionView.reloadItems(at: [IndexPath(row: 1, section: 0)])
+            })
+            .disposed(by: disposeBag)
+        present(datePicker, animated: false, completion: nil)
     }
 }
 
@@ -141,7 +154,7 @@ extension BaseInfoViewController: UICollectionViewDelegateFlowLayout, UICollecti
             case 0:
                 presentParkPicker()
             case 1:
-                break
+                presentDatePicker()
             default:
                 break
             }

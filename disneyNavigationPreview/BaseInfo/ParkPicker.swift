@@ -9,7 +9,7 @@
 import RxSwift
 import UIKit
 
-class ParkPicker: UIView, Localizable {
+final class ParkPicker: UIView, Localizable {
 
     let localizeFileName = "BaseInfo"
 
@@ -72,13 +72,13 @@ class ParkPicker: UIView, Localizable {
         stackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         title.textAlignment = .center
         title.text = localize(for: "choosePark")
-        title.textColor = BaseInfoColor.baseInfoPickerTitle
+        title.textColor = BaseInfoColor.baseInfoPickerGray
         labelLand.textAlignment = .center
         labelLand.text = TokyoDisneyPark.land.localize()
-        labelLand.textColor = BaseInfoColor.baseInfoPickerOption
+        labelLand.textColor = BaseInfoColor.baseInfoPickerBlack
         labelSea.textAlignment = .center
         labelSea.text = TokyoDisneyPark.sea.localize()
-        labelSea.textColor = BaseInfoColor.baseInfoPickerOption
+        labelSea.textColor = BaseInfoColor.baseInfoPickerBlack
     }
 
     private func addSubTextSurrounding() {

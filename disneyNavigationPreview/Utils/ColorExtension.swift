@@ -46,4 +46,5 @@ extension UIColor {
 struct GlobalColor {
     static let viewBackgroundLightGray = UIColor(white: 0.933, alpha: 1)
     static let popUpBackground = UIColor(white: 0, alpha: 0.33)
+    static let seperatorGray = UIColor(white: 0.62, alpha: 1)
 }

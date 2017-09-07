@@ -9,6 +9,7 @@
 import UIKit
 
 struct BaseInfoColor {
-    static let baseInfoPickerTitle = UIColor(white: 0.62, alpha: 1)
-    static let baseInfoPickerOption = UIColor.black
+    static let baseInfoPickerGray = UIColor(white: 0.62, alpha: 1)
+    static let baseInfoPickerBlack = UIColor.black
+    static let baseInfoPickerWhite = UIColor.white
 }

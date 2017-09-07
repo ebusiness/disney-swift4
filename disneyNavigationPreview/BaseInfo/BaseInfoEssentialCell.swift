@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseInfoEssentialCell: UICollectionViewCell, Localizable {
+final class BaseInfoEssentialCell: UICollectionViewCell, Localizable {
     var localizeFileName = "BaseInfo"
 
     var spec: Spec? {

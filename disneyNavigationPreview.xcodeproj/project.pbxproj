@@ -17,7 +17,10 @@
 		1F0D7C0B1F5FA343006AC4DB /* BaseInfo.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F0D7C0D1F5FA343006AC4DB /* BaseInfo.strings */; };
 		1F0D7C121F5FA85F006AC4DB /* BaseInfoParkPickVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7C111F5FA85F006AC4DB /* BaseInfoParkPickVC.swift */; };
 		1F0D7C141F5FCBF4006AC4DB /* BaseInfoColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7C131F5FCBF4006AC4DB /* BaseInfoColor.swift */; };
+		1F4606251F60E73A00F8CC96 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4606241F60E73A00F8CC96 /* DateExtension.swift */; };
 		1F73B4531F5FE06C006FFABB /* ParkPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73B4521F5FE06C006FFABB /* ParkPicker.swift */; };
+		1FA5B80B1F5FF4F500654E04 /* BaseInfoDatePickVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA5B80A1F5FF4F500654E04 /* BaseInfoDatePickVC.swift */; };
+		1FA5B80D1F5FF6B400654E04 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA5B80C1F5FF6B400654E04 /* DatePicker.swift */; };
 		1FB151061F5D354200BE4A7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB151051F5D354200BE4A7D /* AppDelegate.swift */; };
 		1FB151081F5D354200BE4A7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB151071F5D354200BE4A7D /* ViewController.swift */; };
 		1FB1510E1F5D354200BE4A7D /* disneyNavigationPreview.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1FB1510C1F5D354200BE4A7D /* disneyNavigationPreview.xcdatamodeld */; };
@@ -48,7 +51,10 @@
 		1F0D7C101F5FA350006AC4DB /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/BaseInfo.strings; sourceTree = "<group>"; };
 		1F0D7C111F5FA85F006AC4DB /* BaseInfoParkPickVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoParkPickVC.swift; sourceTree = "<group>"; };
 		1F0D7C131F5FCBF4006AC4DB /* BaseInfoColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoColor.swift; sourceTree = "<group>"; };
+		1F4606241F60E73A00F8CC96 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		1F73B4521F5FE06C006FFABB /* ParkPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkPicker.swift; sourceTree = "<group>"; };
+		1FA5B80A1F5FF4F500654E04 /* BaseInfoDatePickVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoDatePickVC.swift; sourceTree = "<group>"; };
+		1FA5B80C1F5FF6B400654E04 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 		1FB151021F5D354200BE4A7D /* disneyNavigationPreview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = disneyNavigationPreview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FB151051F5D354200BE4A7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FB151071F5D354200BE4A7D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +94,8 @@
 				1F0D7C111F5FA85F006AC4DB /* BaseInfoParkPickVC.swift */,
 				1F0D7C131F5FCBF4006AC4DB /* BaseInfoColor.swift */,
 				1F73B4521F5FE06C006FFABB /* ParkPicker.swift */,
+				1FA5B80A1F5FF4F500654E04 /* BaseInfoDatePickVC.swift */,
+				1FA5B80C1F5FF6B400654E04 /* DatePicker.swift */,
 			);
 			path = BaseInfo;
 			sourceTree = "<group>";
@@ -98,6 +106,7 @@
 				1F0D7BF21F5E7B47006AC4DB /* ColorExtension.swift */,
 				1F0D7BF61F5E807A006AC4DB /* Localize.swift */,
 				1F0D7BF81F5E877E006AC4DB /* BaseModel.swift */,
+				1F4606241F60E73A00F8CC96 /* DateExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -249,6 +258,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F0D7C121F5FA85F006AC4DB /* BaseInfoParkPickVC.swift in Sources */,
+				1F4606251F60E73A00F8CC96 /* DateExtension.swift in Sources */,
+				1FA5B80D1F5FF6B400654E04 /* DatePicker.swift in Sources */,
 				1F0D7BF91F5E877E006AC4DB /* BaseModel.swift in Sources */,
 				1FB1510E1F5D354200BE4A7D /* disneyNavigationPreview.xcdatamodeld in Sources */,
 				1F73B4531F5FE06C006FFABB /* ParkPicker.swift in Sources */,
@@ -260,6 +271,7 @@
 				1F0D7BF51F5E801B006AC4DB /* BaseInfoEssentialCell.swift in Sources */,
 				1FB151061F5D354200BE4A7D /* AppDelegate.swift in Sources */,
 				1F0D7C141F5FCBF4006AC4DB /* BaseInfoColor.swift in Sources */,
+				1FA5B80B1F5FF4F500654E04 /* BaseInfoDatePickVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
