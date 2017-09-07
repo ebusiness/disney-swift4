@@ -233,6 +233,7 @@ private final class MonthCalendarController: UIViewController {
 
     private var emphasizedIndex: IndexPath?
 
+    //swiftlint:disable:next function_body_length
     init(dateComponents: DateComponents, delegate: DatePicker) {
         self.dateComponents = dateComponents
         let calendar = Calendar.current
@@ -252,7 +253,6 @@ private final class MonthCalendarController: UIViewController {
         addSubMonthLabel()
         addSubBorder()
         addSubCollectionView()
-
         // 通知上层用户选择了日期
         selectedDaySubject
             .subscribe(onNext: { dateComponents in
@@ -261,7 +261,6 @@ private final class MonthCalendarController: UIViewController {
                 }
             })
             .disposed(by: delegate.disposeBag)
-
         // 接受上层通知：用户选择日期变化
         delegate
             .currentDateComponents
