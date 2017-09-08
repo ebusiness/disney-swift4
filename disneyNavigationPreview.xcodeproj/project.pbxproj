@@ -21,6 +21,8 @@
 		1F73B4531F5FE06C006FFABB /* ParkPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73B4521F5FE06C006FFABB /* ParkPicker.swift */; };
 		1FA5B80B1F5FF4F500654E04 /* BaseInfoDatePickVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA5B80A1F5FF4F500654E04 /* BaseInfoDatePickVC.swift */; };
 		1FA5B80D1F5FF6B400654E04 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA5B80C1F5FF6B400654E04 /* DatePicker.swift */; };
+		1FA799981F623ACA003EC3F2 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA799971F623ACA003EC3F2 /* API.swift */; };
+		1FA7999A1F624A9B003EC3F2 /* BaseInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA799991F624A9B003EC3F2 /* BaseInfoModel.swift */; };
 		1FB151061F5D354200BE4A7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB151051F5D354200BE4A7D /* AppDelegate.swift */; };
 		1FB151081F5D354200BE4A7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB151071F5D354200BE4A7D /* ViewController.swift */; };
 		1FB1510E1F5D354200BE4A7D /* disneyNavigationPreview.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1FB1510C1F5D354200BE4A7D /* disneyNavigationPreview.xcdatamodeld */; };
@@ -55,6 +57,8 @@
 		1F73B4521F5FE06C006FFABB /* ParkPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkPicker.swift; sourceTree = "<group>"; };
 		1FA5B80A1F5FF4F500654E04 /* BaseInfoDatePickVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoDatePickVC.swift; sourceTree = "<group>"; };
 		1FA5B80C1F5FF6B400654E04 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
+		1FA799971F623ACA003EC3F2 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		1FA799991F624A9B003EC3F2 /* BaseInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoModel.swift; sourceTree = "<group>"; };
 		1FB151021F5D354200BE4A7D /* disneyNavigationPreview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = disneyNavigationPreview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FB151051F5D354200BE4A7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FB151071F5D354200BE4A7D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +92,7 @@
 		1F0D7BEC1F5E75AC006AC4DB /* BaseInfo */ = {
 			isa = PBXGroup;
 			children = (
+				1FA799991F624A9B003EC3F2 /* BaseInfoModel.swift */,
 				1F0D7BEF1F5E76CA006AC4DB /* BaseInfoNavigationController.swift */,
 				1F0D7BED1F5E7675006AC4DB /* BaseInfoViewController.swift */,
 				1F0D7BF41F5E801B006AC4DB /* BaseInfoEssentialCell.swift */,
@@ -107,6 +112,7 @@
 				1F0D7BF61F5E807A006AC4DB /* Localize.swift */,
 				1F0D7BF81F5E877E006AC4DB /* BaseModel.swift */,
 				1F4606241F60E73A00F8CC96 /* DateExtension.swift */,
+				1FA799971F623ACA003EC3F2 /* API.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -266,11 +272,13 @@
 				1F0D7BF01F5E76CA006AC4DB /* BaseInfoNavigationController.swift in Sources */,
 				1F0D7BEE1F5E7675006AC4DB /* BaseInfoViewController.swift in Sources */,
 				1F0D7BF31F5E7B47006AC4DB /* ColorExtension.swift in Sources */,
+				1FA7999A1F624A9B003EC3F2 /* BaseInfoModel.swift in Sources */,
 				1F0D7BF71F5E807A006AC4DB /* Localize.swift in Sources */,
 				1FB151081F5D354200BE4A7D /* ViewController.swift in Sources */,
 				1F0D7BF51F5E801B006AC4DB /* BaseInfoEssentialCell.swift in Sources */,
 				1FB151061F5D354200BE4A7D /* AppDelegate.swift in Sources */,
 				1F0D7C141F5FCBF4006AC4DB /* BaseInfoColor.swift in Sources */,
+				1FA799981F623ACA003EC3F2 /* API.swift in Sources */,
 				1FA5B80B1F5FF4F500654E04 /* BaseInfoDatePickVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -41,6 +41,7 @@ final class BaseInfoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        requestVisitorTags()
     }
 
     private func addSubCollectionView() {
@@ -53,6 +54,15 @@ final class BaseInfoViewController: UIViewController {
         collectionView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor).isActive = true
         collectionView.delegate = self
         collectionView.dataSource = self
+    }
+
+    private func requestVisitorTags() {
+        let tagsRequest = API.Visitor.tags
+        tagsRequest.request([VisitorTag].self) { visitorTags, _ in
+            if let visitorTags = visitorTags {
+                print(visitorTags)
+            }
+        }
     }
 
     private func presentParkPicker() {
