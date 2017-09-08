@@ -8,3 +8,6 @@
 
 "chooseDate" = "日期选择";
 "choosePark" = "园区选择";
+
+"selectedTags" = "我关注的";
+"unselectedTags" = "点击关注更多";

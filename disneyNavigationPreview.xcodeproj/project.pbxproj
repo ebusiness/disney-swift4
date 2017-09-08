@@ -18,6 +18,7 @@
 		1F0D7C121F5FA85F006AC4DB /* BaseInfoParkPickVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7C111F5FA85F006AC4DB /* BaseInfoParkPickVC.swift */; };
 		1F0D7C141F5FCBF4006AC4DB /* BaseInfoColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7C131F5FCBF4006AC4DB /* BaseInfoColor.swift */; };
 		1F4606251F60E73A00F8CC96 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4606241F60E73A00F8CC96 /* DateExtension.swift */; };
+		1F719B861F627E230010CD68 /* BaseInfoTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F719B851F627E230010CD68 /* BaseInfoTagCell.swift */; };
 		1F73B4531F5FE06C006FFABB /* ParkPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73B4521F5FE06C006FFABB /* ParkPicker.swift */; };
 		1FA5B80B1F5FF4F500654E04 /* BaseInfoDatePickVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA5B80A1F5FF4F500654E04 /* BaseInfoDatePickVC.swift */; };
 		1FA5B80D1F5FF6B400654E04 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA5B80C1F5FF6B400654E04 /* DatePicker.swift */; };
@@ -54,6 +55,7 @@
 		1F0D7C111F5FA85F006AC4DB /* BaseInfoParkPickVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoParkPickVC.swift; sourceTree = "<group>"; };
 		1F0D7C131F5FCBF4006AC4DB /* BaseInfoColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoColor.swift; sourceTree = "<group>"; };
 		1F4606241F60E73A00F8CC96 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		1F719B851F627E230010CD68 /* BaseInfoTagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoTagCell.swift; sourceTree = "<group>"; };
 		1F73B4521F5FE06C006FFABB /* ParkPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkPicker.swift; sourceTree = "<group>"; };
 		1FA5B80A1F5FF4F500654E04 /* BaseInfoDatePickVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoDatePickVC.swift; sourceTree = "<group>"; };
 		1FA5B80C1F5FF6B400654E04 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				1F0D7BEF1F5E76CA006AC4DB /* BaseInfoNavigationController.swift */,
 				1F0D7BED1F5E7675006AC4DB /* BaseInfoViewController.swift */,
 				1F0D7BF41F5E801B006AC4DB /* BaseInfoEssentialCell.swift */,
+				1F719B851F627E230010CD68 /* BaseInfoTagCell.swift */,
 				1F0D7C111F5FA85F006AC4DB /* BaseInfoParkPickVC.swift */,
 				1F0D7C131F5FCBF4006AC4DB /* BaseInfoColor.swift */,
 				1F73B4521F5FE06C006FFABB /* ParkPicker.swift */,
@@ -280,6 +283,7 @@
 				1F0D7C141F5FCBF4006AC4DB /* BaseInfoColor.swift in Sources */,
 				1FA799981F623ACA003EC3F2 /* API.swift in Sources */,
 				1FA5B80B1F5FF4F500654E04 /* BaseInfoDatePickVC.swift in Sources */,
+				1F719B861F627E230010CD68 /* BaseInfoTagCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

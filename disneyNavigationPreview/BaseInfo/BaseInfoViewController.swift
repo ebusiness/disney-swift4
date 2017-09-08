@@ -9,13 +9,28 @@
 import RxSwift
 import UIKit
 
-final class BaseInfoViewController: UIViewController {
+final class BaseInfoViewController: UIViewController, Localizable {
+
+    let localizeFileName = "BaseInfo"
 
     private let disposeBag = DisposeBag()
 
     private var collectionView: UICollectionView
 
     private let essentialCellIdentifier = "essentialCellIdentifier"
+    private let tagCellIdentifier = "tagCellIdentifier"
+    private let headerCellIdentifier = "headerCellIdentifier"
+
+    /// tags from server
+    private var allTags = [VisitorTag]()
+    private let defaultTagIds = ["58faed6067847695d6cfee06",
+                                 "58fd5a2867847695d6cfee0d"]
+
+    /// tags in collection view
+    /// 0: empty
+    /// 1: selected
+    /// 2: unselected
+    private var shownTags = [[VisitorTag]]()
 
     private var visitPark = TokyoDisneyPark.land
     private var visitDate = Date()
@@ -24,12 +39,15 @@ final class BaseInfoViewController: UIViewController {
         static let essentialInset = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
         static let essentialMinimumInteritemSpacing = CGFloat(4)
         static let essentialRatio = CGFloat(1.53)
+
+        static let tagInset = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
+        static let tagMinimumInteritemSpacing = CGFloat(8)
     }
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         let layout = UICollectionViewFlowLayout()
         collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = GlobalColor.viewBackgroundLightGray
+        collectionView.backgroundColor = BaseInfoColor.baseInfoViewBackground
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         addSubCollectionView()
         automaticallyAdjustsScrollViewInsets = false
@@ -46,6 +64,10 @@ final class BaseInfoViewController: UIViewController {
 
     private func addSubCollectionView() {
         collectionView.register(BaseInfoEssentialCell.self, forCellWithReuseIdentifier: essentialCellIdentifier)
+        collectionView.register(BaseInfoTagCell.self, forCellWithReuseIdentifier: tagCellIdentifier)
+        collectionView.register(BaseInfoHeaderCell.self,
+                                forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
+                                withReuseIdentifier: headerCellIdentifier)
         view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
@@ -58,9 +80,29 @@ final class BaseInfoViewController: UIViewController {
 
     private func requestVisitorTags() {
         let tagsRequest = API.Visitor.tags
-        tagsRequest.request([VisitorTag].self) { visitorTags, _ in
+        tagsRequest.request([VisitorTag].self) { [weak self] visitorTags, _ in
+            guard let strongSelf = self else {
+                return
+            }
             if let visitorTags = visitorTags {
-                print(visitorTags)
+                strongSelf.allTags = visitorTags
+                let empty = [VisitorTag]()
+                var selectedGroup = [VisitorTag]()
+                var unselectedGroup = [VisitorTag]()
+
+                strongSelf.allTags.forEach { model in
+                    if strongSelf.defaultTagIds.contains(model.id) {
+                        selectedGroup.append(model)
+                    } else {
+                        unselectedGroup.append(model)
+                    }
+                }
+
+                strongSelf.shownTags.append(empty)
+                strongSelf.shownTags.append(selectedGroup)
+                strongSelf.shownTags.append(unselectedGroup)
+
+                strongSelf.collectionView.reloadSections(IndexSet(integersIn: 1...2))
             }
         }
     }
@@ -94,13 +136,19 @@ final class BaseInfoViewController: UIViewController {
 
 extension BaseInfoViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
+        return 3
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case 0:
             return 2
+        case 1, 2:
+            if shownTags.isEmpty {
+                return 0
+            } else {
+                return shownTags[section].count
+            }
         default:
             fatalError()
         }
@@ -118,6 +166,12 @@ extension BaseInfoViewController: UICollectionViewDelegateFlowLayout, UICollecti
                 cell.spec = .date(visitDate)
             }
             return cell
+        case 1, 2:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: tagCellIdentifier, for: indexPath) as? BaseInfoTagCell else {
+                fatalError("Unexpected cell class")
+            }
+            cell.visitorTag = shownTags[indexPath.section][indexPath.item]
+            return cell
         default:
             fatalError()
         }
@@ -130,6 +184,8 @@ extension BaseInfoViewController: UICollectionViewDelegateFlowLayout, UICollecti
             let cellWidth = (screenWidth - 12 - CellLayout.essentialMinimumInteritemSpacing - 12) / 2
             let cellHeight = cellWidth / CellLayout.essentialRatio
             return CGSize(width: cellWidth, height: cellHeight)
+        case 1, 2:
+            return shownTags[indexPath.section][indexPath.item].getCellSize()
         default:
             fatalError()
         }
@@ -139,6 +195,8 @@ extension BaseInfoViewController: UICollectionViewDelegateFlowLayout, UICollecti
         switch section {
         case 0:
             return CellLayout.essentialMinimumInteritemSpacing
+        case 1, 2:
+            return CellLayout.tagMinimumInteritemSpacing
         default:
             fatalError()
         }
@@ -148,6 +206,8 @@ extension BaseInfoViewController: UICollectionViewDelegateFlowLayout, UICollecti
         switch section {
         case 0:
             return CellLayout.essentialInset
+        case 1, 2:
+            return CellLayout.tagInset
         default:
             fatalError()
         }
@@ -168,8 +228,58 @@ extension BaseInfoViewController: UICollectionViewDelegateFlowLayout, UICollecti
             default:
                 break
             }
+        case 1:
+            let destination = IndexPath(item: 0, section: 2)
+            let temp = shownTags[indexPath.section].remove(at: indexPath.item)
+            shownTags[destination.section].insert(temp, at: destination.item)
+
+            collectionView.moveItem(at: indexPath, to: destination)
+        case 2:
+            let destination = IndexPath(item: collectionView.numberOfItems(inSection: 1), section: 1)
+            let temp = shownTags[indexPath.section].remove(at: indexPath.item)
+            shownTags[destination.section].insert(temp, at: destination.item)
+
+            collectionView.moveItem(at: indexPath, to: destination)
         default:
             break
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+
+        switch section {
+        case 0:
+            return .zero
+        case 1, 2:
+            let width = UIScreen.main.bounds.width
+            let height = CGFloat(24)
+            return CGSize(width: width, height: height)
+        default:
+            fatalError()
+        }
+
+    }
+
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionElementKindSectionHeader:
+            guard let headerView = collectionView
+                .dequeueReusableSupplementaryView(ofKind: kind,
+                                                  withReuseIdentifier: headerCellIdentifier,
+                                                  for: indexPath) as? BaseInfoHeaderCell else {
+                                                    fatalError("Unexpected cell class")
+            }
+
+            if indexPath.section == 0 {
+                headerView.title = ""
+            } else if indexPath.section == 1 {
+                headerView.title = localize(for: "selectedTags")
+            } else {
+                headerView.title = localize(for: "unselectedTags")
+            }
+            return headerView
+        default:
+            fatalError("Unexpected element kind")
         }
     }
 }

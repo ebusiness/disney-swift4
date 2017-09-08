@@ -36,7 +36,7 @@ final class DatePicker: UIView {
         prevButton = UIButton(type: .custom)
         super.init(frame: .zero)
 
-        backgroundColor = GlobalColor.viewBackgroundLightGray
+        backgroundColor = BaseInfoColor.baseInfoViewBackground
 
         addSubYearLabel()
         addSubPageViewController()
@@ -249,7 +249,7 @@ private final class MonthCalendarController: UIViewController {
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
 
         super.init(nibName: nil, bundle: nil)
-        view.backgroundColor = GlobalColor.viewBackgroundLightGray
+        view.backgroundColor = BaseInfoColor.baseInfoViewBackground
         addSubMonthLabel()
         addSubBorder()
         addSubCollectionView()
@@ -342,7 +342,7 @@ private final class MonthCalendarController: UIViewController {
         collectionView.heightAnchor.constraint(equalToConstant: 216).isActive = true
 
         collectionView.register(MonthCalendarCell.self, forCellWithReuseIdentifier: cellIdentifier)
-        collectionView.backgroundColor = GlobalColor.viewBackgroundLightGray
+        collectionView.backgroundColor = BaseInfoColor.baseInfoViewBackground
         collectionView.dataSource = self
         collectionView.delegate = self
     }

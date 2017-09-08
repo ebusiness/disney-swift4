@@ -9,6 +9,9 @@
 import UIKit
 
 struct BaseInfoColor {
+    static let baseInfoViewBackground = GlobalColor.viewBackgroundLightGray
+    static let baseInfoHeaderCellBackground = UIColor(white: 0.878, alpha: 1)
+
     static let baseInfoPickerGray = UIColor(white: 0.62, alpha: 1)
     static let baseInfoPickerBlack = UIColor.black
     static let baseInfoPickerWhite = UIColor.white

@@ -45,7 +45,7 @@ final class ParkPicker: UIView, Localizable {
         currentPark = Variable(park)
         touchGesture = UILongPressGestureRecognizer()
         super.init(frame: .zero)
-        backgroundColor = GlobalColor.viewBackgroundLightGray
+        backgroundColor = BaseInfoColor.baseInfoViewBackground
         addSubStackView()
         addSubTextSurrounding()
         addTouchGesture()
