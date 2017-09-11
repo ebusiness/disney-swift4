@@ -19,6 +19,11 @@
 		1F0D7C141F5FCBF4006AC4DB /* BaseInfoColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7C131F5FCBF4006AC4DB /* BaseInfoColor.swift */; };
 		1F4606251F60E73A00F8CC96 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4606241F60E73A00F8CC96 /* DateExtension.swift */; };
 		1F719B861F627E230010CD68 /* BaseInfoTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F719B851F627E230010CD68 /* BaseInfoTagCell.swift */; };
+		1F719B891F62A10A0010CD68 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F719B881F62A10A0010CD68 /* Main.swift */; };
+		1F719B8F1F663F680010CD68 /* AttractionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F719B8E1F663F680010CD68 /* AttractionVC.swift */; };
+		1F719B911F663F7E0010CD68 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F719B901F663F7D0010CD68 /* SettingVC.swift */; };
+		1F719B931F663F940010CD68 /* MyPlanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F719B921F663F940010CD68 /* MyPlanVC.swift */; };
+		1F719B951F663FAD0010CD68 /* SuggestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F719B941F663FAD0010CD68 /* SuggestVC.swift */; };
 		1F73B4531F5FE06C006FFABB /* ParkPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73B4521F5FE06C006FFABB /* ParkPicker.swift */; };
 		1FA5B80B1F5FF4F500654E04 /* BaseInfoDatePickVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA5B80A1F5FF4F500654E04 /* BaseInfoDatePickVC.swift */; };
 		1FA5B80D1F5FF6B400654E04 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA5B80C1F5FF6B400654E04 /* DatePicker.swift */; };
@@ -56,6 +61,11 @@
 		1F0D7C131F5FCBF4006AC4DB /* BaseInfoColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoColor.swift; sourceTree = "<group>"; };
 		1F4606241F60E73A00F8CC96 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		1F719B851F627E230010CD68 /* BaseInfoTagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoTagCell.swift; sourceTree = "<group>"; };
+		1F719B881F62A10A0010CD68 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		1F719B8E1F663F680010CD68 /* AttractionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionVC.swift; sourceTree = "<group>"; };
+		1F719B901F663F7D0010CD68 /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
+		1F719B921F663F940010CD68 /* MyPlanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlanVC.swift; sourceTree = "<group>"; };
+		1F719B941F663FAD0010CD68 /* SuggestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestVC.swift; sourceTree = "<group>"; };
 		1F73B4521F5FE06C006FFABB /* ParkPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkPicker.swift; sourceTree = "<group>"; };
 		1FA5B80A1F5FF4F500654E04 /* BaseInfoDatePickVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoDatePickVC.swift; sourceTree = "<group>"; };
 		1FA5B80C1F5FF6B400654E04 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
@@ -120,6 +130,46 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		1F719B871F62A0F00010CD68 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				1F719B881F62A10A0010CD68 /* Main.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		1F719B8A1F663E920010CD68 /* Suggest */ = {
+			isa = PBXGroup;
+			children = (
+				1F719B941F663FAD0010CD68 /* SuggestVC.swift */,
+			);
+			path = Suggest;
+			sourceTree = "<group>";
+		};
+		1F719B8B1F663EA40010CD68 /* MyPlan */ = {
+			isa = PBXGroup;
+			children = (
+				1F719B921F663F940010CD68 /* MyPlanVC.swift */,
+			);
+			path = MyPlan;
+			sourceTree = "<group>";
+		};
+		1F719B8C1F663EB80010CD68 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				1F719B901F663F7D0010CD68 /* SettingVC.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		1F719B8D1F663EC10010CD68 /* Attraction */ = {
+			isa = PBXGroup;
+			children = (
+				1F719B8E1F663F680010CD68 /* AttractionVC.swift */,
+			);
+			path = Attraction;
+			sourceTree = "<group>";
+		};
 		1FB150F91F5D354200BE4A7D = {
 			isa = PBXGroup;
 			children = (
@@ -142,8 +192,13 @@
 		1FB151041F5D354200BE4A7D /* disneyNavigationPreview */ = {
 			isa = PBXGroup;
 			children = (
-				1F0D7BF11F5E7B24006AC4DB /* Utils */,
+				1F719B8D1F663EC10010CD68 /* Attraction */,
+				1F719B8C1F663EB80010CD68 /* Setting */,
+				1F719B8B1F663EA40010CD68 /* MyPlan */,
+				1F719B8A1F663E920010CD68 /* Suggest */,
 				1F0D7BEC1F5E75AC006AC4DB /* BaseInfo */,
+				1F719B871F62A0F00010CD68 /* Main */,
+				1F0D7BF11F5E7B24006AC4DB /* Utils */,
 				1FB151051F5D354200BE4A7D /* AppDelegate.swift */,
 				1FB151071F5D354200BE4A7D /* ViewController.swift */,
 				1FB1510F1F5D354200BE4A7D /* Assets.xcassets */,
@@ -267,8 +322,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F0D7C121F5FA85F006AC4DB /* BaseInfoParkPickVC.swift in Sources */,
+				1F719B911F663F7E0010CD68 /* SettingVC.swift in Sources */,
 				1F4606251F60E73A00F8CC96 /* DateExtension.swift in Sources */,
 				1FA5B80D1F5FF6B400654E04 /* DatePicker.swift in Sources */,
+				1F719B8F1F663F680010CD68 /* AttractionVC.swift in Sources */,
 				1F0D7BF91F5E877E006AC4DB /* BaseModel.swift in Sources */,
 				1FB1510E1F5D354200BE4A7D /* disneyNavigationPreview.xcdatamodeld in Sources */,
 				1F73B4531F5FE06C006FFABB /* ParkPicker.swift in Sources */,
@@ -278,11 +335,14 @@
 				1FA7999A1F624A9B003EC3F2 /* BaseInfoModel.swift in Sources */,
 				1F0D7BF71F5E807A006AC4DB /* Localize.swift in Sources */,
 				1FB151081F5D354200BE4A7D /* ViewController.swift in Sources */,
+				1F719B891F62A10A0010CD68 /* Main.swift in Sources */,
 				1F0D7BF51F5E801B006AC4DB /* BaseInfoEssentialCell.swift in Sources */,
 				1FB151061F5D354200BE4A7D /* AppDelegate.swift in Sources */,
 				1F0D7C141F5FCBF4006AC4DB /* BaseInfoColor.swift in Sources */,
 				1FA799981F623ACA003EC3F2 /* API.swift in Sources */,
+				1F719B931F663F940010CD68 /* MyPlanVC.swift in Sources */,
 				1FA5B80B1F5FF4F500654E04 /* BaseInfoDatePickVC.swift in Sources */,
+				1F719B951F663FAD0010CD68 /* SuggestVC.swift in Sources */,
 				1F719B861F627E230010CD68 /* BaseInfoTagCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

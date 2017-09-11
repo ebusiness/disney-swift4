@@ -94,4 +94,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    func switchToHomepage() {
+
+        let tabVC = TabVC()
+        guard let window = UIApplication.shared.keyWindow else { return }
+        UIView
+            .transition(with: window,
+                        duration: 0.3,
+                        options: [.curveEaseInOut, .transitionFlipFromRight],
+                        animations: {
+                            window.rootViewController = tabVC
+            },
+                        completion: nil)
+
+    }
+
 }

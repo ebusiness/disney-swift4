@@ -49,6 +49,7 @@ final class BaseInfoViewController: UIViewController, Localizable {
         collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         collectionView.backgroundColor = BaseInfoColor.baseInfoViewBackground
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        addNavigationItem()
         addSubCollectionView()
         automaticallyAdjustsScrollViewInsets = false
     }
@@ -60,6 +61,16 @@ final class BaseInfoViewController: UIViewController, Localizable {
     override func viewDidLoad() {
         super.viewDidLoad()
         requestVisitorTags()
+    }
+
+    private func addNavigationItem() {
+        let save = UIBarButtonItem(barButtonSystemItem: .save,
+                                   target: self,
+                                   action: #selector(handleNextButton(sender:)))
+        navigationItem.setRightBarButton(save, animated: false)
+
+        let logo = UIImageView(image: #imageLiteral(resourceName: "nav_bar_logo"))
+        navigationItem.titleView = logo
     }
 
     private func addSubCollectionView() {
@@ -131,6 +142,15 @@ final class BaseInfoViewController: UIViewController, Localizable {
             })
             .disposed(by: disposeBag)
         present(datePicker, animated: false, completion: nil)
+    }
+
+    @objc
+    func handleNextButton(sender: UIBarButtonItem) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+
+        appDelegate.switchToHomepage()
     }
 }
 

@@ -15,6 +15,7 @@ final class BaseInfoNavigationController: UINavigationController {
 
         navigationBar.barStyle = .black
         navigationBar.barTintColor = UIColor.white
+        navigationBar.tintColor = GlobalColor.primaryRed
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
