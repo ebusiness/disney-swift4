@@ -25,6 +25,7 @@
 		1F719B931F663F940010CD68 /* MyPlanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F719B921F663F940010CD68 /* MyPlanVC.swift */; };
 		1F719B951F663FAD0010CD68 /* SuggestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F719B941F663FAD0010CD68 /* SuggestVC.swift */; };
 		1F73B4531F5FE06C006FFABB /* ParkPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73B4521F5FE06C006FFABB /* ParkPicker.swift */; };
+		1F8D0FAD1F666D66006461D1 /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F8D0FAF1F666D66006461D1 /* Main.strings */; };
 		1FA5B80B1F5FF4F500654E04 /* BaseInfoDatePickVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA5B80A1F5FF4F500654E04 /* BaseInfoDatePickVC.swift */; };
 		1FA5B80D1F5FF6B400654E04 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA5B80C1F5FF6B400654E04 /* DatePicker.swift */; };
 		1FA799981F623ACA003EC3F2 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA799971F623ACA003EC3F2 /* API.swift */; };
@@ -67,6 +68,10 @@
 		1F719B921F663F940010CD68 /* MyPlanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlanVC.swift; sourceTree = "<group>"; };
 		1F719B941F663FAD0010CD68 /* SuggestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestVC.swift; sourceTree = "<group>"; };
 		1F73B4521F5FE06C006FFABB /* ParkPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkPicker.swift; sourceTree = "<group>"; };
+		1F8D0FAE1F666D66006461D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		1F8D0FB01F666D68006461D1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		1F8D0FB11F666D69006461D1 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		1F8D0FB21F666D6A006461D1 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		1FA5B80A1F5FF4F500654E04 /* BaseInfoDatePickVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoDatePickVC.swift; sourceTree = "<group>"; };
 		1FA5B80C1F5FF6B400654E04 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 		1FA799971F623ACA003EC3F2 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -207,6 +212,7 @@
 				1FB1510C1F5D354200BE4A7D /* disneyNavigationPreview.xcdatamodeld */,
 				1F0D7BFF1F5E8B8F006AC4DB /* BaseModel.strings */,
 				1F0D7C0D1F5FA343006AC4DB /* BaseInfo.strings */,
+				1F8D0FAF1F666D66006461D1 /* Main.strings */,
 			);
 			path = disneyNavigationPreview;
 			sourceTree = "<group>";
@@ -289,6 +295,7 @@
 				1FB151291F5D4B3600BE4A7D /* .swiftlint.yml in Resources */,
 				1FB151131F5D354200BE4A7D /* LaunchScreen.storyboard in Resources */,
 				1F0D7C0B1F5FA343006AC4DB /* BaseInfo.strings in Resources */,
+				1F8D0FAD1F666D66006461D1 /* Main.strings in Resources */,
 				1FB151101F5D354200BE4A7D /* Assets.xcassets in Resources */,
 				1FB1511D1F5D3CDE00BE4A7D /* Cartfile in Resources */,
 			);
@@ -370,6 +377,17 @@
 				1F0D7C101F5FA350006AC4DB /* ja */,
 			);
 			name = BaseInfo.strings;
+			sourceTree = "<group>";
+		};
+		1F8D0FAF1F666D66006461D1 /* Main.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F8D0FAE1F666D66006461D1 /* en */,
+				1F8D0FB01F666D68006461D1 /* zh-Hans */,
+				1F8D0FB11F666D69006461D1 /* zh-Hant */,
+				1F8D0FB21F666D6A006461D1 /* ja */,
+			);
+			name = Main.strings;
 			sourceTree = "<group>";
 		};
 		1FB151111F5D354200BE4A7D /* LaunchScreen.storyboard */ = {

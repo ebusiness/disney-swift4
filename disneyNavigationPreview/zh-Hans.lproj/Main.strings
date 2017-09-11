@@ -1,0 +1,13 @@
+/* 
+  Main.strings
+  disneyNavigationPreview
+
+  Created by ebuser on 2017/9/11.
+  Copyright © 2017年 ebuser. All rights reserved.
+*/
+
+
+"TabbarSuggest" = "推荐计划";
+"TabbarAttraction" = "游乐项目";
+"TabbarMyPlan" = "我的行程单";
+"TabbarSetting" = "设置";
