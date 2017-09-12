@@ -18,6 +18,8 @@
 		1F0D7C121F5FA85F006AC4DB /* BaseInfoParkPickVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7C111F5FA85F006AC4DB /* BaseInfoParkPickVC.swift */; };
 		1F0D7C141F5FCBF4006AC4DB /* BaseInfoColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7C131F5FCBF4006AC4DB /* BaseInfoColor.swift */; };
 		1F4606251F60E73A00F8CC96 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4606241F60E73A00F8CC96 /* DateExtension.swift */; };
+		1F5096F81F6784950008B8C1 /* AttractionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5096F71F6784950008B8C1 /* AttractionCell.swift */; };
+		1F5096FA1F67C9A00008B8C1 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F5096F91F67C9A00008B8C1 /* AlamofireImage.framework */; };
 		1F719B861F627E230010CD68 /* BaseInfoTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F719B851F627E230010CD68 /* BaseInfoTagCell.swift */; };
 		1F719B891F62A10A0010CD68 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F719B881F62A10A0010CD68 /* Main.swift */; };
 		1F719B8F1F663F680010CD68 /* AttractionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F719B8E1F663F680010CD68 /* AttractionVC.swift */; };
@@ -26,6 +28,8 @@
 		1F719B951F663FAD0010CD68 /* SuggestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F719B941F663FAD0010CD68 /* SuggestVC.swift */; };
 		1F73B4531F5FE06C006FFABB /* ParkPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73B4521F5FE06C006FFABB /* ParkPicker.swift */; };
 		1F8D0FAD1F666D66006461D1 /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F8D0FAF1F666D66006461D1 /* Main.strings */; };
+		1F8D0FB51F666F81006461D1 /* Attraction.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F8D0FB71F666F81006461D1 /* Attraction.strings */; };
+		1F8D0FBC1F66816E006461D1 /* AttractionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8D0FBB1F66816E006461D1 /* AttractionModel.swift */; };
 		1FA5B80B1F5FF4F500654E04 /* BaseInfoDatePickVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA5B80A1F5FF4F500654E04 /* BaseInfoDatePickVC.swift */; };
 		1FA5B80D1F5FF6B400654E04 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA5B80C1F5FF6B400654E04 /* DatePicker.swift */; };
 		1FA799981F623ACA003EC3F2 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA799971F623ACA003EC3F2 /* API.swift */; };
@@ -61,6 +65,8 @@
 		1F0D7C111F5FA85F006AC4DB /* BaseInfoParkPickVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoParkPickVC.swift; sourceTree = "<group>"; };
 		1F0D7C131F5FCBF4006AC4DB /* BaseInfoColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoColor.swift; sourceTree = "<group>"; };
 		1F4606241F60E73A00F8CC96 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		1F5096F71F6784950008B8C1 /* AttractionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionCell.swift; sourceTree = "<group>"; };
+		1F5096F91F67C9A00008B8C1 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		1F719B851F627E230010CD68 /* BaseInfoTagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoTagCell.swift; sourceTree = "<group>"; };
 		1F719B881F62A10A0010CD68 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		1F719B8E1F663F680010CD68 /* AttractionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionVC.swift; sourceTree = "<group>"; };
@@ -72,6 +78,11 @@
 		1F8D0FB01F666D68006461D1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		1F8D0FB11F666D69006461D1 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
 		1F8D0FB21F666D6A006461D1 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		1F8D0FB61F666F81006461D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Attraction.strings; sourceTree = "<group>"; };
+		1F8D0FB81F666F89006461D1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Attraction.strings"; sourceTree = "<group>"; };
+		1F8D0FB91F666F8F006461D1 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Attraction.strings"; sourceTree = "<group>"; };
+		1F8D0FBA1F666F90006461D1 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Attraction.strings; sourceTree = "<group>"; };
+		1F8D0FBB1F66816E006461D1 /* AttractionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionModel.swift; sourceTree = "<group>"; };
 		1FA5B80A1F5FF4F500654E04 /* BaseInfoDatePickVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoDatePickVC.swift; sourceTree = "<group>"; };
 		1FA5B80C1F5FF6B400654E04 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 		1FA799971F623ACA003EC3F2 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -97,9 +108,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FB151231F5D479300BE4A7D /* Alamofire.framework in Frameworks */,
-				1FB151241F5D479300BE4A7D /* RxSwift.framework in Frameworks */,
-				1FB151251F5D479300BE4A7D /* RxCocoa.framework in Frameworks */,
+				1F5096FA1F67C9A00008B8C1 /* AlamofireImage.framework in Frameworks */,
 				1FB151261F5D479300BE4A7D /* RxBlocking.framework in Frameworks */,
+				1FB151251F5D479300BE4A7D /* RxCocoa.framework in Frameworks */,
+				1FB151241F5D479300BE4A7D /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,7 +182,9 @@
 		1F719B8D1F663EC10010CD68 /* Attraction */ = {
 			isa = PBXGroup;
 			children = (
+				1F8D0FBB1F66816E006461D1 /* AttractionModel.swift */,
 				1F719B8E1F663F680010CD68 /* AttractionVC.swift */,
+				1F5096F71F6784950008B8C1 /* AttractionCell.swift */,
 			);
 			path = Attraction;
 			sourceTree = "<group>";
@@ -213,6 +227,7 @@
 				1F0D7BFF1F5E8B8F006AC4DB /* BaseModel.strings */,
 				1F0D7C0D1F5FA343006AC4DB /* BaseInfo.strings */,
 				1F8D0FAF1F666D66006461D1 /* Main.strings */,
+				1F8D0FB71F666F81006461D1 /* Attraction.strings */,
 			);
 			path = disneyNavigationPreview;
 			sourceTree = "<group>";
@@ -220,6 +235,7 @@
 		1FB1511E1F5D479300BE4A7D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F5096F91F67C9A00008B8C1 /* AlamofireImage.framework */,
 				1FB1511F1F5D479300BE4A7D /* Alamofire.framework */,
 				1FB151221F5D479300BE4A7D /* RxBlocking.framework */,
 				1FB151211F5D479300BE4A7D /* RxCocoa.framework */,
@@ -294,6 +310,7 @@
 				1F0D7BFD1F5E8B8F006AC4DB /* BaseModel.strings in Resources */,
 				1FB151291F5D4B3600BE4A7D /* .swiftlint.yml in Resources */,
 				1FB151131F5D354200BE4A7D /* LaunchScreen.storyboard in Resources */,
+				1F8D0FB51F666F81006461D1 /* Attraction.strings in Resources */,
 				1F0D7C0B1F5FA343006AC4DB /* BaseInfo.strings in Resources */,
 				1F8D0FAD1F666D66006461D1 /* Main.strings in Resources */,
 				1FB151101F5D354200BE4A7D /* Assets.xcassets in Resources */,
@@ -314,6 +331,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxBlocking.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/AlamofireImage.framework",
 			);
 			outputPaths = (
 			);
@@ -330,6 +348,7 @@
 			files = (
 				1F0D7C121F5FA85F006AC4DB /* BaseInfoParkPickVC.swift in Sources */,
 				1F719B911F663F7E0010CD68 /* SettingVC.swift in Sources */,
+				1F8D0FBC1F66816E006461D1 /* AttractionModel.swift in Sources */,
 				1F4606251F60E73A00F8CC96 /* DateExtension.swift in Sources */,
 				1FA5B80D1F5FF6B400654E04 /* DatePicker.swift in Sources */,
 				1F719B8F1F663F680010CD68 /* AttractionVC.swift in Sources */,
@@ -337,6 +356,7 @@
 				1FB1510E1F5D354200BE4A7D /* disneyNavigationPreview.xcdatamodeld in Sources */,
 				1F73B4531F5FE06C006FFABB /* ParkPicker.swift in Sources */,
 				1F0D7BF01F5E76CA006AC4DB /* BaseInfoNavigationController.swift in Sources */,
+				1F5096F81F6784950008B8C1 /* AttractionCell.swift in Sources */,
 				1F0D7BEE1F5E7675006AC4DB /* BaseInfoViewController.swift in Sources */,
 				1F0D7BF31F5E7B47006AC4DB /* ColorExtension.swift in Sources */,
 				1FA7999A1F624A9B003EC3F2 /* BaseInfoModel.swift in Sources */,
@@ -388,6 +408,17 @@
 				1F8D0FB21F666D6A006461D1 /* ja */,
 			);
 			name = Main.strings;
+			sourceTree = "<group>";
+		};
+		1F8D0FB71F666F81006461D1 /* Attraction.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F8D0FB61F666F81006461D1 /* en */,
+				1F8D0FB81F666F89006461D1 /* zh-Hans */,
+				1F8D0FB91F666F8F006461D1 /* zh-Hant */,
+				1F8D0FBA1F666F90006461D1 /* ja */,
+			);
+			name = Attraction.strings;
 			sourceTree = "<group>";
 		};
 		1FB151111F5D354200BE4A7D /* LaunchScreen.storyboard */ = {

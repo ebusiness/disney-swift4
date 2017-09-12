@@ -23,3 +23,9 @@ enum TokyoDisneyPark: String, Localizable {
         }
     }
 }
+
+enum AttractionCategory: String {
+    case attraction
+    case greeting
+    case show
+}

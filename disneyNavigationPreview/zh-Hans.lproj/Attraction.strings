@@ -1,0 +1,13 @@
+/* 
+  Attraction.strings
+  disneyNavigationPreview
+
+  Created by ebuser on 2017/9/11.
+  Copyright © 2017年 ebuser. All rights reserved.
+*/
+
+"attraction title" = "游乐项目";
+"attraction filter" = "项目分类";
+
+"add to plan" = "加入计划中";
+"fastpass" = "快速通行证";

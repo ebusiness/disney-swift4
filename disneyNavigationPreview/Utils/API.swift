@@ -135,3 +135,30 @@ extension API {
         }
     }
 }
+
+extension API {
+    enum Attractions: Requestable {
+        case list
+
+        var path: String {
+            switch self {
+            case .list:
+                return "attractions"
+            }
+        }
+
+        var method: RequestMethod {
+            switch self {
+            case .list:
+                return .GET
+            }
+        }
+
+        var parameters: [String : Any]? {
+            switch self {
+            case .list:
+                return nil
+            }
+        }
+    }
+}
