@@ -15,6 +15,46 @@ class AttractionCell: UICollectionViewCell, Localizable {
         didSet {
             if let imagePath = data?.images.first, let url = URL(string: imagePath) {
                 myImageView.af_setImage(withURL: url)
+            } else {
+                myImageView.image = nil
+            }
+
+            if let waitTime = data?.realtime?.waitTime {
+                let waitTimeColor = WaitTimeColor(waitTime: waitTime)
+                let waitTimeText = NSAttributedString(string: "\(waitTime)",
+                    attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 15),
+                                 NSAttributedStringKey.foregroundColor: waitTimeColor.value])
+                let waitTimeUnit = NSAttributedString(string: localize(for: "minute"),
+                                                      attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 10),
+                                                                   NSAttributedStringKey.foregroundColor: UIColor.black])
+                let fullText = NSMutableAttributedString()
+                fullText.append(waitTimeText)
+                fullText.append(waitTimeUnit)
+                waitTimeLabel.attributedText = fullText
+            } else {
+                let waitTimeColor = WaitTimeColor(waitTime: 35)
+                let waitTimeText = NSAttributedString(string: "--",
+                    attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 15),
+                                 NSAttributedStringKey.foregroundColor: waitTimeColor.value])
+                let waitTimeUnit = NSAttributedString(string: localize(for: "minute"),
+                                                      attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 10),
+                                                                   NSAttributedStringKey.foregroundColor: UIColor.black])
+                let fullText = NSMutableAttributedString()
+                fullText.append(waitTimeText)
+                fullText.append(waitTimeUnit)
+                waitTimeLabel.attributedText = fullText
+            }
+
+            if let name = data?.name {
+                nameLabel.text = name
+            } else {
+                nameLabel.text = nil
+            }
+
+            if let area = data?.area {
+                areaLabel.text = area
+            } else {
+                areaLabel.text = nil
             }
         }
     }
@@ -30,6 +70,11 @@ class AttractionCell: UICollectionViewCell, Localizable {
     fileprivate let waitTimeLabel: UILabel
     fileprivate let waitTimeSeperator: UIView
 
+    fileprivate let nameContainer: UIView
+    fileprivate let nameLabel: UILabel
+    fileprivate let areaLabel: UILabel
+    fileprivate let areaIcon: UIView
+
     override init(frame: CGRect) {
         myImageView = UIImageView(frame: .zero)
         footer = UIView(frame: .zero)
@@ -39,11 +84,17 @@ class AttractionCell: UICollectionViewCell, Localizable {
         waitTimeIcon = UIImageView(image: #imageLiteral(resourceName: "wait_time"))
         waitTimeLabel = UILabel(frame: .zero)
         waitTimeSeperator = UIView(frame: .zero)
+
+        nameContainer = UIView(frame: .zero)
+        nameLabel = UILabel(frame: .zero)
+        areaLabel = UILabel(frame: .zero)
+        areaIcon = UIView(frame: .zero)
         super.init(frame: frame)
         addSubImageView()
         addSubFooter()
         addSubButton()
         addSubWaitTimeContainer()
+        addSubNameContainer()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -77,7 +128,7 @@ class AttractionCell: UICollectionViewCell, Localizable {
         button.setImage(#imageLiteral(resourceName: "circle_plus"), for: .normal)
         button.setImage(#imageLiteral(resourceName: "circle_plus"), for: .highlighted)
         let buttonTitle = NSAttributedString(string: " " + localize(for: "add to plan"),
-                                             attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 12),
+                                             attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 10),
                                                           NSAttributedStringKey.foregroundColor: UIColor.black])
         button.setAttributedTitle(buttonTitle, for: .normal)
         footer.addSubview(button)
@@ -91,9 +142,10 @@ class AttractionCell: UICollectionViewCell, Localizable {
     private func addSubWaitTimeContainer() {
         addSubview(waitTimeContainer)
 
-        waitTimeLabel.backgroundColor = UIColor.yellow
+        waitTimeLabel.textAlignment = .right
         let container = UIView(frame: .zero)
         container.translatesAutoresizingMaskIntoConstraints = false
+        waitTimeIcon.tintColor = UIColor(red: 166, green: 166, blue: 166)
         container.addSubview(waitTimeIcon)
         container.addSubview(waitTimeLabel)
         waitTimeIcon.translatesAutoresizingMaskIntoConstraints = false
@@ -101,10 +153,10 @@ class AttractionCell: UICollectionViewCell, Localizable {
         waitTimeIcon.leftAnchor.constraint(equalTo: container.leftAnchor).isActive = true
         waitTimeIcon.topAnchor.constraint(equalTo: container.topAnchor).isActive = true
         waitTimeIcon.bottomAnchor.constraint(equalTo: container.bottomAnchor).isActive = true
-        waitTimeLabel.leftAnchor.constraint(equalTo: waitTimeIcon.rightAnchor).isActive = true
+        waitTimeLabel.leftAnchor.constraint(equalTo: waitTimeIcon.rightAnchor, constant: -5).isActive = true
         waitTimeLabel.rightAnchor.constraint(equalTo: container.rightAnchor).isActive = true
         waitTimeLabel.centerYAnchor.constraint(equalTo: container.centerYAnchor).isActive = true
-        waitTimeLabel.widthAnchor.constraint(equalToConstant: 45).isActive = true
+        waitTimeLabel.widthAnchor.constraint(equalToConstant: 42).isActive = true
         waitTimeLabel.heightAnchor.constraint(equalToConstant: 24).isActive = true
 
         waitTimeContainer.addSubview(container)
@@ -122,6 +174,41 @@ class AttractionCell: UICollectionViewCell, Localizable {
 
     fileprivate func layoutWaitTimeContainer() {
         fatalError("layoutWaitTimeContainer() need to be implemented in subclasses!")
+    }
+
+    private func addSubNameContainer() {
+        addSubview(nameContainer)
+
+        nameLabel.font = UIFont.boldSystemFont(ofSize: 10)
+        nameContainer.addSubview(nameLabel)
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        nameLabel.leftAnchor.constraint(equalTo: nameContainer.leftAnchor, constant: 12).isActive = true
+        nameLabel.topAnchor.constraint(equalTo: nameContainer.topAnchor, constant: 7).isActive = true
+        nameLabel.rightAnchor.constraint(equalTo: nameContainer.rightAnchor, constant: -12).isActive = true
+
+        areaIcon.backgroundColor = UIColor.red
+        areaIcon.layer.cornerRadius = 1
+        areaIcon.layer.masksToBounds = true
+        nameContainer.addSubview(areaIcon)
+        areaIcon.translatesAutoresizingMaskIntoConstraints = false
+        areaIcon.leftAnchor.constraint(equalTo: nameContainer.leftAnchor, constant: 12).isActive = true
+        areaIcon.bottomAnchor.constraint(equalTo: nameContainer.bottomAnchor, constant: -5).isActive = true
+        areaIcon.widthAnchor.constraint(equalToConstant: 2).isActive = true
+        areaIcon.heightAnchor.constraint(equalToConstant: 8).isActive = true
+
+        areaLabel.font = UIFont.boldSystemFont(ofSize: 8)
+        nameContainer.addSubview(areaLabel)
+        areaLabel.translatesAutoresizingMaskIntoConstraints = false
+        areaLabel.leftAnchor.constraint(equalTo: areaIcon.rightAnchor, constant: 3).isActive = true
+        areaLabel.bottomAnchor.constraint(equalTo: areaIcon.bottomAnchor).isActive = true
+    }
+
+    fileprivate func layoutNameContainer() {
+        nameContainer.translatesAutoresizingMaskIntoConstraints = false
+        nameContainer.leftAnchor.constraint(equalTo: footer.leftAnchor).isActive = true
+        nameContainer.rightAnchor.constraint(equalTo: waitTimeContainer.leftAnchor).isActive = true
+        nameContainer.topAnchor.constraint(equalTo: footer.topAnchor).isActive = true
+        nameContainer.bottomAnchor.constraint(equalTo: footer.bottomAnchor).isActive = true
     }
 
 }
@@ -142,6 +229,7 @@ class AttractionCellFastpass: AttractionCell {
 
         addSubFastpassContainer()
         layoutWaitTimeContainer()
+        layoutNameContainer()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -157,7 +245,7 @@ class AttractionCellFastpass: AttractionCell {
         fastpassContainer.widthAnchor.constraint(equalToConstant: 97).isActive = true
 
         fastpassLabel.text = localize(for: "fastpass")
-        fastpassLabel.font = UIFont.systemFont(ofSize: 12)
+        fastpassLabel.font = UIFont.boldSystemFont(ofSize: 10)
         let container = UIView(frame: .zero)
         container.translatesAutoresizingMaskIntoConstraints = false
         container.addSubview(fastpassIcon)
@@ -199,6 +287,7 @@ class AttractionCellNoneFastpass: AttractionCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         layoutWaitTimeContainer()
+        layoutNameContainer()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -211,5 +300,56 @@ class AttractionCellNoneFastpass: AttractionCell {
         waitTimeContainer.bottomAnchor.constraint(equalTo: footer.bottomAnchor).isActive = true
         waitTimeContainer.rightAnchor.constraint(equalTo: button.leftAnchor).isActive = true
         waitTimeContainer.widthAnchor.constraint(equalToConstant: 80).isActive = true
+    }
+}
+
+private enum WaitTimeColor {
+    case nobody
+    case prettyVacant
+    case vacant
+    case normal
+    case littleCrowded
+    case crowded
+    case prettyCrowded
+    case deadly
+    init(waitTime: Int) {
+        switch waitTime {
+        case _ where waitTime < 15:
+            self = .nobody
+        case 15...24:
+            self = .prettyVacant
+        case 25...34:
+            self = .vacant
+        case 35...39:
+            self = .normal
+        case 40...49:
+            self = .littleCrowded
+        case 50...59:
+            self = .crowded
+        case 60...69:
+            self = .prettyCrowded
+        default:
+            self = .deadly
+        }
+    }
+    var value: UIColor {
+        switch self {
+        case .nobody:
+            return UIColor(hex: "4CAF50")
+        case .prettyVacant:
+            return UIColor(hex: "8BC34A")
+        case .vacant:
+            return UIColor(hex: "CDDC39")
+        case .normal:
+            return UIColor(hex: "FFEB3B")
+        case .littleCrowded:
+            return UIColor(hex: "FFC107")
+        case .crowded:
+            return UIColor(hex: "FF9800")
+        case .prettyCrowded:
+            return UIColor(hex: "FF5722")
+        case .deadly:
+            return UIColor(hex: "F44336")
+        }
     }
 }
