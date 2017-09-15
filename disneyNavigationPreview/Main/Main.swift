@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NavigationVC: UINavigationController {
+class NavigationVC: UINavigationController, UIGestureRecognizerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +16,8 @@ class NavigationVC: UINavigationController {
         navigationBar.isTranslucent = false
         navigationBar.barTintColor = GlobalColor.primaryRed
         navigationBar.tintColor = UIColor.white
+
+        interactivePopGestureRecognizer?.delegate = self
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {

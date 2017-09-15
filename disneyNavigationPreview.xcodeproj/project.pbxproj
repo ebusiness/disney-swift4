@@ -17,9 +17,11 @@
 		1F0D7C0B1F5FA343006AC4DB /* BaseInfo.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F0D7C0D1F5FA343006AC4DB /* BaseInfo.strings */; };
 		1F0D7C121F5FA85F006AC4DB /* BaseInfoParkPickVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7C111F5FA85F006AC4DB /* BaseInfoParkPickVC.swift */; };
 		1F0D7C141F5FCBF4006AC4DB /* BaseInfoColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7C131F5FCBF4006AC4DB /* BaseInfoColor.swift */; };
+		1F111C151F6BB2B4002D2FB6 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F111C141F6BB2B4002D2FB6 /* UIViewControllerExtension.swift */; };
 		1F4606251F60E73A00F8CC96 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4606241F60E73A00F8CC96 /* DateExtension.swift */; };
 		1F5096F81F6784950008B8C1 /* AttractionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5096F71F6784950008B8C1 /* AttractionCell.swift */; };
 		1F5096FA1F67C9A00008B8C1 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F5096F91F67C9A00008B8C1 /* AlamofireImage.framework */; };
+		1F6943771F693E330082E333 /* AttractionDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6943761F693E330082E333 /* AttractionDetailVC.swift */; };
 		1F719B861F627E230010CD68 /* BaseInfoTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F719B851F627E230010CD68 /* BaseInfoTagCell.swift */; };
 		1F719B891F62A10A0010CD68 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F719B881F62A10A0010CD68 /* Main.swift */; };
 		1F719B8F1F663F680010CD68 /* AttractionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F719B8E1F663F680010CD68 /* AttractionVC.swift */; };
@@ -45,6 +47,7 @@
 		1FB151251F5D479300BE4A7D /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FB151211F5D479300BE4A7D /* RxCocoa.framework */; };
 		1FB151261F5D479300BE4A7D /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FB151221F5D479300BE4A7D /* RxBlocking.framework */; };
 		1FB151291F5D4B3600BE4A7D /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 1FB151281F5D4B3600BE4A7D /* .swiftlint.yml */; };
+		1FE689061F6A2DB800D50201 /* AttractionDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE689051F6A2DB800D50201 /* AttractionDetailCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,9 +67,11 @@
 		1F0D7C101F5FA350006AC4DB /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/BaseInfo.strings; sourceTree = "<group>"; };
 		1F0D7C111F5FA85F006AC4DB /* BaseInfoParkPickVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoParkPickVC.swift; sourceTree = "<group>"; };
 		1F0D7C131F5FCBF4006AC4DB /* BaseInfoColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoColor.swift; sourceTree = "<group>"; };
+		1F111C141F6BB2B4002D2FB6 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		1F4606241F60E73A00F8CC96 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		1F5096F71F6784950008B8C1 /* AttractionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionCell.swift; sourceTree = "<group>"; };
 		1F5096F91F67C9A00008B8C1 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
+		1F6943761F693E330082E333 /* AttractionDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionDetailVC.swift; sourceTree = "<group>"; };
 		1F719B851F627E230010CD68 /* BaseInfoTagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoTagCell.swift; sourceTree = "<group>"; };
 		1F719B881F62A10A0010CD68 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		1F719B8E1F663F680010CD68 /* AttractionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionVC.swift; sourceTree = "<group>"; };
@@ -100,6 +105,7 @@
 		1FB151211F5D479300BE4A7D /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		1FB151221F5D479300BE4A7D /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
 		1FB151281F5D4B3600BE4A7D /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		1FE689051F6A2DB800D50201 /* AttractionDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionDetailCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,11 +144,12 @@
 		1F0D7BF11F5E7B24006AC4DB /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				1F0D7BF21F5E7B47006AC4DB /* ColorExtension.swift */,
-				1F0D7BF61F5E807A006AC4DB /* Localize.swift */,
-				1F0D7BF81F5E877E006AC4DB /* BaseModel.swift */,
-				1F4606241F60E73A00F8CC96 /* DateExtension.swift */,
 				1FA799971F623ACA003EC3F2 /* API.swift */,
+				1F0D7BF81F5E877E006AC4DB /* BaseModel.swift */,
+				1F0D7BF21F5E7B47006AC4DB /* ColorExtension.swift */,
+				1F4606241F60E73A00F8CC96 /* DateExtension.swift */,
+				1F0D7BF61F5E807A006AC4DB /* Localize.swift */,
+				1F111C141F6BB2B4002D2FB6 /* UIViewControllerExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -185,6 +192,8 @@
 				1F8D0FBB1F66816E006461D1 /* AttractionModel.swift */,
 				1F719B8E1F663F680010CD68 /* AttractionVC.swift */,
 				1F5096F71F6784950008B8C1 /* AttractionCell.swift */,
+				1F6943761F693E330082E333 /* AttractionDetailVC.swift */,
+				1FE689051F6A2DB800D50201 /* AttractionDetailCell.swift */,
 			);
 			path = Attraction;
 			sourceTree = "<group>";
@@ -346,6 +355,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F6943771F693E330082E333 /* AttractionDetailVC.swift in Sources */,
 				1F0D7C121F5FA85F006AC4DB /* BaseInfoParkPickVC.swift in Sources */,
 				1F719B911F663F7E0010CD68 /* SettingVC.swift in Sources */,
 				1F8D0FBC1F66816E006461D1 /* AttractionModel.swift in Sources */,
@@ -359,6 +369,8 @@
 				1F5096F81F6784950008B8C1 /* AttractionCell.swift in Sources */,
 				1F0D7BEE1F5E7675006AC4DB /* BaseInfoViewController.swift in Sources */,
 				1F0D7BF31F5E7B47006AC4DB /* ColorExtension.swift in Sources */,
+				1F111C151F6BB2B4002D2FB6 /* UIViewControllerExtension.swift in Sources */,
+				1FE689061F6A2DB800D50201 /* AttractionDetailCell.swift in Sources */,
 				1FA7999A1F624A9B003EC3F2 /* BaseInfoModel.swift in Sources */,
 				1F0D7BF71F5E807A006AC4DB /* Localize.swift in Sources */,
 				1FB151081F5D354200BE4A7D /* ViewController.swift in Sources */,

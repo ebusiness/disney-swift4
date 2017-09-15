@@ -25,13 +25,18 @@ class AttractionVC: UIViewController, Localizable {
         layout.minimumLineSpacing = 12
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         super.init(nibName: nil, bundle: nil)
-
+        automaticallyAdjustsScrollViewInsets = false
         setupNavigation()
         addSubCollectionView()
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
     override func viewDidLoad() {
@@ -58,7 +63,7 @@ class AttractionVC: UIViewController, Localizable {
         let leftButton = UIButton(type: .custom)
         let leftButtonString = NSAttributedString(string: " " + localize(for: "attraction filter"),
                                                   attributes: [NSAttributedStringKey.foregroundColor: UIColor.white,
-                                                               NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 16)])
+                                                               NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15)])
         leftButton.setImage(#imageLiteral(resourceName: "attraction_filter"), for: .normal)
         leftButton.setImage(#imageLiteral(resourceName: "attraction_filter"), for: .highlighted)
         leftButton.setAttributedTitle(leftButtonString, for: .normal)
@@ -73,6 +78,7 @@ class AttractionVC: UIViewController, Localizable {
             guard let strongSelf = self else { return }
             if let attractions = attractions {
                 strongSelf.spots = attractions
+                strongSelf.collectionView.reloadData()
             }
         }
     }
@@ -89,6 +95,11 @@ class AttractionVC: UIViewController, Localizable {
         collectionView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.bottomAnchor).isActive = true
         collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+    }
+
+    private func pushToDetail(spot: Attraction) {
+        let destination = AttractionDetailVC(attraction: spot)
+        navigationController?.pushViewController(destination, animated: true)
     }
 }
 
@@ -111,6 +122,12 @@ extension AttractionVC: UICollectionViewDelegateFlowLayout, UICollectionViewData
             cell.data = spot
         }
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: false)
+        let spot = spots[indexPath.item]
+        pushToDetail(spot: spot)
     }
 
 }

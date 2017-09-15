@@ -139,24 +139,27 @@ extension API {
 extension API {
     enum Attractions: Requestable {
         case list
+        case detail(id: String)
 
         var path: String {
             switch self {
             case .list:
                 return "attractions"
+            case .detail(let id):
+                return "attractions/\(id)"
             }
         }
 
         var method: RequestMethod {
             switch self {
-            case .list:
+            default:
                 return .GET
             }
         }
 
         var parameters: [String : Any]? {
             switch self {
-            case .list:
+            default:
                 return nil
             }
         }

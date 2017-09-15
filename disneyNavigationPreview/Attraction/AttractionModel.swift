@@ -37,3 +37,14 @@ struct AttractionRealtime: Codable {
     let waitTime: Int?
 
 }
+
+struct AttractionDetail: Codable {
+    let str_id: String
+    let category: String
+    let area: String
+    let images: [String]
+    let introductions: String
+    let is_available: Bool
+    let name: String
+    let note: String
+}
