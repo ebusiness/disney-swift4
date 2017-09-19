@@ -32,6 +32,7 @@
 		1F8D0FAD1F666D66006461D1 /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F8D0FAF1F666D66006461D1 /* Main.strings */; };
 		1F8D0FB51F666F81006461D1 /* Attraction.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F8D0FB71F666F81006461D1 /* Attraction.strings */; };
 		1F8D0FBC1F66816E006461D1 /* AttractionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8D0FBB1F66816E006461D1 /* AttractionModel.swift */; };
+		1F93D6501F7107D100EFE8D5 /* AttractionColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F93D64F1F7107D100EFE8D5 /* AttractionColor.swift */; };
 		1FA5B80B1F5FF4F500654E04 /* BaseInfoDatePickVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA5B80A1F5FF4F500654E04 /* BaseInfoDatePickVC.swift */; };
 		1FA5B80D1F5FF6B400654E04 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA5B80C1F5FF6B400654E04 /* DatePicker.swift */; };
 		1FA799981F623ACA003EC3F2 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA799971F623ACA003EC3F2 /* API.swift */; };
@@ -88,6 +89,7 @@
 		1F8D0FB91F666F8F006461D1 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Attraction.strings"; sourceTree = "<group>"; };
 		1F8D0FBA1F666F90006461D1 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Attraction.strings; sourceTree = "<group>"; };
 		1F8D0FBB1F66816E006461D1 /* AttractionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionModel.swift; sourceTree = "<group>"; };
+		1F93D64F1F7107D100EFE8D5 /* AttractionColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionColor.swift; sourceTree = "<group>"; };
 		1FA5B80A1F5FF4F500654E04 /* BaseInfoDatePickVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoDatePickVC.swift; sourceTree = "<group>"; };
 		1FA5B80C1F5FF6B400654E04 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 		1FA799971F623ACA003EC3F2 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 				1F5096F71F6784950008B8C1 /* AttractionCell.swift */,
 				1F6943761F693E330082E333 /* AttractionDetailVC.swift */,
 				1FE689051F6A2DB800D50201 /* AttractionDetailCell.swift */,
+				1F93D64F1F7107D100EFE8D5 /* AttractionColor.swift */,
 			);
 			path = Attraction;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F93D6501F7107D100EFE8D5 /* AttractionColor.swift in Sources */,
 				1F6943771F693E330082E333 /* AttractionDetailVC.swift in Sources */,
 				1F0D7C121F5FA85F006AC4DB /* BaseInfoParkPickVC.swift in Sources */,
 				1F719B911F663F7E0010CD68 /* SettingVC.swift in Sources */,

@@ -147,9 +147,37 @@ extension AttractionDetailVC: UITableViewDelegate, UITableViewDataSource {
         case 0:
             //swiftlint:disable:next force_cast
             let cell = tableView.dequeueReusableCell(withIdentifier: imageCellIdentifier, for: indexPath) as! AttractionDetailImageCell
+            cell.images = detail?.images
             return cell
         default:
             fatalError()
+        }
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.section {
+        case 0:
+            return 195
+        default:
+            return 0
+        }
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        switch section {
+        case 0:
+            return 12
+        default:
+            return 0
+        }
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        switch section {
+        case 0:
+            return UIView()
+        default:
+            return nil
         }
     }
 }
