@@ -33,6 +33,7 @@
 		1F8D0FB51F666F81006461D1 /* Attraction.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F8D0FB71F666F81006461D1 /* Attraction.strings */; };
 		1F8D0FBC1F66816E006461D1 /* AttractionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8D0FBB1F66816E006461D1 /* AttractionModel.swift */; };
 		1F93D6501F7107D100EFE8D5 /* AttractionColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F93D64F1F7107D100EFE8D5 /* AttractionColor.swift */; };
+		1F93D6531F721D2200EFE8D5 /* SuggestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F93D6521F721D2200EFE8D5 /* SuggestModel.swift */; };
 		1FA5B80B1F5FF4F500654E04 /* BaseInfoDatePickVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA5B80A1F5FF4F500654E04 /* BaseInfoDatePickVC.swift */; };
 		1FA5B80D1F5FF6B400654E04 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA5B80C1F5FF6B400654E04 /* DatePicker.swift */; };
 		1FA799981F623ACA003EC3F2 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA799971F623ACA003EC3F2 /* API.swift */; };
@@ -90,6 +91,7 @@
 		1F8D0FBA1F666F90006461D1 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Attraction.strings; sourceTree = "<group>"; };
 		1F8D0FBB1F66816E006461D1 /* AttractionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionModel.swift; sourceTree = "<group>"; };
 		1F93D64F1F7107D100EFE8D5 /* AttractionColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionColor.swift; sourceTree = "<group>"; };
+		1F93D6521F721D2200EFE8D5 /* SuggestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestModel.swift; sourceTree = "<group>"; };
 		1FA5B80A1F5FF4F500654E04 /* BaseInfoDatePickVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoDatePickVC.swift; sourceTree = "<group>"; };
 		1FA5B80C1F5FF6B400654E04 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 		1FA799971F623ACA003EC3F2 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				1F719B941F663FAD0010CD68 /* SuggestVC.swift */,
+				1F93D6521F721D2200EFE8D5 /* SuggestModel.swift */,
 			);
 			path = Suggest;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 				1F719B911F663F7E0010CD68 /* SettingVC.swift in Sources */,
 				1F8D0FBC1F66816E006461D1 /* AttractionModel.swift in Sources */,
 				1F4606251F60E73A00F8CC96 /* DateExtension.swift in Sources */,
+				1F93D6531F721D2200EFE8D5 /* SuggestModel.swift in Sources */,
 				1FA5B80D1F5FF6B400654E04 /* DatePicker.swift in Sources */,
 				1F719B8F1F663F680010CD68 /* AttractionVC.swift in Sources */,
 				1F0D7BF91F5E877E006AC4DB /* BaseModel.swift in Sources */,

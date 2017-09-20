@@ -165,3 +165,30 @@ extension API {
         }
     }
 }
+
+extension API {
+    enum Suggestion: Requestable {
+        case list
+
+        var path: String {
+            switch self {
+            case .list:
+                return "plans"
+            }
+        }
+
+        var method: RequestMethod {
+            switch self {
+            default:
+                return .GET
+            }
+        }
+
+        var parameters: [String : Any]? {
+            switch self {
+            default:
+                return nil
+            }
+        }
+    }
+}
