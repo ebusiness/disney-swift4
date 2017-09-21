@@ -163,7 +163,7 @@ class AttractionCell: UICollectionViewCell, Localizable {
         container.centerXAnchor.constraint(equalTo: waitTimeContainer.centerXAnchor).isActive = true
         container.centerYAnchor.constraint(equalTo: waitTimeContainer.centerYAnchor).isActive = true
 
-        waitTimeSeperator.backgroundColor = UIColor(red: 196, green: 196, blue: 196)
+        waitTimeSeperator.backgroundColor = AttractionColor.verticalSeperator
         waitTimeContainer.addSubview(waitTimeSeperator)
         waitTimeSeperator.translatesAutoresizingMaskIntoConstraints = false
         waitTimeSeperator.leftAnchor.constraint(equalTo: waitTimeContainer.leftAnchor).isActive = true

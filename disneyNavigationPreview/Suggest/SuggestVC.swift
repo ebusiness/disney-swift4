@@ -11,16 +11,21 @@ import UIKit
 class SuggestVC: UIViewController {
 
     let collectionView: UICollectionView
+    let cellIdentifier = "cellIdentifier"
     var suggestedPlans = [SuggestPlan]()
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
 
         let layout = UICollectionViewFlowLayout()
+        let itemSize = CGSize(width: UIScreen.main.bounds.width, height: 265)
+        layout.minimumLineSpacing = 12
+        layout.itemSize = itemSize
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
 
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
 
         view.backgroundColor = GlobalColor.viewBackgroundLightGray
+        setupNavigationBar()
         addSubCollectionView()
     }
 
@@ -33,9 +38,16 @@ class SuggestVC: UIViewController {
         requestSuggestionList()
     }
 
+    private func setupNavigationBar() {
+        navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "nav_bar_logo_white"))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
+    }
+
     private func addSubCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.backgroundColor = GlobalColor.viewBackgroundLightGray
+        collectionView.register(SuggestCell.self, forCellWithReuseIdentifier: cellIdentifier)
         view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         if #available(iOS 11.0, *) {
@@ -55,7 +67,7 @@ class SuggestVC: UIViewController {
     }
 
     private func requestSuggestionList() {
-        let suggestionListRequest = API.Attractions.list
+        let suggestionListRequest = API.Suggestion.list
 
         suggestionListRequest.request([SuggestPlan].self) { [weak self] (data, error) in
             guard let strongSelf = self else { return }
@@ -69,10 +81,16 @@ class SuggestVC: UIViewController {
 }
 
 extension SuggestVC: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return suggestedPlans.count
     }
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        //swiftlint:disable:next force_cast
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! SuggestCell
+        cell.planData = suggestedPlans[indexPath.item]
+        return cell
     }
+
 }

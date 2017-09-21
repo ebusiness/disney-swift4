@@ -16,10 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        let baseInfoVC = BaseInfoViewController()
-        let baseInfoNavigation = BaseInfoNavigationController(rootViewController: baseInfoVC)
+        let tabVC = TabVC()
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = baseInfoNavigation
+        window?.rootViewController = tabVC
         window?.makeKeyAndVisible()
 
         return true
