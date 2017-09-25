@@ -6,6 +6,7 @@
 //  Copyright © 2017年 ebuser. All rights reserved.
 //
 
+//swiftlint:disable identifier_name
 enum TokyoDisneyPark: String, Localizable {
     case land
     case sea
@@ -28,4 +29,11 @@ enum AttractionCategory: String {
     case attraction
     case greeting
     case show
+}
+
+enum Language: String {
+    case cn
+    case en
+    case ja
+    case tw
 }

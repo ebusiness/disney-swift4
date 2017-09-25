@@ -16,6 +16,8 @@ final class CreatePlanMain: UIViewController, Localizable {
     let navigationTitle: UILabel
 
     let collectionView: UICollectionView
+    let cellIdentifier = "cellIdentifier"
+    var dataList = [PlanListAttraction]()
 
     init() {
         navigationTitle = UILabel(frame: .zero)
@@ -63,6 +65,7 @@ final class CreatePlanMain: UIViewController, Localizable {
     }
 
     private func addSubCollectionView() {
+        collectionView.register(CreatePlanMainCell.self, forCellWithReuseIdentifier: cellIdentifier)
         collectionView.backgroundColor = GlobalColor.viewBackgroundLightGray
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -91,15 +94,32 @@ final class CreatePlanMain: UIViewController, Localizable {
         emptyLabel.topAnchor.constraint(equalTo: collectionView.topAnchor, constant: 120).isActive = true
     }
 
+    func appendAttractions(_ attractions: [PlanListAttraction]) {
+        let originalCount = dataList.count
+        dataList += attractions
+        var indexPaths = [IndexPath]()
+        for i in 0..<attractions.count {
+            indexPaths.append(IndexPath(item: originalCount + i, section: 0))
+        }
+        collectionView.insertItems(at: indexPaths)
+    }
+
 }
 
 extension CreatePlanMain: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        emptyLabel.isHidden = false
-        return 0
+        let number = dataList.count
+        if number == 0 {
+            emptyLabel.isHidden = false
+        } else {
+            emptyLabel.isHidden = true
+        }
+        return number
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        //swiftlint:disable:next force_cast
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CreatePlanMainCell
+        return cell
     }
 }

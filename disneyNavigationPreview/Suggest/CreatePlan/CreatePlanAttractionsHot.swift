@@ -25,6 +25,7 @@ final class CreatePlanAttractionsHot: UIViewController {
 
         super.init(nibName: nil, bundle: nil)
 
+        setupNavigationBar()
         addSubCollectionView()
     }
 
@@ -37,6 +38,10 @@ final class CreatePlanAttractionsHot: UIViewController {
         super.viewDidLoad()
 
         requestAttractionList()
+    }
+
+    private func setupNavigationBar() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonPressed(_:)))
     }
 
     private func addSubCollectionView() {
@@ -69,6 +74,26 @@ final class CreatePlanAttractionsHot: UIViewController {
                 strongSelf.collectionView.reloadData()
             }
         }
+    }
+
+    @objc
+    private func saveButtonPressed(_ sender: UIBarButtonItem) {
+        let selectedAttractions = listData.filter({ $0.selected })
+
+        var main: CreatePlanMain? = nil
+        if let controllers = navigationController?.viewControllers {
+            for controller in controllers where controller is CreatePlanMain {
+                main = controller as? CreatePlanMain
+                break
+            }
+        }
+        if let existMain = main {
+            if !selectedAttractions.isEmpty {
+                existMain.appendAttractions(selectedAttractions)
+            }
+            navigationController?.popToViewController(existMain, animated: true)
+        }
+
     }
 
 }
