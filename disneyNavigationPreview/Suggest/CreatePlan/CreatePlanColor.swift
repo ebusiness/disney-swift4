@@ -11,5 +11,7 @@ import UIKit
 struct CreatePlanColor {
     static let checkboxBlank = UIColor(white: 0.651, alpha: 1)
     static let checkboxChecked = UIColor(red: 0, green: 188, blue: 84)
+
+    static let attractionHotIconTint = UIColor(red: 255, green: 70, blue: 5)
 }
 

@@ -9,7 +9,7 @@
 import Foundation
 
 //swiftlint:disable identifier_name
-struct AttractionHot: Codable {
+struct AttractionHotResponseData: Codable {
     let area: String
     let category: String
     let images: [String]
@@ -20,4 +20,39 @@ struct AttractionHot: Codable {
     let note: String?
     let str_id: String
     let realtime: AttractionRealtime?
+}
+
+class AttractionHot {
+    let area: String
+    let category: AttractionCategory
+    let images: [URL]
+    let score: Double
+    let introductions: String
+    let name: String
+    let str_id: String
+
+    var selected = false
+
+    init?(responseData: AttractionHotResponseData) {
+        area = responseData.area
+
+        guard let category = AttractionCategory(rawValue: responseData.category) else { return nil }
+        self.category = category
+
+        let images = responseData.images.flatMap({ URL(string: $0) })
+        guard !images.isEmpty else { return nil }
+        self.images = images
+
+        let intScore = responseData.index_hot
+        guard intScore > 0 else { return nil }
+        let c = 4.0577
+        let score = log(Double(intScore)) / log(c)
+        self.score = score
+
+        self.introductions = responseData.introductions
+
+        self.name = responseData.name
+
+        self.str_id = responseData.str_id
+    }
 }

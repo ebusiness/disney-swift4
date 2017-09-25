@@ -13,7 +13,7 @@ final class CreatePlanAttractionsHot: UIViewController {
     private let collectionView: UICollectionView
     private let cellIdentifier = "cellIdentifier"
 
-    private var listData: [AttractionHot]?
+    private var listData = [AttractionHot]()
 
     init() {
 
@@ -62,10 +62,10 @@ final class CreatePlanAttractionsHot: UIViewController {
     private func requestAttractionList() {
         let requester = API.Attractions.hot
 
-        requester.request([AttractionHot].self) { [weak self] (data, error) in
+        requester.request([AttractionHotResponseData].self) { [weak self] (data, error) in
             guard let strongSelf = self else { return }
             if let data = data {
-                strongSelf.listData = data
+                strongSelf.listData = data.flatMap({ AttractionHot(responseData:$0) })
                 strongSelf.collectionView.reloadData()
             }
         }
@@ -76,17 +76,27 @@ final class CreatePlanAttractionsHot: UIViewController {
 extension CreatePlanAttractionsHot: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return listData?.count ?? 0
+        return listData.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //swiftlint:disable:next force_cast
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CreatePlanAttractionsHotCell
-        if let data = listData?[indexPath.item] {
-            cell.data = data
-            cell.check()
-        }
+        cell.data = listData[indexPath.item]
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: false)
+        let selected = !listData[indexPath.item].selected
+        listData[indexPath.item].selected = selected
+        if let cell = collectionView.cellForItem(at: indexPath) as? CreatePlanAttractionsHotCell {
+            if selected {
+                cell.check()
+            } else {
+                cell.uncheck()
+            }
+        }
     }
 
 }

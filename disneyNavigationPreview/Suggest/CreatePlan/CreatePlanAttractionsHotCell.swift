@@ -14,10 +14,17 @@ final class CreatePlanAttractionsHotCell: UICollectionViewCell {
     var data: AttractionHot? {
         didSet {
             if let data = data {
-                if let urlString = data.images.first, let url = URL(string: urlString) {
-                    imageView.af_setImage(withURL: url)
-                }
+                imageView.af_setImage(withURL: data.images[0])
+
                 titleLabel.text = data.name
+
+                scoreLabel.text = String(format: "%.1f", arguments: [data.score])
+
+                if data.selected {
+                    check()
+                } else {
+                    uncheck()
+                }
             }
         }
     }
@@ -26,18 +33,25 @@ final class CreatePlanAttractionsHotCell: UICollectionViewCell {
     private let imageView: UIImageView
     private let titleLabel: UILabel
     private let checkBox: UIImageView
+    private let scoreView: UIView
+    private let scoreIcon: UIImageView
+    private let scoreLabel: UILabel
 
     override init(frame: CGRect) {
         card = UIImageView(frame: .zero)
         imageView = TopRoundedCornerImageView(frame: .zero)
         titleLabel = UILabel(frame: .zero)
         checkBox = UIImageView(frame: .zero)
+        scoreView = UIImageView(frame: .zero)
+        scoreIcon = UIImageView(image: #imageLiteral(resourceName: "attraction_hot_icon"))
+        scoreLabel = UILabel(frame: .zero)
         super.init(frame: frame)
 
         addSubCard()
         addSubImageView()
         addSubCheckBox()
         addSubTitleLabel()
+        addSubScoreView()
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -78,6 +92,30 @@ final class CreatePlanAttractionsHotCell: UICollectionViewCell {
         titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 18).isActive = true
         titleLabel.centerYAnchor.constraint(equalTo: checkBox.centerYAnchor).isActive = true
         titleLabel.rightAnchor.constraint(lessThanOrEqualTo: checkBox.leftAnchor, constant: -8).isActive = true
+    }
+
+    private func addSubScoreView() {
+        scoreView.layer.cornerRadius = 9.5
+        scoreView.backgroundColor = CreatePlanColor.attractionHotIconTint
+        imageView.addSubview(scoreView)
+        scoreView.translatesAutoresizingMaskIntoConstraints = false
+        scoreView.leftAnchor.constraint(equalTo: imageView.leftAnchor, constant: 13).isActive = true
+        scoreView.bottomAnchor.constraint(equalTo: imageView.bottomAnchor, constant: -7).isActive = true
+        scoreView.heightAnchor.constraint(equalToConstant: 19).isActive = true
+        scoreView.widthAnchor.constraint(equalToConstant: 49).isActive = true
+
+        scoreIcon.tintColor = UIColor.white
+        scoreView.addSubview(scoreIcon)
+        scoreIcon.translatesAutoresizingMaskIntoConstraints = false
+        scoreIcon.centerYAnchor.constraint(equalTo: scoreView.centerYAnchor).isActive = true
+        scoreIcon.leftAnchor.constraint(equalTo: scoreView.leftAnchor, constant: 8).isActive = true
+
+        scoreLabel.textColor = UIColor.white
+        scoreLabel.font = UIFont.boldSystemFont(ofSize: 12)
+        scoreView.addSubview(scoreLabel)
+        scoreLabel.translatesAutoresizingMaskIntoConstraints = false
+        scoreLabel.centerYAnchor.constraint(equalTo: scoreIcon.centerYAnchor).isActive = true
+        scoreLabel.leftAnchor.constraint(equalTo: scoreIcon.rightAnchor, constant: 4).isActive = true
     }
 
     func check() {

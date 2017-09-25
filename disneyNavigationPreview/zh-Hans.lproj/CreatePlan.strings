@@ -11,6 +11,8 @@
 
 "NavigationNext" = "下一步";
 
+"MyPlanNoData" = "您还没有添加游乐项目，\n点击右上角添加几个自己喜欢的项目吧。";
+
 "CategoryHot" = "人气排行";
 "CategoryMode" = "模式分类";
 "CategoryArea" = "区域分类";
