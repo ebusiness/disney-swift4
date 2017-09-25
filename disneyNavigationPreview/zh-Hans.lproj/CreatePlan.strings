@@ -1,0 +1,22 @@
+/* 
+  CreatePlan.strings
+  disneyNavigationPreview
+
+  Created by ebuser on 2017/9/22.
+  Copyright © 2017年 ebuser. All rights reserved.
+*/
+
+"NavigationTitleBaseInfo" = "行程基本信息";
+"NavigationTitleNewPlan" = "新建游览计划";
+
+"NavigationNext" = "下一步";
+
+"CategoryHot" = "人气排行";
+"CategoryMode" = "模式分类";
+"CategoryArea" = "区域分类";
+"CategoryThreeDimension" = "3D立体影像";
+"CategoryRain" = "雨天可玩";
+"CategoryFastpass" = "快速通行";
+"CategoryHeightFree" = "无身高限制";
+"CategoryBaby" = "可携带婴儿";
+"CategoryThrill" = "惊险/刺激";

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NavigationVC: UINavigationController, UIGestureRecognizerDelegate {
+class NavigationVC: UINavigationController, UIGestureRecognizerDelegate, UINavigationControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,11 +18,21 @@ class NavigationVC: UINavigationController, UIGestureRecognizerDelegate {
         navigationBar.tintColor = UIColor.white
 
         interactivePopGestureRecognizer?.delegate = self
+        delegate = self
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
+
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        if viewControllers.first == viewController {
+            interactivePopGestureRecognizer?.isEnabled = false
+        } else {
+            interactivePopGestureRecognizer?.isEnabled = true
+        }
+    }
+
 }
 
 class TabVC: UITabBarController, Localizable {

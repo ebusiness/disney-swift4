@@ -140,6 +140,7 @@ extension API {
     enum Attractions: Requestable {
         case list
         case detail(id: String)
+        case hot
 
         var path: String {
             switch self {
@@ -147,6 +148,8 @@ extension API {
                 return "attractions"
             case .detail(let id):
                 return "attractions/\(id)"
+            case .hot:
+                return "attractions"
             }
         }
 
@@ -159,6 +162,8 @@ extension API {
 
         var parameters: [String : Any]? {
             switch self {
+            case.hot:
+                return ["sort": "hot"]
             default:
                 return nil
             }

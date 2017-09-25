@@ -1,31 +1,30 @@
 //
-//  SuggestVC.swift
+//  CreatePlanAttractionsHot.swift
 //  disneyNavigationPreview
 //
-//  Created by ebuser on 2017/9/11.
+//  Created by ebuser on 2017/9/22.
 //  Copyright © 2017年 ebuser. All rights reserved.
 //
 
 import UIKit
 
-class SuggestVC: UIViewController {
+final class CreatePlanAttractionsHot: UIViewController {
 
-    let collectionView: UICollectionView
-    let cellIdentifier = "cellIdentifier"
-    var suggestedPlans = [SuggestPlan]()
+    private let collectionView: UICollectionView
+    private let cellIdentifier = "cellIdentifier"
 
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    private var listData: [AttractionHot]?
+
+    init() {
 
         let layout = UICollectionViewFlowLayout()
-        let itemSize = CGSize(width: UIScreen.main.bounds.width, height: 265)
-        layout.minimumLineSpacing = 12
-        layout.itemSize = itemSize
+        layout.sectionInset = UIEdgeInsets(top: 6, left: 6, bottom: 6, right: 6)
+        layout.minimumLineSpacing = 6
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 20, height: 185)
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
 
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        super.init(nibName: nil, bundle: nil)
 
-        view.backgroundColor = GlobalColor.viewBackgroundLightGray
-        setupNavigationBar()
         addSubCollectionView()
     }
 
@@ -34,20 +33,17 @@ class SuggestVC: UIViewController {
     }
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-        requestSuggestionList()
-    }
 
-    private func setupNavigationBar() {
-        navigationItem.titleView = UIImageView(image: #imageLiteral(resourceName: "nav_bar_logo_white"))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonPressed(_:)))
+        super.viewDidLoad()
+
+        requestAttractionList()
     }
 
     private func addSubCollectionView() {
-        collectionView.dataSource = self
-        collectionView.delegate = self
         collectionView.backgroundColor = GlobalColor.viewBackgroundLightGray
-        collectionView.register(SuggestCell.self, forCellWithReuseIdentifier: cellIdentifier)
+        collectionView.register(CreatePlanAttractionsHotCell.self, forCellWithReuseIdentifier: cellIdentifier)
+        collectionView.delegate = self
+        collectionView.dataSource = self
         view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         if #available(iOS 11.0, *) {
@@ -55,47 +51,41 @@ class SuggestVC: UIViewController {
             collectionView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-
         } else {
-            // Fallback on earlier versions
             collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
             collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
             collectionView.topAnchor.constraint(equalTo: topLayoutGuide.topAnchor).isActive = true
             collectionView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.bottomAnchor).isActive = true
         }
-
     }
 
-    private func requestSuggestionList() {
-        let suggestionListRequest = API.Suggestion.list
+    private func requestAttractionList() {
+        let requester = API.Attractions.hot
 
-        suggestionListRequest.request([SuggestPlan].self) { [weak self] (data, error) in
+        requester.request([AttractionHot].self) { [weak self] (data, error) in
             guard let strongSelf = self else { return }
             if let data = data {
-                strongSelf.suggestedPlans = data
+                strongSelf.listData = data
                 strongSelf.collectionView.reloadData()
             }
         }
     }
 
-    @objc
-    private func addButtonPressed(_ sender: UIBarButtonItem) {
-        let createPlanVC = CreatePlanTimeAndPark()
-        navigationController?.pushViewController(createPlanVC, animated: true)
-    }
-
 }
 
-extension SuggestVC: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+extension CreatePlanAttractionsHot: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return suggestedPlans.count
+        return listData?.count ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //swiftlint:disable:next force_cast
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! SuggestCell
-        cell.planData = suggestedPlans[indexPath.item]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CreatePlanAttractionsHotCell
+        if let data = listData?[indexPath.item] {
+            cell.data = data
+            cell.check()
+        }
         return cell
     }
 
