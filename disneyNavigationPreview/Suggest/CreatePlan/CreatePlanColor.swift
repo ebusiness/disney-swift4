@@ -13,5 +13,6 @@ struct CreatePlanColor {
     static let checkboxChecked = UIColor(red: 0, green: 188, blue: 84)
 
     static let attractionHotIconTint = UIColor(red: 255, green: 70, blue: 5)
-}
 
+    static let movableIcon = UIColor(red: 255, green: 174, blue: 17)
+}

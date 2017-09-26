@@ -24,6 +24,9 @@ final class CreatePlanMain: UIViewController, Localizable {
         emptyLabel = UILabel(frame: .zero)
 
         let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 24, height: 60)
+        layout.minimumLineSpacing = 8
+        layout.sectionInset = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         super.init(nibName: nil, bundle: nil)
 
@@ -120,6 +123,7 @@ extension CreatePlanMain: UICollectionViewDelegateFlowLayout, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         //swiftlint:disable:next force_cast
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CreatePlanMainCell
+        cell.data = dataList[indexPath.item]
         return cell
     }
 }
