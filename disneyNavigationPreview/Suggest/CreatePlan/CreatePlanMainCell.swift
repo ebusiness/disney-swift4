@@ -17,30 +17,33 @@ final class CreatePlanMainCell: UICollectionViewCell {
                 imageView.af_setImage(withURL: data.images[0])
                 nameLabel.text = data.name
                 areaLabel.text = data.area
+
+                if data.selected {
+                    check()
+                } else {
+                    uncheck()
+                }
             }
         }
     }
 
-    private let movableView: UIView
     private let imageView: UIImageView
     private let nameLabel: UILabel
     private let areaBadge: UIView
     private let areaLabel: UILabel
-    private let closeButton: UIButton
+    private let checkBox: UIImageView
 
     override init(frame: CGRect) {
-        movableView = UIView(frame: .zero)
         imageView = UIImageView(frame: .zero)
         nameLabel = UILabel(frame: .zero)
         areaBadge = UIView(frame: .zero)
         areaLabel = UILabel(frame: .zero)
-        closeButton = UIButton(type: .custom)
+        checkBox = UIImageView(frame: .zero)
         super.init(frame: frame)
         backgroundColor = UIColor.white
 
-        addSubMovableView()
         addSubImageView()
-        addSubCloseButton()
+        addSubCheckbox()
         addSubNameLabel()
         addSubAreaLabel()
     }
@@ -49,41 +52,24 @@ final class CreatePlanMainCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func addSubMovableView() {
-        addSubview(movableView)
-        movableView.translatesAutoresizingMaskIntoConstraints = false
-        movableView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        movableView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        movableView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        movableView.widthAnchor.constraint(equalToConstant: 30).isActive = true
-
-        let movableImageView = UIImageView(image: #imageLiteral(resourceName: "movable"))
-        movableImageView.tintColor = CreatePlanColor.movableIcon
-        movableView.addSubview(movableImageView)
-        movableImageView.translatesAutoresizingMaskIntoConstraints = false
-        movableImageView.centerXAnchor.constraint(equalTo: movableView.centerXAnchor).isActive = true
-        movableImageView.centerYAnchor.constraint(equalTo: movableView.centerYAnchor).isActive = true
-    }
-
     private func addSubImageView() {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.leftAnchor.constraint(equalTo: movableView.rightAnchor).isActive = true
+        imageView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
         imageView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         imageView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         imageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
     }
 
-    private func addSubCloseButton() {
-        closeButton.tintColor = GlobalColor.seperatorGray
-        closeButton.setImage(#imageLiteral(resourceName: "ic_highlight_off_black_24px"), for: .normal)
-        closeButton.setImage(#imageLiteral(resourceName: "ic_highlight_off_black_24px"), for: .highlighted)
-        addSubview(closeButton)
-        closeButton.translatesAutoresizingMaskIntoConstraints = false
-        closeButton.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        closeButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -6).isActive = true
+    private func addSubCheckbox() {
+        checkBox.tintColor = GlobalColor.seperatorGray
+        checkBox.image = #imageLiteral(resourceName: "checkbox_blank")
+        addSubview(checkBox)
+        checkBox.translatesAutoresizingMaskIntoConstraints = false
+        checkBox.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        checkBox.rightAnchor.constraint(equalTo: rightAnchor, constant: -12).isActive = true
     }
 
     private func addSubNameLabel() {
@@ -92,7 +78,7 @@ final class CreatePlanMainCell: UICollectionViewCell {
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 14).isActive = true
         nameLabel.leftAnchor.constraint(equalTo: imageView.rightAnchor, constant: 12).isActive = true
-        nameLabel.rightAnchor.constraint(lessThanOrEqualTo: closeButton.leftAnchor, constant: -6).isActive = true
+        nameLabel.rightAnchor.constraint(lessThanOrEqualTo: checkBox.leftAnchor, constant: -6).isActive = true
     }
 
     private func addSubAreaLabel() {
@@ -110,5 +96,19 @@ final class CreatePlanMainCell: UICollectionViewCell {
         areaLabel.translatesAutoresizingMaskIntoConstraints = false
         areaLabel.centerYAnchor.constraint(equalTo: areaBadge.centerYAnchor).isActive = true
         areaLabel.leftAnchor.constraint(equalTo: areaBadge.rightAnchor, constant: 4).isActive = true
+    }
+
+    func setCheckboxHidden(_ hidden: Bool) {
+        checkBox.isHidden = hidden
+    }
+
+    func check() {
+        checkBox.tintColor = CreatePlanColor.checkboxChecked
+        checkBox.image = #imageLiteral(resourceName: "checkbox_checked")
+    }
+
+    func uncheck() {
+        checkBox.tintColor = CreatePlanColor.checkboxBlank
+        checkBox.image = #imageLiteral(resourceName: "checkbox_blank")
     }
 }

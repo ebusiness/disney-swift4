@@ -10,12 +10,30 @@ import Foundation
 
 //swiftlint:disable identifier_name
 
-protocol PlanListAttraction {
+protocol PlanListAttractionCompatible {
     var str_id: String { get }
     var name: String { get }
     var images: [URL] { get }
     var area: String { get }
     var language: Language { get }
+}
+
+class PlanListAttraction: PlanListAttractionCompatible {
+    let str_id: String
+    let name: String
+    let images: [URL]
+    let area: String
+    let language: Language
+
+    var selected = false
+
+    init(_ attraction: PlanListAttractionCompatible) {
+        self.str_id = attraction.str_id
+        self.name = attraction.name
+        self.images = Array(attraction.images)
+        self.area = attraction.name
+        self.language = attraction.language
+    }
 }
 
 struct AttractionHotResponseData: Codable {
@@ -31,7 +49,7 @@ struct AttractionHotResponseData: Codable {
     let realtime: AttractionRealtime?
 }
 
-class AttractionHot: PlanListAttraction {
+class AttractionHot: PlanListAttractionCompatible {
     let area: String
     let category: AttractionCategory
     let images: [URL]

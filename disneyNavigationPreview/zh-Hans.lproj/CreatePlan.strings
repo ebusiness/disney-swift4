@@ -11,7 +11,7 @@
 
 "NavigationNext" = "下一步";
 
-"MyPlanNoData" = "您还没有添加游乐项目，\n点击右上角添加几个自己喜欢的项目吧。";
+"MyPlanNoData" = "您还没有添加游乐项目，\n点击右下角添加自己喜欢的项目吧。";
 
 "CategoryHot" = "人气排行";
 "CategoryMode" = "模式分类";
@@ -22,3 +22,8 @@
 "CategoryHeightFree" = "无身高限制";
 "CategoryBaby" = "可携带婴儿";
 "CategoryThrill" = "惊险/刺激";
+
+"toolbar_select" = "选择";
+"toolbar_setting" = "设置";
+"toolbar_suggest" = "推荐";
+"toolbar_add" = "添加";
