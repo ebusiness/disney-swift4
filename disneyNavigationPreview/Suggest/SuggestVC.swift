@@ -81,7 +81,8 @@ class SuggestVC: UIViewController {
     @objc
     private func addButtonPressed(_ sender: UIBarButtonItem) {
         let createPlanVC = CreatePlanTimeAndPark()
-        navigationController?.pushViewController(createPlanVC, animated: true)
+        let navigationVC = WhiteNavigationVC(rootViewController: createPlanVC)
+        present(navigationVC, animated: true)
     }
 
 }

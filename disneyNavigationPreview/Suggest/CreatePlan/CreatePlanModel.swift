@@ -18,6 +18,34 @@ protocol PlanListAttractionCompatible {
     var language: Language { get }
 }
 
+class PlanConfiguration {
+    var park: TokyoDisneyPark
+
+    // timezone(tokyo), year, month, day
+    var date: DateComponents
+    // timezone(tokyo), hour, minute
+    var startTime: DateComponents
+    // timezone(tokyo), hour, minute
+    var endTime: DateComponents?
+
+    init() {
+        park = .land
+
+        let now = Date()
+        let components = Calendar.current.dateComponents(in: .tokyoTimezone, from: now)
+        date = DateComponents()
+        date.timeZone = .tokyoTimezone
+        date.year = components.year
+        date.month = components.month
+        date.day = components.day! + 1
+
+        startTime = DateComponents()
+        startTime.timeZone = .tokyoTimezone
+        startTime.hour = 10
+        startTime.minute = 0
+    }
+}
+
 class PlanListAttraction: PlanListAttractionCompatible {
     let str_id: String
     let name: String

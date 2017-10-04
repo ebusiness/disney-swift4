@@ -13,17 +13,24 @@ final class CreatePlanTimeAndPark: UIViewController, Localizable {
     let localizeFileName = "CreatePlan"
 
     let tableView: UITableView
-    let parkCell = CreatePlanTimeAndParkParkCell()
-    let dateCell = CreatePlanTimeAndParkDateCell()
-    let inTimeCell = CreatePlanTimeAndParkInTimeCell()
-    let outTimeCell = CreatePlanTimeAndParkOutTimeCell()
+    let parkCell: UITableViewCell
+    let dateCell: UITableViewCell
+    let inTimeCell: UITableViewCell
+    let outTimeCell: UITableViewCell
+
+    let config = PlanConfiguration()
 
     init() {
-        tableView = UITableView(frame: .zero, style: .plain)
+        parkCell = UITableViewCell(style: .value1, reuseIdentifier: nil)
+        dateCell = UITableViewCell(style: .value1, reuseIdentifier: nil)
+        inTimeCell = UITableViewCell(style: .value1, reuseIdentifier: nil)
+        outTimeCell = UITableViewCell(style: .value1, reuseIdentifier: nil)
+        tableView = UITableView(frame: .zero, style: .grouped)
         super.init(nibName: nil, bundle: nil)
 
         hidesBottomBarWhenPushed = true
 
+        setupCells()
         addSubTableView()
     }
 
@@ -37,21 +44,47 @@ final class CreatePlanTimeAndPark: UIViewController, Localizable {
     }
 
     private func setupNavigation() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .compose, target: self, action: #selector(nextButtonPressed(_:)))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: localize(for: "NavigationNext"),
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(nextButtonPressed(_:)))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel,
+                                                           target: self, action: #selector(dismissButtonPressed(_:)))
 
         let titleLabel = UILabel(frame: .zero)
-        titleLabel.textColor = UIColor.white
+        titleLabel.textColor = navigationController?.navigationBar.tintColor
         titleLabel.font = UIFont.systemFont(ofSize: 18)
         titleLabel.text = localize(for: "NavigationTitleBaseInfo")
         navigationItem.titleView = titleLabel
-
     }
 
     @objc
     private func nextButtonPressed(_ sender: UIBarButtonItem) {
-
         let next = CreatePlanMain()
         navigationController?.pushViewController(next, animated: true)
+    }
+
+    @objc
+    private func dismissButtonPressed(_ sender: UIBarButtonItem) {
+        navigationController?.dismiss(animated: true)
+    }
+
+    private func setupCells() {
+        parkCell.textLabel?.text = localize(for: "BaseInfoPark")
+        parkCell.detailTextLabel?.text = config.park.localize()
+        parkCell.imageView?.image = #imageLiteral(resourceName: "setting_park")
+
+        dateCell.textLabel?.text = localize(for: "BaseInfoDate")
+        dateCell.detailTextLabel?.text = config.date.systemFormat(dateStyle: .medium, timeStyle: .none)
+        dateCell.imageView?.image = #imageLiteral(resourceName: "setting_date")
+
+        inTimeCell.textLabel?.text = localize(for: "BaseInfoInTime")
+        inTimeCell.detailTextLabel?.text = String(format: "%02d:%02d", config.startTime.hour!, config.startTime.minute!)
+        inTimeCell.imageView?.image = #imageLiteral(resourceName: "setting_starttime")
+
+        outTimeCell.textLabel?.text = localize(for: "BaseInfoOutTime")
+        outTimeCell.detailTextLabel?.text = localize(for: "BaseInfoOutTimeNone")
+        outTimeCell.imageView?.image = #imageLiteral(resourceName: "setting_endtime")
     }
 
     private func addSubTableView() {
@@ -59,8 +92,7 @@ final class CreatePlanTimeAndPark: UIViewController, Localizable {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = GlobalColor.viewBackgroundLightGray
-        tableView.rowHeight = 120
-        tableView.separatorStyle = .none
+        tableView.rowHeight = 44
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         if #available(iOS 11.0, *) {

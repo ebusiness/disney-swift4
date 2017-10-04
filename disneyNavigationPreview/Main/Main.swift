@@ -35,6 +35,21 @@ class NavigationVC: UINavigationController, UIGestureRecognizerDelegate, UINavig
 
 }
 
+class WhiteNavigationVC: UINavigationController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        navigationBar.barStyle = .black
+        navigationBar.isTranslucent = false
+        navigationBar.barTintColor = UIColor.white
+        navigationBar.tintColor = UIColor.black
+    }
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
+}
+
 class TabVC: UITabBarController, Localizable {
 
     let localizeFileName = "Main"

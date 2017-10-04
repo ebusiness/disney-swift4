@@ -10,6 +10,12 @@
 "NavigationTitleNewPlan" = "新建游览计划";
 
 "NavigationNext" = "下一步";
+"BaseInfoPark" = "游玩园区";
+"BaseInfoDate" = "游玩日期";
+"BaseInfoInTime" = "入园时间";
+"BaseInfoOutTime" = "退园时间(可选)";
+
+"BaseInfoOutTimeNone" = "未设置";
 
 "MyPlanNoData" = "您还没有添加游乐项目，\n点击右下角添加自己喜欢的项目吧。";
 

@@ -109,7 +109,7 @@ final class CreatePlanMain: UIViewController, Localizable {
         saveButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonPressed(_:)))
         navigationItem.rightBarButtonItem = saveButtonItem
 
-        navigationTitle.textColor = UIColor.white
+        navigationTitle.textColor = navigationController?.navigationBar.tintColor
         navigationTitle.font = UIFont.systemFont(ofSize: 18)
         navigationTitle.text = localize(for: "NavigationTitleNewPlan")
         navigationItem.titleView = navigationTitle
@@ -134,6 +134,11 @@ final class CreatePlanMain: UIViewController, Localizable {
     @objc
     private func selectOrCancelButtonPressed(_ sender: UIBarButtonItem) {
         selecting = !selecting
+        if sender == cancelButton {
+            for idx in 0..<dataList.count {
+                dataList[idx].selected = false
+            }
+        }
     }
 
     @objc
@@ -155,6 +160,7 @@ final class CreatePlanMain: UIViewController, Localizable {
     private func addSubCollectionView() {
         collectionView.register(CreatePlanMainCell.self, forCellWithReuseIdentifier: cellIdentifier)
         collectionView.backgroundColor = GlobalColor.viewBackgroundLightGray
+        collectionView.isPrefetchingEnabled = false
         collectionView.delegate = self
         collectionView.dataSource = self
         view.addSubview(collectionView)

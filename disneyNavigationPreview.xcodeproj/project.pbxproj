@@ -18,7 +18,6 @@
 		1F0D7C121F5FA85F006AC4DB /* BaseInfoParkPickVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7C111F5FA85F006AC4DB /* BaseInfoParkPickVC.swift */; };
 		1F0D7C141F5FCBF4006AC4DB /* BaseInfoColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7C131F5FCBF4006AC4DB /* BaseInfoColor.swift */; };
 		1F111C151F6BB2B4002D2FB6 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F111C141F6BB2B4002D2FB6 /* UIViewControllerExtension.swift */; };
-		1F33EF881F739805009B5B28 /* CreatePlanTimeAndParkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F33EF871F739805009B5B28 /* CreatePlanTimeAndParkCell.swift */; };
 		1F3436D31F736B0F00F05EF7 /* SuggestColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3436D21F736B0F00F05EF7 /* SuggestColor.swift */; };
 		1F3436D61F73794800F05EF7 /* CreatePlanTimeAndPark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3436D51F73794800F05EF7 /* CreatePlanTimeAndPark.swift */; };
 		1F3436D81F7394C400F05EF7 /* CreatePlanMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3436D71F7394C400F05EF7 /* CreatePlanMain.swift */; };
@@ -85,7 +84,6 @@
 		1F0D7C111F5FA85F006AC4DB /* BaseInfoParkPickVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoParkPickVC.swift; sourceTree = "<group>"; };
 		1F0D7C131F5FCBF4006AC4DB /* BaseInfoColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoColor.swift; sourceTree = "<group>"; };
 		1F111C141F6BB2B4002D2FB6 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
-		1F33EF871F739805009B5B28 /* CreatePlanTimeAndParkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanTimeAndParkCell.swift; sourceTree = "<group>"; };
 		1F3436D21F736B0F00F05EF7 /* SuggestColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestColor.swift; sourceTree = "<group>"; };
 		1F3436D51F73794800F05EF7 /* CreatePlanTimeAndPark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanTimeAndPark.swift; sourceTree = "<group>"; };
 		1F3436D71F7394C400F05EF7 /* CreatePlanMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanMain.swift; sourceTree = "<group>"; };
@@ -199,7 +197,6 @@
 				1FBB52381F74EEEB006EDC55 /* CreatePlanModel.swift */,
 				1FAE3A161F75195F00812C1A /* CreatePlanColor.swift */,
 				1F3436D51F73794800F05EF7 /* CreatePlanTimeAndPark.swift */,
-				1F33EF871F739805009B5B28 /* CreatePlanTimeAndParkCell.swift */,
 				1F3436D71F7394C400F05EF7 /* CreatePlanMain.swift */,
 				1FB4DF111F791ABA00198401 /* CreatePlanMainCell.swift */,
 				1FBB522A1F74BFDA006EDC55 /* CreatePlanCategory.swift */,
@@ -446,7 +443,6 @@
 				1FE689061F6A2DB800D50201 /* AttractionDetailCell.swift in Sources */,
 				1FA7999A1F624A9B003EC3F2 /* BaseInfoModel.swift in Sources */,
 				1F0D7BF71F5E807A006AC4DB /* Localize.swift in Sources */,
-				1F33EF881F739805009B5B28 /* CreatePlanTimeAndParkCell.swift in Sources */,
 				1FB151081F5D354200BE4A7D /* ViewController.swift in Sources */,
 				1F719B891F62A10A0010CD68 /* Main.swift in Sources */,
 				1FBB52391F74EEEB006EDC55 /* CreatePlanModel.swift in Sources */,
