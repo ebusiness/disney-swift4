@@ -61,15 +61,20 @@ class TabVC: UITabBarController, Localizable {
         tabBar.barTintColor = UIColor.white
         tabBar.tintColor = GlobalColor.primaryRed
 
+        let attractionPageVC = AttractionPageVC()
+        attractionPageVC.tabBarItem.image = #imageLiteral(resourceName: "tab_bar_attraction")
+        attractionPageVC.tabBarItem.title = localize(for: "TabbarAttraction")
+        let attractionPageNavi = NavigationVC(rootViewController: attractionPageVC)
+
+        let showVC = ShowVC()
+        showVC.tabBarItem.image = #imageLiteral(resourceName: "tab_bar_show")
+        showVC.tabBarItem.title = localize(for: "TabbarShow")
+        let showNavi = NavigationVC(rootViewController: showVC)
+
         let suggestVC = SuggestVC()
         suggestVC.tabBarItem.image = #imageLiteral(resourceName: "tab_bar_suggest")
         suggestVC.tabBarItem.title = localize(for: "TabbarSuggest")
         let suggestNavi = NavigationVC(rootViewController: suggestVC)
-
-        let attractionVC = AttractionVC()
-        attractionVC.tabBarItem.image = #imageLiteral(resourceName: "tab_bar_attraction")
-        attractionVC.tabBarItem.title = localize(for: "TabbarAttraction")
-        let attractionNavi = NavigationVC(rootViewController: attractionVC)
 
         let myPlanVC = MyPlanVC()
         myPlanVC.tabBarItem.image = #imageLiteral(resourceName: "tab_bar_myplan")
@@ -81,7 +86,7 @@ class TabVC: UITabBarController, Localizable {
         settingVC.tabBarItem.title = localize(for: "TabbarSetting")
         let settingNavi = NavigationVC(rootViewController: settingVC)
 
-        let vcs = [suggestNavi, attractionNavi, myPlanNavi, settingNavi]
+        let vcs = [attractionPageNavi, showNavi, suggestNavi, settingNavi]
         setViewControllers(vcs, animated: false)
     }
 

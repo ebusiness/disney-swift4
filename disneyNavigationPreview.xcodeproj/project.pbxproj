@@ -18,10 +18,14 @@
 		1F0D7C121F5FA85F006AC4DB /* BaseInfoParkPickVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7C111F5FA85F006AC4DB /* BaseInfoParkPickVC.swift */; };
 		1F0D7C141F5FCBF4006AC4DB /* BaseInfoColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7C131F5FCBF4006AC4DB /* BaseInfoColor.swift */; };
 		1F111C151F6BB2B4002D2FB6 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F111C141F6BB2B4002D2FB6 /* UIViewControllerExtension.swift */; };
+		1F2E56D11F98823800B10912 /* ShowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E56D01F98823800B10912 /* ShowVC.swift */; };
+		1F2E56D31F988AC200B10912 /* AttractionPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E56D21F988AC200B10912 /* AttractionPageVC.swift */; };
 		1F3436D31F736B0F00F05EF7 /* SuggestColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3436D21F736B0F00F05EF7 /* SuggestColor.swift */; };
 		1F3436D61F73794800F05EF7 /* CreatePlanTimeAndPark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3436D51F73794800F05EF7 /* CreatePlanTimeAndPark.swift */; };
 		1F3436D81F7394C400F05EF7 /* CreatePlanMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3436D71F7394C400F05EF7 /* CreatePlanMain.swift */; };
 		1F4606251F60E73A00F8CC96 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4606241F60E73A00F8CC96 /* DateExtension.swift */; };
+		1F4EE8E61F99CFB600D76E84 /* ShowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4EE8E51F99CFB600D76E84 /* ShowCell.swift */; };
+		1F4EE8E81F9DD9AD00D76E84 /* GreetingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4EE8E71F9DD9AD00D76E84 /* GreetingCell.swift */; };
 		1F5096F81F6784950008B8C1 /* AttractionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5096F71F6784950008B8C1 /* AttractionCell.swift */; };
 		1F5096FA1F67C9A00008B8C1 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F5096F91F67C9A00008B8C1 /* AlamofireImage.framework */; };
 		1F6943771F693E330082E333 /* AttractionDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6943761F693E330082E333 /* AttractionDetailVC.swift */; };
@@ -32,6 +36,7 @@
 		1F719B931F663F940010CD68 /* MyPlanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F719B921F663F940010CD68 /* MyPlanVC.swift */; };
 		1F719B951F663FAD0010CD68 /* SuggestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F719B941F663FAD0010CD68 /* SuggestVC.swift */; };
 		1F73B4531F5FE06C006FFABB /* ParkPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73B4521F5FE06C006FFABB /* ParkPicker.swift */; };
+		1F7ADA701F988CC500178A28 /* GreetingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7ADA6F1F988CC500178A28 /* GreetingVC.swift */; };
 		1F8D0FAD1F666D66006461D1 /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F8D0FAF1F666D66006461D1 /* Main.strings */; };
 		1F8D0FB51F666F81006461D1 /* Attraction.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F8D0FB71F666F81006461D1 /* Attraction.strings */; };
 		1F8D0FBC1F66816E006461D1 /* AttractionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8D0FBB1F66816E006461D1 /* AttractionModel.swift */; };
@@ -84,10 +89,14 @@
 		1F0D7C111F5FA85F006AC4DB /* BaseInfoParkPickVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoParkPickVC.swift; sourceTree = "<group>"; };
 		1F0D7C131F5FCBF4006AC4DB /* BaseInfoColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoColor.swift; sourceTree = "<group>"; };
 		1F111C141F6BB2B4002D2FB6 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		1F2E56D01F98823800B10912 /* ShowVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowVC.swift; sourceTree = "<group>"; };
+		1F2E56D21F988AC200B10912 /* AttractionPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionPageVC.swift; sourceTree = "<group>"; };
 		1F3436D21F736B0F00F05EF7 /* SuggestColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestColor.swift; sourceTree = "<group>"; };
 		1F3436D51F73794800F05EF7 /* CreatePlanTimeAndPark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanTimeAndPark.swift; sourceTree = "<group>"; };
 		1F3436D71F7394C400F05EF7 /* CreatePlanMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanMain.swift; sourceTree = "<group>"; };
 		1F4606241F60E73A00F8CC96 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		1F4EE8E51F99CFB600D76E84 /* ShowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCell.swift; sourceTree = "<group>"; };
+		1F4EE8E71F9DD9AD00D76E84 /* GreetingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingCell.swift; sourceTree = "<group>"; };
 		1F5096F71F6784950008B8C1 /* AttractionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionCell.swift; sourceTree = "<group>"; };
 		1F5096F91F67C9A00008B8C1 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
 		1F6943761F693E330082E333 /* AttractionDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionDetailVC.swift; sourceTree = "<group>"; };
@@ -98,6 +107,7 @@
 		1F719B921F663F940010CD68 /* MyPlanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlanVC.swift; sourceTree = "<group>"; };
 		1F719B941F663FAD0010CD68 /* SuggestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestVC.swift; sourceTree = "<group>"; };
 		1F73B4521F5FE06C006FFABB /* ParkPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkPicker.swift; sourceTree = "<group>"; };
+		1F7ADA6F1F988CC500178A28 /* GreetingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingVC.swift; sourceTree = "<group>"; };
 		1F8D0FAE1F666D66006461D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		1F8D0FB01F666D68006461D1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		1F8D0FB11F666D69006461D1 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -191,6 +201,15 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		1F2E56CF1F98821B00B10912 /* Show */ = {
+			isa = PBXGroup;
+			children = (
+				1F2E56D01F98823800B10912 /* ShowVC.swift */,
+				1F4EE8E51F99CFB600D76E84 /* ShowCell.swift */,
+			);
+			path = Show;
+			sourceTree = "<group>";
+		};
 		1F3436D41F73790B00F05EF7 /* CreatePlan */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				1F8D0FBB1F66816E006461D1 /* AttractionModel.swift */,
+				1F2E56D21F988AC200B10912 /* AttractionPageVC.swift */,
 				1F719B8E1F663F680010CD68 /* AttractionVC.swift */,
 				1F5096F71F6784950008B8C1 /* AttractionCell.swift */,
 				1F6943761F693E330082E333 /* AttractionDetailVC.swift */,
@@ -254,6 +274,15 @@
 				1F93D64F1F7107D100EFE8D5 /* AttractionColor.swift */,
 			);
 			path = Attraction;
+			sourceTree = "<group>";
+		};
+		1F7ADA6E1F988CB300178A28 /* Greeting */ = {
+			isa = PBXGroup;
+			children = (
+				1F7ADA6F1F988CC500178A28 /* GreetingVC.swift */,
+				1F4EE8E71F9DD9AD00D76E84 /* GreetingCell.swift */,
+			);
+			path = Greeting;
 			sourceTree = "<group>";
 		};
 		1FB150F91F5D354200BE4A7D = {
@@ -278,6 +307,8 @@
 		1FB151041F5D354200BE4A7D /* disneyNavigationPreview */ = {
 			isa = PBXGroup;
 			children = (
+				1F7ADA6E1F988CB300178A28 /* Greeting */,
+				1F2E56CF1F98821B00B10912 /* Show */,
 				1F719B8D1F663EC10010CD68 /* Attraction */,
 				1F719B8C1F663EB80010CD68 /* Setting */,
 				1F719B8B1F663EA40010CD68 /* MyPlan */,
@@ -420,22 +451,27 @@
 				1F6943771F693E330082E333 /* AttractionDetailVC.swift in Sources */,
 				1F0D7C121F5FA85F006AC4DB /* BaseInfoParkPickVC.swift in Sources */,
 				1F719B911F663F7E0010CD68 /* SettingVC.swift in Sources */,
+				1F4EE8E61F99CFB600D76E84 /* ShowCell.swift in Sources */,
+				1F2E56D11F98823800B10912 /* ShowVC.swift in Sources */,
 				1F8D0FBC1F66816E006461D1 /* AttractionModel.swift in Sources */,
 				1F9D175D1F79193E009996A9 /* Preferences.swift in Sources */,
 				1F4606251F60E73A00F8CC96 /* DateExtension.swift in Sources */,
 				1F93D6531F721D2200EFE8D5 /* SuggestModel.swift in Sources */,
 				1FA5B80D1F5FF6B400654E04 /* DatePicker.swift in Sources */,
+				1F2E56D31F988AC200B10912 /* AttractionPageVC.swift in Sources */,
 				1F719B8F1F663F680010CD68 /* AttractionVC.swift in Sources */,
 				1F0D7BF91F5E877E006AC4DB /* BaseModel.swift in Sources */,
 				1FB1510E1F5D354200BE4A7D /* disneyNavigationPreview.xcdatamodeld in Sources */,
 				1F73B4531F5FE06C006FFABB /* ParkPicker.swift in Sources */,
 				1F3436D61F73794800F05EF7 /* CreatePlanTimeAndPark.swift in Sources */,
+				1F4EE8E81F9DD9AD00D76E84 /* GreetingCell.swift in Sources */,
 				1F0D7BF01F5E76CA006AC4DB /* BaseInfoNavigationController.swift in Sources */,
 				1F5096F81F6784950008B8C1 /* AttractionCell.swift in Sources */,
 				1F3436D31F736B0F00F05EF7 /* SuggestColor.swift in Sources */,
 				1FBB522D1F74C162006EDC55 /* CreatePlanCategoryCell.swift in Sources */,
 				1F0D7BEE1F5E7675006AC4DB /* BaseInfoViewController.swift in Sources */,
 				1F0D7BF31F5E7B47006AC4DB /* ColorExtension.swift in Sources */,
+				1F7ADA701F988CC500178A28 /* GreetingVC.swift in Sources */,
 				1FAE3A171F75195F00812C1A /* CreatePlanColor.swift in Sources */,
 				1F111C151F6BB2B4002D2FB6 /* UIViewControllerExtension.swift in Sources */,
 				1FB4DF121F791ABA00198401 /* CreatePlanMainCell.swift in Sources */,

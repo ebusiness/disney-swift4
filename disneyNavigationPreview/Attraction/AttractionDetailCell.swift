@@ -9,7 +9,7 @@
 import AlamofireImage
 import UIKit
 
-class AttractionDetailImageCell: UITableViewCell {
+final class AttractionDetailImageCell: UITableViewCell {
 
     var images: [String]? {
         didSet {
@@ -97,7 +97,7 @@ extension AttractionDetailImageCell: UIPageViewControllerDelegate, UIPageViewCon
 
 }
 
-class PhotoViewController: UIViewController {
+final class PhotoViewController: UIViewController {
 
     let imageURL: String
     let imageView: UIImageView

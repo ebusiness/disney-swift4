@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AttractionDetailVC: UIViewController, Localizable {
+final class AttractionDetailVC: UIViewController, Localizable {
 
     let localizeFileName = "Attraction"
 

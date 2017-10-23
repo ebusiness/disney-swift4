@@ -63,7 +63,6 @@ class AttractionCell: UICollectionViewCell, Localizable {
 
     fileprivate let myImageView: UIImageView
     fileprivate let footer: UIView
-    fileprivate let button: UIButton
 
     fileprivate let waitTimeContainer: UIView
     fileprivate let waitTimeIcon: UIImageView
@@ -78,7 +77,6 @@ class AttractionCell: UICollectionViewCell, Localizable {
     override init(frame: CGRect) {
         myImageView = UIImageView(frame: .zero)
         footer = UIView(frame: .zero)
-        button = UIButton(type: .custom)
 
         waitTimeContainer = UIView(frame: .zero)
         waitTimeIcon = UIImageView(image: #imageLiteral(resourceName: "wait_time"))
@@ -92,7 +90,6 @@ class AttractionCell: UICollectionViewCell, Localizable {
         super.init(frame: frame)
         addSubImageView()
         addSubFooter()
-        addSubButton()
         addSubWaitTimeContainer()
         addSubNameContainer()
     }
@@ -120,23 +117,6 @@ class AttractionCell: UICollectionViewCell, Localizable {
         footer.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
         footer.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         footer.heightAnchor.constraint(equalToConstant: 35).isActive = true
-    }
-
-    private func addSubButton() {
-        button.backgroundColor = UIColor(red: 255, green: 186, blue: 0)
-        button.tintColor = UIColor.white
-        button.setImage(#imageLiteral(resourceName: "circle_plus"), for: .normal)
-        button.setImage(#imageLiteral(resourceName: "circle_plus"), for: .highlighted)
-        let buttonTitle = NSAttributedString(string: " " + localize(for: "add to plan"),
-                                             attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 10),
-                                                          NSAttributedStringKey.foregroundColor: UIColor.black])
-        button.setAttributedTitle(buttonTitle, for: .normal)
-        footer.addSubview(button)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.topAnchor.constraint(equalTo: footer.topAnchor).isActive = true
-        button.bottomAnchor.constraint(equalTo: footer.bottomAnchor).isActive = true
-        button.rightAnchor.constraint(equalTo: footer.rightAnchor).isActive = true
-        button.widthAnchor.constraint(equalToConstant: 104).isActive = true
     }
 
     private func addSubWaitTimeContainer() {
@@ -213,7 +193,7 @@ class AttractionCell: UICollectionViewCell, Localizable {
 
 }
 
-class AttractionCellFastpass: AttractionCell {
+final class AttractionCellFastpass: AttractionCell {
 
     private let fastpassContainer: UIView
     private let fastpassIcon: UIImageView
@@ -241,7 +221,7 @@ class AttractionCellFastpass: AttractionCell {
         fastpassContainer.translatesAutoresizingMaskIntoConstraints = false
         fastpassContainer.topAnchor.constraint(equalTo: footer.topAnchor).isActive = true
         fastpassContainer.bottomAnchor.constraint(equalTo: footer.bottomAnchor).isActive = true
-        fastpassContainer.rightAnchor.constraint(equalTo: button.leftAnchor).isActive = true
+        fastpassContainer.rightAnchor.constraint(equalTo: footer.rightAnchor).isActive = true
         fastpassContainer.widthAnchor.constraint(equalToConstant: 97).isActive = true
 
         fastpassLabel.text = localize(for: "fastpass")
@@ -282,7 +262,7 @@ class AttractionCellFastpass: AttractionCell {
 
 }
 
-class AttractionCellNoneFastpass: AttractionCell {
+final class AttractionCellNoneFastpass: AttractionCell {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -298,7 +278,7 @@ class AttractionCellNoneFastpass: AttractionCell {
         waitTimeContainer.translatesAutoresizingMaskIntoConstraints = false
         waitTimeContainer.topAnchor.constraint(equalTo: footer.topAnchor).isActive = true
         waitTimeContainer.bottomAnchor.constraint(equalTo: footer.bottomAnchor).isActive = true
-        waitTimeContainer.rightAnchor.constraint(equalTo: button.leftAnchor).isActive = true
+        waitTimeContainer.rightAnchor.constraint(equalTo: footer.rightAnchor).isActive = true
         waitTimeContainer.widthAnchor.constraint(equalToConstant: 80).isActive = true
     }
 }

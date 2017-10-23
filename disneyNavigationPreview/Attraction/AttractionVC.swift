@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AttractionVC: UIViewController, Localizable {
+final class AttractionVC: UIViewController, Localizable {
 
     let localizeFileName = "Attraction"
 
@@ -41,8 +41,6 @@ class AttractionVC: UIViewController, Localizable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        requestAttractionList()
     }
 
     private func setupNavigation() {
@@ -71,18 +69,6 @@ class AttractionVC: UIViewController, Localizable {
         navigationItem.leftBarButtonItem = leftButtonItem
     }
 
-    private func requestAttractionList() {
-        let attractionListRequest = API.Attractions.list
-
-        attractionListRequest.request([Attraction].self) { [weak self] (attractions, _) in
-            guard let strongSelf = self else { return }
-            if let attractions = attractions {
-                strongSelf.spots = attractions
-                strongSelf.collectionView.reloadData()
-            }
-        }
-    }
-
     private func addSubCollectionView() {
         collectionView.backgroundColor = GlobalColor.viewBackgroundLightGray
         collectionView.delegate = self
@@ -91,8 +77,8 @@ class AttractionVC: UIViewController, Localizable {
         collectionView.register(AttractionCellNoneFastpass.self, forCellWithReuseIdentifier: identifierNoneFastpass)
         view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.topAnchor.constraint(equalTo: topLayoutGuide.topAnchor).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.bottomAnchor).isActive = true
+        collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         collectionView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
     }
@@ -100,6 +86,11 @@ class AttractionVC: UIViewController, Localizable {
     private func pushToDetail(spot: Attraction) {
         let destination = AttractionDetailVC(attraction: spot)
         navigationController?.pushViewController(destination, animated: true)
+    }
+
+    func reloadAllSpots(_ spots: [Attraction]) {
+        self.spots = spots
+        collectionView.reloadData()
     }
 }
 

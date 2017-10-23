@@ -11,6 +11,11 @@
 
 "add to plan" = "加入计划中";
 "fastpass" = "快速通行证";
+"reserve" = "需要预定座位";
 "minute" = "分";
 
 "back button defaul title" = "返回";
+
+"title attraction" = "游乐项目";
+"title show" = "游行表演";
+"title greeting" = "明星会面";
