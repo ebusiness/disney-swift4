@@ -64,9 +64,9 @@ extension GreetingVC: UICollectionViewDelegate, UICollectionViewDataSource {
         let spot = spots[indexPath.item]
 
         var cell: GreetingCell
+        //swiftlint:disable:next force_cast
         cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! GreetingCell
         cell.data = spot
         return cell
     }
 }
-

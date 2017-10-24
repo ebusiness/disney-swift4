@@ -37,6 +37,7 @@
 		1F719B951F663FAD0010CD68 /* SuggestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F719B941F663FAD0010CD68 /* SuggestVC.swift */; };
 		1F73B4531F5FE06C006FFABB /* ParkPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73B4521F5FE06C006FFABB /* ParkPicker.swift */; };
 		1F7ADA701F988CC500178A28 /* GreetingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7ADA6F1F988CC500178A28 /* GreetingVC.swift */; };
+		1F81E7C11F9F525E0011B6F7 /* RightImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F81E7C01F9F525E0011B6F7 /* RightImageButton.swift */; };
 		1F8D0FAD1F666D66006461D1 /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F8D0FAF1F666D66006461D1 /* Main.strings */; };
 		1F8D0FB51F666F81006461D1 /* Attraction.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F8D0FB71F666F81006461D1 /* Attraction.strings */; };
 		1F8D0FBC1F66816E006461D1 /* AttractionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F8D0FBB1F66816E006461D1 /* AttractionModel.swift */; };
@@ -109,6 +110,7 @@
 		1F719B941F663FAD0010CD68 /* SuggestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestVC.swift; sourceTree = "<group>"; };
 		1F73B4521F5FE06C006FFABB /* ParkPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkPicker.swift; sourceTree = "<group>"; };
 		1F7ADA6F1F988CC500178A28 /* GreetingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingVC.swift; sourceTree = "<group>"; };
+		1F81E7C01F9F525E0011B6F7 /* RightImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightImageButton.swift; sourceTree = "<group>"; };
 		1F8D0FAE1F666D66006461D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		1F8D0FB01F666D68006461D1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		1F8D0FB11F666D69006461D1 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 				1F6943761F693E330082E333 /* AttractionDetailVC.swift */,
 				1FE689051F6A2DB800D50201 /* AttractionDetailCell.swift */,
 				1F93D64F1F7107D100EFE8D5 /* AttractionColor.swift */,
+				1F81E7C01F9F525E0011B6F7 /* RightImageButton.swift */,
 			);
 			path = Attraction;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 				1FBB522D1F74C162006EDC55 /* CreatePlanCategoryCell.swift in Sources */,
 				1F0D7BEE1F5E7675006AC4DB /* BaseInfoViewController.swift in Sources */,
 				1F0D7BF31F5E7B47006AC4DB /* ColorExtension.swift in Sources */,
+				1F81E7C11F9F525E0011B6F7 /* RightImageButton.swift in Sources */,
 				1F7ADA701F988CC500178A28 /* GreetingVC.swift in Sources */,
 				1FAE3A171F75195F00812C1A /* CreatePlanColor.swift in Sources */,
 				1F111C151F6BB2B4002D2FB6 /* UIViewControllerExtension.swift in Sources */,

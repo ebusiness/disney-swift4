@@ -95,6 +95,7 @@ final class AttractionPageVC: UIViewController, Localizable {
         addSubPageView()
 
         setupPageView()
+        updateNavigationTitle()
 
         banner.switchTo(index: 0)
 
@@ -118,6 +119,7 @@ final class AttractionPageVC: UIViewController, Localizable {
                 break
             }
             if currentIndex == -1 || currentIndex == index { return }
+            strongSelf.updateNavigationItem(to: index)
             if index > currentIndex {
                 if index == 1 {
                     strongSelf.pageViewController.setViewControllers([strongSelf.showVC], direction: .forward, animated: true)
@@ -206,7 +208,12 @@ final class AttractionPageVC: UIViewController, Localizable {
     }
 
     private func updateNavigationTitle() {
-
+        let button = RightImageButton(type: .custom)
+        button.setImage(#imageLiteral(resourceName: "ic_repeat_black_24px"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "ic_repeat_black_24px"), for: .highlighted)
+        button.setTitle(park.localize(), for: .normal)
+        button.addTarget(self, action: #selector(titleButtonPressed(_:)), for: .touchUpInside)
+        navigationItem.titleView = button
     }
 
     private func updateNavigationItem(to index: Int) {
@@ -214,12 +221,17 @@ final class AttractionPageVC: UIViewController, Localizable {
         case 0:
             break
         case 1:
-            showVC.setupNavigatinBar(navigationItem)
+            break
         case 2:
             break
         default:
             break
         }
+    }
+
+    @objc
+    private func titleButtonPressed(_ sender: UIButton) {
+        print("clicked")
     }
 }
 
