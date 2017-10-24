@@ -69,6 +69,7 @@
 		1FBB523B1F74F49B006EDC55 /* CreatePlanAttractionsHotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB523A1F74F49B006EDC55 /* CreatePlanAttractionsHotCell.swift */; };
 		1FBB523D1F750916006EDC55 /* TopRoundedCornerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB523C1F750916006EDC55 /* TopRoundedCornerImageView.swift */; };
 		1FE689061F6A2DB800D50201 /* AttractionDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE689051F6A2DB800D50201 /* AttractionDetailCell.swift */; };
+		1FF532911F9EF89F00E44B81 /* AttractionEmptyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF532901F9EF89F00E44B81 /* AttractionEmptyPageVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -151,6 +152,7 @@
 		1FBB523A1F74F49B006EDC55 /* CreatePlanAttractionsHotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanAttractionsHotCell.swift; sourceTree = "<group>"; };
 		1FBB523C1F750916006EDC55 /* TopRoundedCornerImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRoundedCornerImageView.swift; sourceTree = "<group>"; };
 		1FE689051F6A2DB800D50201 /* AttractionDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionDetailCell.swift; sourceTree = "<group>"; };
+		1FF532901F9EF89F00E44B81 /* AttractionEmptyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionEmptyPageVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +269,7 @@
 			children = (
 				1F8D0FBB1F66816E006461D1 /* AttractionModel.swift */,
 				1F2E56D21F988AC200B10912 /* AttractionPageVC.swift */,
+				1FF532901F9EF89F00E44B81 /* AttractionEmptyPageVC.swift */,
 				1F719B8E1F663F680010CD68 /* AttractionVC.swift */,
 				1F5096F71F6784950008B8C1 /* AttractionCell.swift */,
 				1F6943761F693E330082E333 /* AttractionDetailVC.swift */,
@@ -466,6 +469,7 @@
 				1F3436D61F73794800F05EF7 /* CreatePlanTimeAndPark.swift in Sources */,
 				1F4EE8E81F9DD9AD00D76E84 /* GreetingCell.swift in Sources */,
 				1F0D7BF01F5E76CA006AC4DB /* BaseInfoNavigationController.swift in Sources */,
+				1FF532911F9EF89F00E44B81 /* AttractionEmptyPageVC.swift in Sources */,
 				1F5096F81F6784950008B8C1 /* AttractionCell.swift in Sources */,
 				1F3436D31F736B0F00F05EF7 /* SuggestColor.swift in Sources */,
 				1FBB522D1F74C162006EDC55 /* CreatePlanCategoryCell.swift in Sources */,

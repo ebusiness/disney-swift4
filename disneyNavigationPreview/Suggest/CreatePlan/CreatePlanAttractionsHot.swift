@@ -65,7 +65,7 @@ final class CreatePlanAttractionsHot: UIViewController {
     }
 
     private func requestAttractionList() {
-        let requester = API.Attractions.hot
+        let requester = API.Attractions.hot(park: .land)
 
         requester.request([AttractionHotResponseData].self) { [weak self] (data, error) in
             guard let strongSelf = self else { return }

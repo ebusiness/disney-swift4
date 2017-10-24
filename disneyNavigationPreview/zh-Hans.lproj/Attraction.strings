@@ -19,3 +19,6 @@
 "title attraction" = "游乐项目";
 "title show" = "游行表演";
 "title greeting" = "明星会面";
+
+"empty state loading" = "数据加载中……";
+"empty state failed" = "无法取得数据，\n点击画面刷新。";

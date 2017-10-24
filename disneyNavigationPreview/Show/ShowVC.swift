@@ -35,6 +35,21 @@ final class ShowVC: UIViewController {
         addSubCollectionView()
     }
 
+    func setupNavigatinBar(_ navigationItem: UINavigationItem) {
+        setupNavigationTitle(navigationItem)
+        setupNavigationRightItem(navigationItem)
+    }
+
+    private func setupNavigationTitle(_ navigationItem: UINavigationItem) {
+        let button = UIButton(type: .custom)
+        button.setTitle(TokyoDisneyPark.land.localize(), for: .normal)
+        navigationItem.titleView = button
+    }
+
+    private func setupNavigationRightItem(_ navigationItem: UINavigationItem) {
+
+    }
+
     private func addSubCollectionView() {
         collectionView.backgroundColor = GlobalColor.viewBackgroundLightGray
         collectionView.delegate = self

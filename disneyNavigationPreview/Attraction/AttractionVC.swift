@@ -34,11 +34,6 @@ final class AttractionVC: UIViewController, Localizable {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -70,7 +65,9 @@ final class AttractionVC: UIViewController, Localizable {
     }
 
     private func addSubCollectionView() {
-        collectionView.backgroundColor = GlobalColor.viewBackgroundLightGray
+        let collectionBackground = UIView(frame: .zero)
+        collectionBackground.backgroundColor = GlobalColor.viewBackgroundLightGray
+        collectionView.backgroundView = collectionBackground
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(AttractionCellFastpass.self, forCellWithReuseIdentifier: identifierFastpass)

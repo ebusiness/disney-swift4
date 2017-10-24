@@ -7,6 +7,7 @@
 //
 
 import Alamofire
+import UIKit
 
 struct NetworkConstants {
 
@@ -34,7 +35,6 @@ struct NetworkConstants {
 
     }()
 
-    static let park = "land/"
 }
 
 /**
@@ -65,11 +65,13 @@ protocol Requestable: URLRequestConvertible {
     var method: RequestMethod { get }
     /// Parameters
     var parameters: [String: Any]? { get }
+    /// park
+    var park: TokyoDisneyPark { get }
 }
 
 extension Requestable {
     func asURLRequest() throws -> URLRequest {
-        let urlString = NetworkConstants.version + NetworkConstants.language + NetworkConstants.park + path
+        let urlString = NetworkConstants.version + NetworkConstants.language + park.apiComponent + path
         guard let url = URL(string: urlString, relativeTo: NetworkConstants.hostURL) else {
             throw URLError(URLError.badURL)
         }
@@ -86,10 +88,16 @@ extension Requestable {
 
     @discardableResult
     func request<T>(_ type: T.Type, completionHandler: @escaping (T?, Error?) -> Void) -> Request where T: Decodable {
+        RequestCounter.shared.add()
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
         return Alamofire.SessionManager.default
             .request(self)
             .validate()
             .responseData(completionHandler: { response in
+                RequestCounter.shared.minus()
+                if RequestCounter.shared.isEmpty {
+                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                }
                 guard let data = response.data else {
                     let error = APIError.objectSerialization(reason: "No data in response")
                     completionHandler(nil, error)
@@ -106,11 +114,36 @@ extension Requestable {
     }
 }
 
+class RequestCounter {
+    static let shared = RequestCounter()
+
+    private var value = 0
+    var isEmpty: Bool {
+        return value == 0
+    }
+
+    private init() {
+    }
+
+    func add() {
+        value += 1
+    }
+
+    func minus() {
+        if value > 0 {
+            value -= 1
+        } else {
+            value = 0
+        }
+    }
+}
+
 struct API {
 }
 
 extension API {
     enum Visitor: Requestable {
+
         case tags
 
         var path: String {
@@ -133,14 +166,21 @@ extension API {
                 return nil
             }
         }
+
+        var park: TokyoDisneyPark {
+            switch self {
+            case .tags:
+                return .land
+            }
+        }
     }
 }
 
 extension API {
     enum Attractions: Requestable {
-        case list
-        case detail(id: String)
-        case hot
+        case list(park: TokyoDisneyPark)
+        case detail(park: TokyoDisneyPark, id: String)
+        case hot(park: TokyoDisneyPark)
 
         var path: String {
             switch self {
@@ -168,12 +208,23 @@ extension API {
                 return nil
             }
         }
+
+        var park: TokyoDisneyPark {
+            switch self {
+            case .list(let _park):
+                return _park
+            case .detail(let _park, _):
+                return _park
+            case .hot(let _park):
+                return _park
+            }
+        }
     }
 }
 
 extension API {
     enum Suggestion: Requestable {
-        case list
+        case list(park: TokyoDisneyPark)
 
         var path: String {
             switch self {
@@ -193,6 +244,13 @@ extension API {
             switch self {
             default:
                 return nil
+            }
+        }
+
+        var park: TokyoDisneyPark {
+            switch self {
+            case .list(let _park):
+                return _park
             }
         }
     }

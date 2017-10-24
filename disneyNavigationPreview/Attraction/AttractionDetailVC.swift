@@ -49,7 +49,7 @@ final class AttractionDetailVC: UIViewController, Localizable {
     }
 
     private func requestAttractionDetail() {
-        let detailRequest = API.Attractions.detail(id: attraction.str_id)
+        let detailRequest = API.Attractions.detail(park: .land, id: attraction.str_id)
 
         detailRequest.request(AttractionDetail.self) { [weak self] (detail, error) in
             guard let strongSelf = self else { return }

@@ -17,8 +17,55 @@ final class AttractionPageVC: UIViewController, Localizable {
     let attractionVC: AttractionVC
     let showVC: ShowVC
     let greetingVC: GreetingVC
+    let emptyVC: AttractionEmptyPageVC
 
     let banner: PageBanner
+
+    var park = TokyoDisneyPark.land {
+        didSet {
+
+        }
+    }
+
+    var currentStatus = LoadingStatus.loading {
+        didSet {
+            if currentStatus != oldValue {
+                switch currentStatus {
+                case .failed:
+                    emptyVC.status = .failed
+                    if let currentVC = pageViewController.viewControllers?.first, currentVC == emptyVC {
+                        break
+                    } else {
+                        pageViewController.setViewControllers([emptyVC], direction: .forward, animated: false)
+                    }
+                case .loading:
+                    emptyVC.status = .loading
+                    if let currentVC = pageViewController.viewControllers?.first, currentVC == emptyVC {
+                        break
+                    } else {
+                        pageViewController.setViewControllers([emptyVC], direction: .forward, animated: false)
+                    }
+                case .success:
+                    switch banner.currentIndex {
+                    case 0:
+                        pageViewController.setViewControllers([attractionVC], direction: .forward, animated: false)
+                    case 1:
+                        pageViewController.setViewControllers([showVC], direction: .forward, animated: false)
+                    case 2:
+                        pageViewController.setViewControllers([greetingVC], direction: .forward, animated: false)
+                    default:
+                        pageViewController.setViewControllers([attractionVC], direction: .forward, animated: false)
+                    }
+                }
+            }
+        }
+    }
+
+    enum LoadingStatus {
+        case loading
+        case success
+        case failed
+    }
 
     init() {
         pageViewController = UIPageViewController(transitionStyle: .scroll,
@@ -26,6 +73,7 @@ final class AttractionPageVC: UIViewController, Localizable {
         attractionVC = AttractionVC()
         showVC = ShowVC()
         greetingVC = GreetingVC()
+        emptyVC = AttractionEmptyPageVC()
 
         banner = PageBanner()
         super.init(nibName: nil, bundle: nil)
@@ -45,7 +93,9 @@ final class AttractionPageVC: UIViewController, Localizable {
 
         addSubBanner()
         addSubPageView()
-        pageViewController.setViewControllers([attractionVC], direction: .forward, animated: false)
+
+        setupPageView()
+
         banner.switchTo(index: 0)
 
         requestAttractionList()
@@ -99,6 +149,13 @@ final class AttractionPageVC: UIViewController, Localizable {
         }
     }
 
+    private func setupPageView() {
+        emptyVC.callback { [weak self] in
+            self?.requestAttractionList()
+        }
+        pageViewController.setViewControllers([emptyVC], direction: .forward, animated: false)
+    }
+
     private func addSubPageView() {
         view.addSubview(pageViewController.view)
         pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
@@ -116,7 +173,8 @@ final class AttractionPageVC: UIViewController, Localizable {
     }
 
     private func requestAttractionList() {
-        let attractionListRequest = API.Attractions.list
+        currentStatus = .loading
+        let attractionListRequest = API.Attractions.list(park: park)
 
         attractionListRequest.request([Attraction].self) { [weak self] (objs, _) in
             guard let strongSelf = self else { return }
@@ -139,7 +197,28 @@ final class AttractionPageVC: UIViewController, Localizable {
                 strongSelf.attractionVC.reloadAllSpots(attractions)
                 strongSelf.showVC.reloadAllSpots(shows)
                 strongSelf.greetingVC.reloadAllSpots(greetings)
+                strongSelf.currentStatus = .success
+            } else {
+                // error
+                strongSelf.currentStatus = .failed
             }
+        }
+    }
+
+    private func updateNavigationTitle() {
+
+    }
+
+    private func updateNavigationItem(to index: Int) {
+        switch  index {
+        case 0:
+            break
+        case 1:
+            showVC.setupNavigatinBar(navigationItem)
+        case 2:
+            break
+        default:
+            break
         }
     }
 }
@@ -176,18 +255,22 @@ extension AttractionPageVC: UIPageViewControllerDelegate, UIPageViewControllerDa
         switch current {
         case attractionVC:
             banner.switchTo(index: 0)
+            updateNavigationItem(to: 0)
         case showVC:
             banner.switchTo(index: 1)
+            updateNavigationItem(to: 1)
         case greetingVC:
             banner.switchTo(index: 2)
+            updateNavigationItem(to: 2)
         default:
             break
         }
     }
 }
 
-class PageBanner: UIView {
+final class PageBanner: UIView {
 
+    var currentIndex = 0
     var labels = [BannerLabel]()
     private var _callBack: ((_ index: Int) -> Void)?
 
@@ -201,6 +284,7 @@ class PageBanner: UIView {
     }
 
     func setTitles(_ titles: [String]) {
+        currentIndex = 0
         labels.forEach({ $0.removeFromSuperview() })
         labels.removeAll()
 
@@ -245,6 +329,7 @@ class PageBanner: UIView {
     }
 
     func switchTo(index: Int) {
+        currentIndex = index
         if !labels.isEmpty {
             UIView.animate(withDuration: 0.25,
                            animations: {
@@ -269,7 +354,7 @@ class PageBanner: UIView {
 
 }
 
-class BannerLabel: UILabel {
+final class BannerLabel: UILabel {
 
     var index = 0
     private var _callBack: ((_ index: Int) -> Void)?

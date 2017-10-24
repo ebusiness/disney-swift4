@@ -23,6 +23,15 @@ enum TokyoDisneyPark: String, Localizable {
             return localize(for: "TokyoDisneyPark.sea")
         }
     }
+
+    var apiComponent: String {
+        switch self {
+        case .land:
+            return "land/"
+        case .sea:
+            return "sea/"
+        }
+    }
 }
 
 enum AttractionCategory: String {

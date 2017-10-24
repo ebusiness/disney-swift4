@@ -67,7 +67,7 @@ class SuggestVC: UIViewController {
     }
 
     private func requestSuggestionList() {
-        let suggestionListRequest = API.Suggestion.list
+        let suggestionListRequest = API.Suggestion.list(park: .land)
 
         suggestionListRequest.request([SuggestPlan].self) { [weak self] (data, error) in
             guard let strongSelf = self else { return }
