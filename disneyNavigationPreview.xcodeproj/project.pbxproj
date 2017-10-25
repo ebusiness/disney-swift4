@@ -54,6 +54,7 @@
 		1FB151061F5D354200BE4A7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB151051F5D354200BE4A7D /* AppDelegate.swift */; };
 		1FB151081F5D354200BE4A7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB151071F5D354200BE4A7D /* ViewController.swift */; };
 		1FB1510E1F5D354200BE4A7D /* disneyNavigationPreview.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1FB1510C1F5D354200BE4A7D /* disneyNavigationPreview.xcdatamodeld */; };
+		1FB151101F5D354200BE4A7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FB1510F1F5D354200BE4A7D /* Assets.xcassets */; };
 		1FB151131F5D354200BE4A7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FB151111F5D354200BE4A7D /* LaunchScreen.storyboard */; };
 		1FB1511D1F5D3CDE00BE4A7D /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 1FB1511C1F5D3CDE00BE4A7D /* Cartfile */; };
 		1FB151231F5D479300BE4A7D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FB1511F1F5D479300BE4A7D /* Alamofire.framework */; };
@@ -134,6 +135,7 @@
 		1FB151051F5D354200BE4A7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FB151071F5D354200BE4A7D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1FB1510D1F5D354200BE4A7D /* disneyNavigationPreview.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = disneyNavigationPreview.xcdatamodel; sourceTree = "<group>"; };
+		1FB1510F1F5D354200BE4A7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1FB151121F5D354200BE4A7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1FB151141F5D354200BE4A7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FB1511C1F5D3CDE00BE4A7D /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
@@ -325,6 +327,7 @@
 				1F0D7BF11F5E7B24006AC4DB /* Utils */,
 				1FB151051F5D354200BE4A7D /* AppDelegate.swift */,
 				1FB151071F5D354200BE4A7D /* ViewController.swift */,
+				1FB1510F1F5D354200BE4A7D /* Assets.xcassets */,
 				1FB151111F5D354200BE4A7D /* LaunchScreen.storyboard */,
 				1FB151141F5D354200BE4A7D /* Info.plist */,
 				1FB1510C1F5D354200BE4A7D /* disneyNavigationPreview.xcdatamodeld */,
@@ -419,6 +422,7 @@
 				1F0D7C0B1F5FA343006AC4DB /* BaseInfo.strings in Resources */,
 				1F8D0FAD1F666D66006461D1 /* Main.strings in Resources */,
 				1FBB52301F74E444006EDC55 /* CreatePlan.strings in Resources */,
+				1FB151101F5D354200BE4A7D /* Assets.xcassets in Resources */,
 				1FB1511D1F5D3CDE00BE4A7D /* Cartfile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
