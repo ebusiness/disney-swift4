@@ -22,3 +22,6 @@
 
 "empty state loading" = "数据加载中……";
 "empty state failed" = "无法取得数据，\n点击画面刷新。";
+
+
+"search bar cancel" = "取消";
