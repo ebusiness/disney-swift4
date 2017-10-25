@@ -6,11 +6,14 @@
 //  Copyright © 2017年 ebuser. All rights reserved.
 //
 
+import RxSwift
 import UIKit
 
 final class AttractionPageVC: UIViewController, Localizable {
 
     let localizeFileName = "Attraction"
+
+    let disposeBag = DisposeBag()
 
     let pageViewController: UIPageViewController
 
@@ -21,9 +24,20 @@ final class AttractionPageVC: UIViewController, Localizable {
 
     let banner: PageBanner
 
+    lazy var searchButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(#imageLiteral(resourceName: "ic_search_black_24px"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "ic_search_black_24px"), for: .highlighted)
+        button.addTarget(self, action: #selector(searchButtonPressed(_:)), for: .touchUpInside)
+        return button
+    }()
+
     var park = TokyoDisneyPark.land {
         didSet {
-
+            if oldValue != park {
+                updateNavigationTitle()
+                requestAttractionList()
+            }
         }
     }
 
@@ -93,13 +107,20 @@ final class AttractionPageVC: UIViewController, Localizable {
 
         addSubBanner()
         addSubPageView()
-
         setupPageView()
+
         updateNavigationTitle()
+        updateNavigationItem(to: 0)
 
         banner.switchTo(index: 0)
 
         requestAttractionList()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
     //swiftlint:disable:next cyclomatic_complexity
@@ -208,30 +229,50 @@ final class AttractionPageVC: UIViewController, Localizable {
     }
 
     private func updateNavigationTitle() {
-        let button = RightImageButton(type: .custom)
-        button.setImage(#imageLiteral(resourceName: "ic_repeat_black_24px"), for: .normal)
-        button.setImage(#imageLiteral(resourceName: "ic_repeat_black_24px"), for: .highlighted)
-        button.setTitle(park.localize(), for: .normal)
-        button.addTarget(self, action: #selector(titleButtonPressed(_:)), for: .touchUpInside)
-        navigationItem.titleView = button
+        if navigationItem.titleView == nil {
+            let button = RightImageButton(type: .custom)
+            button.setImage(#imageLiteral(resourceName: "ic_repeat_black_24px"), for: .normal)
+            button.setImage(#imageLiteral(resourceName: "ic_repeat_black_24px"), for: .highlighted)
+            button.setTitle(park.localize(), for: .normal)
+            button.addTarget(self, action: #selector(titleButtonPressed(_:)), for: .touchUpInside)
+            navigationItem.titleView = button
+        } else {
+            guard let button = navigationItem.titleView as? UIButton else { return }
+            button.setTitle(park.localize(), for: .normal)
+        }
     }
 
     private func updateNavigationItem(to index: Int) {
         switch  index {
         case 0:
-            break
+            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: searchButton)
         case 1:
-            break
+            navigationItem.rightBarButtonItem = nil
         case 2:
-            break
+            navigationItem.rightBarButtonItem = nil
         default:
-            break
+            navigationItem.rightBarButtonItem = nil
         }
     }
 
     @objc
     private func titleButtonPressed(_ sender: UIButton) {
-        print("clicked")
+        let parkpicker = BaseInfoParkPickVC(park: park)
+        parkpicker
+            .currentPark
+            .asObservable()
+            .subscribe(onNext: { [weak self] park in
+                self?.park = park
+            })
+            .disposed(by: disposeBag)
+        guard let tabVC = (UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController else { return }
+        tabVC.present(parkpicker, animated: false, completion: nil)
+    }
+
+    @objc
+    private func searchButtonPressed(_ sender: UIButton) {
+        let searchController = AttractionSearchVC()
+        navigationController?.pushViewController(searchController, animated: true)
     }
 }
 

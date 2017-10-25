@@ -18,6 +18,7 @@
 		1F0D7C121F5FA85F006AC4DB /* BaseInfoParkPickVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7C111F5FA85F006AC4DB /* BaseInfoParkPickVC.swift */; };
 		1F0D7C141F5FCBF4006AC4DB /* BaseInfoColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7C131F5FCBF4006AC4DB /* BaseInfoColor.swift */; };
 		1F111C151F6BB2B4002D2FB6 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F111C141F6BB2B4002D2FB6 /* UIViewControllerExtension.swift */; };
+		1F2D51411FA05B53008F2511 /* AttractionSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2D51401FA05B53008F2511 /* AttractionSearchVC.swift */; };
 		1F2E56D11F98823800B10912 /* ShowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E56D01F98823800B10912 /* ShowVC.swift */; };
 		1F2E56D31F988AC200B10912 /* AttractionPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E56D21F988AC200B10912 /* AttractionPageVC.swift */; };
 		1F3436D31F736B0F00F05EF7 /* SuggestColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3436D21F736B0F00F05EF7 /* SuggestColor.swift */; };
@@ -53,7 +54,6 @@
 		1FB151061F5D354200BE4A7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB151051F5D354200BE4A7D /* AppDelegate.swift */; };
 		1FB151081F5D354200BE4A7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FB151071F5D354200BE4A7D /* ViewController.swift */; };
 		1FB1510E1F5D354200BE4A7D /* disneyNavigationPreview.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1FB1510C1F5D354200BE4A7D /* disneyNavigationPreview.xcdatamodeld */; };
-		1FB151101F5D354200BE4A7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1FB1510F1F5D354200BE4A7D /* Assets.xcassets */; };
 		1FB151131F5D354200BE4A7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1FB151111F5D354200BE4A7D /* LaunchScreen.storyboard */; };
 		1FB1511D1F5D3CDE00BE4A7D /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 1FB1511C1F5D3CDE00BE4A7D /* Cartfile */; };
 		1FB151231F5D479300BE4A7D /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FB1511F1F5D479300BE4A7D /* Alamofire.framework */; };
@@ -91,6 +91,7 @@
 		1F0D7C111F5FA85F006AC4DB /* BaseInfoParkPickVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoParkPickVC.swift; sourceTree = "<group>"; };
 		1F0D7C131F5FCBF4006AC4DB /* BaseInfoColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoColor.swift; sourceTree = "<group>"; };
 		1F111C141F6BB2B4002D2FB6 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		1F2D51401FA05B53008F2511 /* AttractionSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionSearchVC.swift; sourceTree = "<group>"; };
 		1F2E56D01F98823800B10912 /* ShowVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowVC.swift; sourceTree = "<group>"; };
 		1F2E56D21F988AC200B10912 /* AttractionPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionPageVC.swift; sourceTree = "<group>"; };
 		1F3436D21F736B0F00F05EF7 /* SuggestColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestColor.swift; sourceTree = "<group>"; };
@@ -133,7 +134,6 @@
 		1FB151051F5D354200BE4A7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FB151071F5D354200BE4A7D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1FB1510D1F5D354200BE4A7D /* disneyNavigationPreview.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = disneyNavigationPreview.xcdatamodel; sourceTree = "<group>"; };
-		1FB1510F1F5D354200BE4A7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1FB151121F5D354200BE4A7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1FB151141F5D354200BE4A7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FB1511C1F5D3CDE00BE4A7D /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
@@ -278,6 +278,7 @@
 				1FE689051F6A2DB800D50201 /* AttractionDetailCell.swift */,
 				1F93D64F1F7107D100EFE8D5 /* AttractionColor.swift */,
 				1F81E7C01F9F525E0011B6F7 /* RightImageButton.swift */,
+				1F2D51401FA05B53008F2511 /* AttractionSearchVC.swift */,
 			);
 			path = Attraction;
 			sourceTree = "<group>";
@@ -324,7 +325,6 @@
 				1F0D7BF11F5E7B24006AC4DB /* Utils */,
 				1FB151051F5D354200BE4A7D /* AppDelegate.swift */,
 				1FB151071F5D354200BE4A7D /* ViewController.swift */,
-				1FB1510F1F5D354200BE4A7D /* Assets.xcassets */,
 				1FB151111F5D354200BE4A7D /* LaunchScreen.storyboard */,
 				1FB151141F5D354200BE4A7D /* Info.plist */,
 				1FB1510C1F5D354200BE4A7D /* disneyNavigationPreview.xcdatamodeld */,
@@ -419,7 +419,6 @@
 				1F0D7C0B1F5FA343006AC4DB /* BaseInfo.strings in Resources */,
 				1F8D0FAD1F666D66006461D1 /* Main.strings in Resources */,
 				1FBB52301F74E444006EDC55 /* CreatePlan.strings in Resources */,
-				1FB151101F5D354200BE4A7D /* Assets.xcassets in Resources */,
 				1FB1511D1F5D3CDE00BE4A7D /* Cartfile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,6 +487,7 @@
 				1FA7999A1F624A9B003EC3F2 /* BaseInfoModel.swift in Sources */,
 				1F0D7BF71F5E807A006AC4DB /* Localize.swift in Sources */,
 				1FB151081F5D354200BE4A7D /* ViewController.swift in Sources */,
+				1F2D51411FA05B53008F2511 /* AttractionSearchVC.swift in Sources */,
 				1F719B891F62A10A0010CD68 /* Main.swift in Sources */,
 				1FBB52391F74EEEB006EDC55 /* CreatePlanModel.swift in Sources */,
 				1F0D7BF51F5E801B006AC4DB /* BaseInfoEssentialCell.swift in Sources */,
