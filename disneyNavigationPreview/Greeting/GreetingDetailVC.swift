@@ -24,6 +24,7 @@ class GreetingDetailVC: UIViewController, Localizable {
 
     private let collectionView: UICollectionView
     private let imageCellIdentifier = "imageCellIdentifier"
+    private let noteCellIdentifier = "noteCellIdentifier"
     private let otherCellIdentifier = "otherCellIdentifier"
 
     init(park: TokyoDisneyPark, attraction: Attraction) {
@@ -109,6 +110,8 @@ class GreetingDetailVC: UIViewController, Localizable {
         collectionView.dataSource = self
         collectionView.register(GreetingImageCell.self, forCellWithReuseIdentifier: imageCellIdentifier)
         collectionView.register(GreetingOtherCell.self, forCellWithReuseIdentifier: otherCellIdentifier)
+        collectionView.register(GreetingNoteCell.self, forCellWithReuseIdentifier: noteCellIdentifier)
+        collectionView.alwaysBounceVertical = true
         view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.topAnchor.constraint(equalTo: customizeNavigationBar.bottomAnchor).isActive = true
@@ -144,7 +147,7 @@ class GreetingDetailVC: UIViewController, Localizable {
 extension GreetingDetailVC: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+        return UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -154,16 +157,24 @@ extension GreetingDetailVC: UICollectionViewDelegateFlowLayout, UICollectionView
             let ratio = CGFloat(414) / CGFloat(192)
             let height = screenWidth / ratio
             return CGSize(width: screenWidth, height: height)
+        case 1:
+            if let detail = detail {
+                return GreetingNoteCell.autoLayoutSize(detail: detail)
+            } else {
+                 return .zero
+            }
         default:
-            let screenWidth = UIScreen.main.bounds.width - 12 * 2
-            let height = CGFloat(80)
-            return CGSize(width: screenWidth, height: height)
+            if let payload = detail?.payloads[indexPath.item - 2] {
+                return GreetingOtherCell.autoLayoutSize(payload: payload)
+            } else {
+                return .zero
+            }
         }
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let detail = detail {
-            return detail.payloads.count + 1
+            return detail.payloads.count + 2
         } else {
             return 0
         }
@@ -175,10 +186,15 @@ extension GreetingDetailVC: UICollectionViewDelegateFlowLayout, UICollectionView
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: imageCellIdentifier, for: indexPath) as! GreetingImageCell
             cell.detail = detail
             return cell
+        } else if indexPath.item == 1 {
+            //swiftlint:disable:next force_cast
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: noteCellIdentifier, for: indexPath) as! GreetingNoteCell
+            cell.detail = detail
+            return cell
         } else {
             //swiftlint:disable:next force_cast
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: otherCellIdentifier, for: indexPath) as! GreetingOtherCell
-            cell.payload = detail?.payloads[indexPath.item - 1]
+            cell.payload = detail?.payloads[indexPath.item - 2]
             return cell
         }
     }

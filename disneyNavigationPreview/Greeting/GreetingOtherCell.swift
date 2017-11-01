@@ -14,12 +14,25 @@ class GreetingOtherCell: UICollectionViewCell {
         didSet {
             titleLabel.text = payload?.title
             textLabel.text = payload?.content
+
+            if let type = payload?.type {
+                switch type {
+                case .appropriateFor:
+                    icon.image = #imageLiteral(resourceName: "ic_accessibility_black_32px")
+                case .participatingDisneyCharacter:
+                    icon.image = #imageLiteral(resourceName: "ic_stars_black_32px")
+                case .barrierFree:
+                    icon.image = #imageLiteral(resourceName: "ic_accessible_black_32px")
+                case .photoTaking:
+                    icon.image = #imageLiteral(resourceName: "ic_photo_camera_black_32px")
+                }
+            }
         }
     }
 
-    private let icon: UIImageView
-    private let titleLabel: UILabel
-    private let textLabel: UILabel
+    fileprivate let icon: UIImageView
+    fileprivate let titleLabel: UILabel
+    fileprivate let textLabel: UILabel
 
     override init(frame: CGRect) {
         icon = UIImageView(frame: .zero)
@@ -39,16 +52,21 @@ class GreetingOtherCell: UICollectionViewCell {
     }
 
     private func addSubIcon() {
+        icon.backgroundColor = GlobalColor.primaryRed
+        icon.contentMode = .center
+        icon.tintColor = UIColor.white
         addSubview(icon)
         icon.translatesAutoresizingMaskIntoConstraints = false
         icon.topAnchor.constraint(equalTo: topAnchor, constant: 12).isActive = true
         icon.leftAnchor.constraint(equalTo: leftAnchor, constant: 12).isActive = true
         icon.heightAnchor.constraint(equalToConstant: 44).isActive = true
         icon.widthAnchor.constraint(equalToConstant: 44).isActive = true
+        icon.layer.cornerRadius = 22
+        icon.layer.masksToBounds = true
     }
 
     private func addSubTitleLabel() {
-        titleLabel.font = UIFont.systemFont(ofSize: 12)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 14)
         titleLabel.textColor = UIColor.black
         addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -57,7 +75,7 @@ class GreetingOtherCell: UICollectionViewCell {
     }
 
     private func addSubTextLabel() {
-        textLabel.font = UIFont.systemFont(ofSize: 11)
+        textLabel.font = UIFont.systemFont(ofSize: 12)
         textLabel.textColor = GlobalColor.grayText
         textLabel.numberOfLines = 0
         addSubview(textLabel)
@@ -67,4 +85,71 @@ class GreetingOtherCell: UICollectionViewCell {
         textLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -12).isActive = true
     }
 
+    static func autoLayoutSize(payload: AnalysedGreetingDetail.Payload) -> CGSize {
+        let width = UIScreen.main.bounds.width - 12 * 2
+
+        let labelWithConstraint = width - 12 * 3 - 44
+        let titleHeight = (payload.title as NSString).boundingRect(with: CGSize(width: labelWithConstraint, height: 0),
+                                                                   options: .usesLineFragmentOrigin,
+                                                                   attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 14)],
+                                                                   context: nil).height
+        let contentHeight = (payload.content as NSString).boundingRect(with: CGSize(width: labelWithConstraint, height: 0),
+                                                                       options: .usesLineFragmentOrigin,
+                                                                       attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 12)],
+                                                                       context: nil).height
+        let height = titleHeight + contentHeight + 12 * 2 + 6
+
+        let imageHeight: CGFloat = 44 + 12 * 2
+        return CGSize(width: width, height: max(height, imageHeight))
+    }
+
+}
+
+class GreetingNoteCell: GreetingOtherCell, Localizable {
+
+    let localizeFileName = "Attraction"
+
+    var detail: AnalysedGreetingDetail? {
+        didSet {
+            if let detail = detail {
+                icon.image = #imageLiteral(resourceName: "ic_sentiment_very_satisfied_black_32px")
+
+                titleLabel.text = localize(for: "Greeting Note")
+                let introduction = detail.parent.introductions
+
+                if let introductionhtmlAttributedString = introduction.htmlAttributedString {
+                    let mixed = NSMutableAttributedString(attributedString: introductionhtmlAttributedString)
+                    let fullRange = NSRange(location: 0, length: mixed.string.characters.count)
+                    mixed.addAttribute(.foregroundColor, value: GlobalColor.grayText, range: fullRange)
+                    textLabel.attributedText = mixed
+                }
+            }
+        }
+    }
+
+    static func autoLayoutSize(detail: AnalysedGreetingDetail) -> CGSize {
+        let width = UIScreen.main.bounds.width - 12 * 2
+
+        let labelWithConstraint = width - 12 * 3 - 44
+        let titleContent = NSLocalizedString("Greeting Note",
+                                             tableName: "Attraction",
+                                             comment: "")
+        let titleHeight = (titleContent as NSString).boundingRect(with: CGSize(width: labelWithConstraint, height: 0),
+                                                                  options: .usesLineFragmentOrigin,
+                                                                  attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 14)],
+                                                                  context: nil).height
+        let imageHeight: CGFloat = 44 + 12 * 2
+        guard let introductionhtmlAttributedString = detail.parent.introductions.htmlAttributedString  else {
+            return CGSize(width: width, height: imageHeight)
+        }
+        let mixed = NSMutableAttributedString(attributedString: introductionhtmlAttributedString)
+        let fullRange = NSRange(location: 0, length: mixed.string.characters.count)
+        mixed.addAttribute(.foregroundColor, value: GlobalColor.grayText, range: fullRange)
+        mixed.addAttribute(.font, value: UIFont.systemFont(ofSize: 12), range: fullRange)
+        let contentHeight = mixed.boundingRect(with: CGSize(width: labelWithConstraint, height: 0),
+                                               options: .usesLineFragmentOrigin,
+                                               context: nil).height
+        let height = titleHeight + contentHeight + 12 * 2 + 6
+        return CGSize(width: width, height: max(height, imageHeight))
+    }
 }

@@ -40,6 +40,8 @@
 		1F719B931F663F940010CD68 /* MyPlanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F719B921F663F940010CD68 /* MyPlanVC.swift */; };
 		1F719B951F663FAD0010CD68 /* SuggestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F719B941F663FAD0010CD68 /* SuggestVC.swift */; };
 		1F73B4531F5FE06C006FFABB /* ParkPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F73B4521F5FE06C006FFABB /* ParkPicker.swift */; };
+		1F76247D1FA9A3AF005F3D4A /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F76247C1FA9A3AF005F3D4A /* StringExtension.swift */; };
+		1F76247F1FA9BFCF005F3D4A /* ShowDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F76247E1FA9BFCF005F3D4A /* ShowDetailVC.swift */; };
 		1F7ADA701F988CC500178A28 /* GreetingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7ADA6F1F988CC500178A28 /* GreetingVC.swift */; };
 		1F81E7C11F9F525E0011B6F7 /* RightImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F81E7C01F9F525E0011B6F7 /* RightImageButton.swift */; };
 		1F8D0FAD1F666D66006461D1 /* Main.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F8D0FAF1F666D66006461D1 /* Main.strings */; };
@@ -117,6 +119,8 @@
 		1F719B921F663F940010CD68 /* MyPlanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPlanVC.swift; sourceTree = "<group>"; };
 		1F719B941F663FAD0010CD68 /* SuggestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestVC.swift; sourceTree = "<group>"; };
 		1F73B4521F5FE06C006FFABB /* ParkPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkPicker.swift; sourceTree = "<group>"; };
+		1F76247C1FA9A3AF005F3D4A /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		1F76247E1FA9BFCF005F3D4A /* ShowDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailVC.swift; sourceTree = "<group>"; };
 		1F7ADA6F1F988CC500178A28 /* GreetingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingVC.swift; sourceTree = "<group>"; };
 		1F81E7C01F9F525E0011B6F7 /* RightImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightImageButton.swift; sourceTree = "<group>"; };
 		1F8D0FAE1F666D66006461D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
@@ -207,6 +211,7 @@
 				1F4606241F60E73A00F8CC96 /* DateExtension.swift */,
 				1F0D7BF61F5E807A006AC4DB /* Localize.swift */,
 				1F9D175C1F79193E009996A9 /* Preferences.swift */,
+				1F76247C1FA9A3AF005F3D4A /* StringExtension.swift */,
 				1FBB523C1F750916006EDC55 /* TopRoundedCornerImageView.swift */,
 				1F111C141F6BB2B4002D2FB6 /* UIViewControllerExtension.swift */,
 			);
@@ -218,6 +223,7 @@
 			children = (
 				1F2E56D01F98823800B10912 /* ShowVC.swift */,
 				1F4EE8E51F99CFB600D76E84 /* ShowCell.swift */,
+				1F76247E1FA9BFCF005F3D4A /* ShowDetailVC.swift */,
 			);
 			path = Show;
 			sourceTree = "<group>";
@@ -498,6 +504,7 @@
 				1F111C151F6BB2B4002D2FB6 /* UIViewControllerExtension.swift in Sources */,
 				1FB4DF121F791ABA00198401 /* CreatePlanMainCell.swift in Sources */,
 				1F3436D81F7394C400F05EF7 /* CreatePlanMain.swift in Sources */,
+				1F76247F1FA9BFCF005F3D4A /* ShowDetailVC.swift in Sources */,
 				1FE689061F6A2DB800D50201 /* AttractionDetailCell.swift in Sources */,
 				1FA7999A1F624A9B003EC3F2 /* BaseInfoModel.swift in Sources */,
 				1F0D7BF71F5E807A006AC4DB /* Localize.swift in Sources */,
@@ -506,6 +513,7 @@
 				1F719B891F62A10A0010CD68 /* Main.swift in Sources */,
 				1FBB52391F74EEEB006EDC55 /* CreatePlanModel.swift in Sources */,
 				1F0D7BF51F5E801B006AC4DB /* BaseInfoEssentialCell.swift in Sources */,
+				1F76247D1FA9A3AF005F3D4A /* StringExtension.swift in Sources */,
 				1FB151061F5D354200BE4A7D /* AppDelegate.swift in Sources */,
 				1F1719CB1FA6CB770064C2FD /* GreetingImageCell.swift in Sources */,
 				1FBB522B1F74BFDA006EDC55 /* CreatePlanCategory.swift in Sources */,
