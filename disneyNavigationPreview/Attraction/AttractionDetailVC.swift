@@ -13,7 +13,7 @@ final class AttractionDetailVC: UIViewController, Localizable {
     let localizeFileName = "Attraction"
 
     private let attraction: Attraction
-    private var detail: AttractionDetail?
+    private var detail: AttractionDetailBase?
 
     let customizeNavigationBar: UINavigationBar
     let tableView: UITableView
@@ -51,7 +51,7 @@ final class AttractionDetailVC: UIViewController, Localizable {
     private func requestAttractionDetail() {
         let detailRequest = API.Attractions.detail(park: .land, id: attraction.str_id)
 
-        detailRequest.request(AttractionDetail.self) { [weak self] (detail, error) in
+        detailRequest.request(AttractionDetailBase.self) { [weak self] (detail, error) in
             guard let strongSelf = self else { return }
             strongSelf.detail = detail
             strongSelf.tableView.reloadData()

@@ -38,7 +38,7 @@ struct AttractionRealtime: Codable {
 
 }
 
-struct AttractionDetail: Codable {
+class AttractionDetailBase: Codable {
     let str_id: String
     let category: String
     let area: String
@@ -47,4 +47,24 @@ struct AttractionDetail: Codable {
     let is_available: Bool
     let name: String
     let note: String
+}
+
+class GreetingDetail: AttractionDetailBase {
+
+    let summary_tags: [SummaryTag]
+
+    enum CodingKeys: String, CodingKey {
+        case summaryTags = "summary_tags"
+    }
+
+    required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        summary_tags = try values.decode([SummaryTag].self, forKey: .summaryTags)
+        try super.init(from: decoder)
+    }
+
+    class SummaryTag: Codable {
+        let tags: [String]
+        let type: String
+    }
 }

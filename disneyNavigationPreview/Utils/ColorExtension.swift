@@ -52,4 +52,5 @@ struct GlobalColor {
     static let seperatorGray = UIColor(white: 0.62, alpha: 1)
 
     static let noDataText = UIColor(white: 0.643, alpha: 1)
+    static let grayText = UIColor(white: 0.5, alpha: 1)
 }

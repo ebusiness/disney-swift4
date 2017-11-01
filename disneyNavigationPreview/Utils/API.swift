@@ -93,23 +93,24 @@ extension Requestable {
         return Alamofire.SessionManager.default
             .request(self)
             .validate()
-            .responseData(completionHandler: { response in
-                RequestCounter.shared.minus()
-                if RequestCounter.shared.isEmpty {
-                    UIApplication.shared.isNetworkActivityIndicatorVisible = false
-                }
-                guard let data = response.data else {
-                    let error = APIError.objectSerialization(reason: "No data in response")
-                    completionHandler(nil, error)
-                    return
-                }
-                let decoder = JSONDecoder()
-                do {
-                    let result = try decoder.decode(type, from: data)
-                    completionHandler(result, nil)
-                } catch {
-                    completionHandler(nil, error)
-                }
+            .responseData(queue: .main,
+                          completionHandler: { response in
+                            RequestCounter.shared.minus()
+                            if RequestCounter.shared.isEmpty {
+                                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+                            }
+                            guard let data = response.data else {
+                                let error = APIError.objectSerialization(reason: "No data in response")
+                                completionHandler(nil, error)
+                                return
+                            }
+                            let decoder = JSONDecoder()
+                            do {
+                                let result = try decoder.decode(type, from: data)
+                                completionHandler(result, nil)
+                            } catch {
+                                completionHandler(nil, error)
+                            }
             })
     }
 }
@@ -186,7 +187,7 @@ extension API {
             switch self {
             case .list:
                 return "attractions"
-            case .detail(let id):
+            case .detail(_, let id):
                 return "attractions/\(id)"
             case .hot:
                 return "attractions"

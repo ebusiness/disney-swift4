@@ -109,6 +109,8 @@ final class AttractionPageVC: UIViewController, Localizable {
         addSubPageView()
         setupPageView()
 
+        setupSubControllers()
+
         updateNavigationTitle()
         updateNavigationItem(to: 0)
 
@@ -195,6 +197,14 @@ final class AttractionPageVC: UIViewController, Localizable {
         }
     }
 
+    private func setupSubControllers() {
+        greetingVC.pushToDetailCallback { [weak self] attraction in
+            guard let strongSelf = self else { return }
+            let next = GreetingDetailVC(park: strongSelf.park, attraction: attraction)
+            strongSelf.navigationController?.pushViewController(next, animated: true)
+        }
+    }
+
     private func requestAttractionList() {
         currentStatus = .loading
         let attractionListRequest = API.Attractions.list(park: park)
@@ -206,6 +216,9 @@ final class AttractionPageVC: UIViewController, Localizable {
                 var shows = [Attraction]()
                 var greetings = [Attraction]()
                 objs.forEach({ obj in
+                    if !obj.is_available {
+                        return
+                    }
                     switch obj.category {
                     case "attraction":
                         attractions.append(obj)
@@ -400,7 +413,7 @@ final class PageBanner: UIView {
     }
 
     @discardableResult
-    func callback(_ callback: ((_ index: Int) -> Void)?) -> PageBanner {
+    func callback(_ callback: @escaping ((_ index: Int) -> Void)) -> PageBanner {
         _callBack = callback
         return self
     }
@@ -438,7 +451,7 @@ final class BannerLabel: UILabel {
     }
 
     @discardableResult
-    func callback(_ callback: ((_ index: Int) -> Void)?) -> BannerLabel {
+    func callback(_ callback: @escaping ((_ index: Int) -> Void)) -> BannerLabel {
         _callBack = callback
         return self
     }

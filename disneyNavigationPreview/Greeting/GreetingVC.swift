@@ -15,6 +15,9 @@ final class GreetingVC: UIViewController {
     private let collectionView: UICollectionView
     private let cellIdentifier = "cellIdentifier"
 
+    typealias CallBackAction = ((Attraction) -> Void)
+    private var _pushToDetailCallback: CallBackAction?
+
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: UIScreen.main.bounds.width,
@@ -52,9 +55,20 @@ final class GreetingVC: UIViewController {
         collectionView.reloadData()
     }
 
+    private func pushToDetail(attraction: Attraction) {
+        _pushToDetailCallback?(attraction)
+    }
+
+    @discardableResult
+    func pushToDetailCallback(_ pushToDetailCallback: @escaping CallBackAction) -> GreetingVC {
+        _pushToDetailCallback = pushToDetailCallback
+        return self
+    }
+
 }
 
 extension GreetingVC: UICollectionViewDelegate, UICollectionViewDataSource {
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return spots.count
     }
@@ -68,5 +82,11 @@ extension GreetingVC: UICollectionViewDelegate, UICollectionViewDataSource {
         cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! GreetingCell
         cell.data = spot
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: false)
+        let spot = spots[indexPath.item]
+        pushToDetail(attraction: spot)
     }
 }
