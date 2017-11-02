@@ -68,3 +68,22 @@ class GreetingDetail: AttractionDetailBase {
         let type: String
     }
 }
+
+class ShowDetail: AttractionDetailBase {
+    let summary_tags: [SummaryTag]
+
+    enum CodingKeys: String, CodingKey {
+        case summaryTags = "summary_tags"
+    }
+
+    required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        summary_tags = try values.decode([SummaryTag].self, forKey: .summaryTags)
+        try super.init(from: decoder)
+    }
+
+    class SummaryTag: Codable {
+        let tags: [String]
+        let type: String
+    }
+}

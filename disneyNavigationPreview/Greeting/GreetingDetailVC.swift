@@ -288,8 +288,8 @@ class AnalysedGreetingDetail: Localizable {
             }
         case .photoTaking:
             if !photoTaking.isEmpty {
-                let key = localize(for: "Important Tag")
-                let value = localize(for: "Important Tag Content")
+                let key = localize(for: "Photo-taking services available for a fee")
+                let value = localize(for: "Photo-taking services available for a fee content")
                 return Payload(type: .photoTaking, title: key, content: value)
             } else {
                 return nil

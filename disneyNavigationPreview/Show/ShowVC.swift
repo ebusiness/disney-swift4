@@ -16,6 +16,9 @@ final class ShowVC: UIViewController {
     private let cellIdentifier = "cellIdentifier"
     private let reservedCellIdentifier = "reservedCellIdentifier"
 
+    typealias CallBackAction = ((Attraction) -> Void)
+    private var _pushToDetailCallback: CallBackAction?
+
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: UIScreen.main.bounds.width,
@@ -57,6 +60,16 @@ final class ShowVC: UIViewController {
         self.spots = spots
         collectionView.reloadData()
     }
+
+    private func pushToDetail(attraction: Attraction) {
+        _pushToDetailCallback?(attraction)
+    }
+
+    @discardableResult
+    func pushToDetailCallback(_ pushToDetailCallback: @escaping CallBackAction) -> ShowVC {
+        _pushToDetailCallback = pushToDetailCallback
+        return self
+    }
 }
 
 extension ShowVC: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -79,6 +92,12 @@ extension ShowVC: UICollectionViewDataSource, UICollectionViewDelegate {
         }
 
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: false)
+        let spot = spots[indexPath.item]
+        pushToDetail(attraction: spot)
     }
 
 }

@@ -1,16 +1,15 @@
 //
-//  GreetingOtherCell.swift
+//  ShowOtherCell.swift
 //  disneyNavigationPreview
 //
-//  Created by ebuser on 2017/10/31.
+//  Created by ebuser on 2017/11/2.
 //  Copyright © 2017年 ebuser. All rights reserved.
 //
 
 import UIKit
 
-class GreetingOtherCell: UICollectionViewCell {
-
-    var payload: AnalysedGreetingDetail.Payload? {
+class ShowOtherCell: UICollectionViewCell {
+    var payload: AnalysedShowDetail.Payload? {
         didSet {
             titleLabel.text = payload?.title
             textLabel.text = payload?.content
@@ -19,12 +18,14 @@ class GreetingOtherCell: UICollectionViewCell {
                 switch type {
                 case .appropriateFor:
                     icon.image = #imageLiteral(resourceName: "ic_accessibility_black_32px")
-                case .participatingDisneyCharacter:
+                case .showType:
                     icon.image = #imageLiteral(resourceName: "ic_stars_black_32px")
                 case .barrierFree:
                     icon.image = #imageLiteral(resourceName: "ic_accessible_black_32px")
-                case .photoTaking:
+                case .reservationsRequired:
                     icon.image = #imageLiteral(resourceName: "ic_photo_camera_black_32px")
+                case .seatsAvailableByLottery:
+                    icon.image = #imageLiteral(resourceName: "ic_stars_black_32px")
                 }
             }
         }
@@ -85,7 +86,7 @@ class GreetingOtherCell: UICollectionViewCell {
         textLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -12).isActive = true
     }
 
-    static func autoLayoutSize(payload: AnalysedGreetingDetail.Payload) -> CGSize {
+    static func autoLayoutSize(payload: AnalysedShowDetail.Payload) -> CGSize {
         let width = UIScreen.main.bounds.width - 12 * 2
 
         let labelWithConstraint = width - 12 * 3 - 44
@@ -102,14 +103,13 @@ class GreetingOtherCell: UICollectionViewCell {
         let imageHeight: CGFloat = 44 + 12 * 2
         return CGSize(width: width, height: max(height, imageHeight))
     }
-
 }
 
-class GreetingNoteCell: GreetingOtherCell, Localizable {
+class ShowNoteCell: ShowOtherCell, Localizable {
 
     let localizeFileName = "Attraction"
 
-    var detail: AnalysedGreetingDetail? {
+    var detail: AnalysedShowDetail? {
         didSet {
             if let detail = detail {
                 icon.image = #imageLiteral(resourceName: "ic_sentiment_very_satisfied_black_32px")
@@ -127,7 +127,7 @@ class GreetingNoteCell: GreetingOtherCell, Localizable {
         }
     }
 
-    static func autoLayoutSize(detail: AnalysedGreetingDetail) -> CGSize {
+    static func autoLayoutSize(detail: AnalysedShowDetail) -> CGSize {
         let width = UIScreen.main.bounds.width - 12 * 2
 
         let labelWithConstraint = width - 12 * 3 - 44
