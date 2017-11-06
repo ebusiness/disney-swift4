@@ -19,13 +19,13 @@ class ShowOtherCell: UICollectionViewCell {
                 case .appropriateFor:
                     icon.image = #imageLiteral(resourceName: "ic_accessibility_black_32px")
                 case .showType:
-                    icon.image = #imageLiteral(resourceName: "ic_stars_black_32px")
+                    icon.image = #imageLiteral(resourceName: "ic_dns_black_32px")
                 case .barrierFree:
                     icon.image = #imageLiteral(resourceName: "ic_accessible_black_32px")
                 case .reservationsRequired:
-                    icon.image = #imageLiteral(resourceName: "ic_photo_camera_black_32px")
+                    icon.image = #imageLiteral(resourceName: "ic_event_available_black_32px")
                 case .seatsAvailableByLottery:
-                    icon.image = #imageLiteral(resourceName: "ic_stars_black_32px")
+                    icon.image = #imageLiteral(resourceName: "ic_style_black_32px")
                 }
             }
         }
