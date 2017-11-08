@@ -2,6 +2,7 @@ disabled_rules: # 执行时排除掉的规则
   - colon
   - comma
   - control_statement
+  - nesting
 opt_in_rules: # 一些规则仅仅是可选的
   - empty_count
   - missing_docs
@@ -24,8 +25,8 @@ type_body_length:
   - 401 # error
 # 或者也可以同时进行显式设置
 file_length:
-  warning: 500
-  error: 1200
+  warning: 800
+  error: 2000
 # 命名规则可以设置最小长度和最大程度的警告/错误
 # 此外它们也可以设置排除在外的名字
 type_name:

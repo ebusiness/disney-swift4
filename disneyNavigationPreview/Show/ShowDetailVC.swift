@@ -218,10 +218,6 @@ class AnalysedShowDetail: Localizable {
         analysis()
     }
 
-    required init(from decoder: Decoder) throws {
-        fatalError("init(from:) has not been implemented")
-    }
-
     enum PayloadType {
         case showType
         case barrierFree
@@ -245,6 +241,7 @@ class AnalysedShowDetail: Localizable {
         }
     }
 
+    //swiftlint:disable:next cyclomatic_complexity
     private func analysis() {
         for tag in parent.summary_tags {
             if keys(for: .barrierFree).contains(tag.type) {

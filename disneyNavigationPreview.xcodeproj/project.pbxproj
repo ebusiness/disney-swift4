@@ -32,9 +32,11 @@
 		1F4EE8E81F9DD9AD00D76E84 /* GreetingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4EE8E71F9DD9AD00D76E84 /* GreetingCell.swift */; };
 		1F5096F81F6784950008B8C1 /* AttractionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5096F71F6784950008B8C1 /* AttractionCell.swift */; };
 		1F5096FA1F67C9A00008B8C1 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F5096F91F67C9A00008B8C1 /* AlamofireImage.framework */; };
-		1F6943771F693E330082E333 /* AttractionDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6943761F693E330082E333 /* AttractionDetailVC.swift */; };
+		1F5BDF011FB070C400D69560 /* AttractionImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5BDF001FB070C400D69560 /* AttractionImageCell.swift */; };
+		1F5BDF031FB0713000D69560 /* AttractionOtherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5BDF021FB0713000D69560 /* AttractionOtherCell.swift */; };
 		1F6F4DF91FAB241800FCE72A /* ShowImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6F4DF81FAB241800FCE72A /* ShowImageCell.swift */; };
 		1F6F4DFB1FAB243200FCE72A /* ShowOtherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6F4DFA1FAB243100FCE72A /* ShowOtherCell.swift */; };
+		1F6F4DFD1FB01B9500FCE72A /* AttractionDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6F4DFC1FB01B9500FCE72A /* AttractionDetailVC.swift */; };
 		1F719B861F627E230010CD68 /* BaseInfoTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F719B851F627E230010CD68 /* BaseInfoTagCell.swift */; };
 		1F719B891F62A10A0010CD68 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F719B881F62A10A0010CD68 /* Main.swift */; };
 		1F719B8F1F663F680010CD68 /* AttractionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F719B8E1F663F680010CD68 /* AttractionVC.swift */; };
@@ -77,7 +79,8 @@
 		1FBB52391F74EEEB006EDC55 /* CreatePlanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB52381F74EEEB006EDC55 /* CreatePlanModel.swift */; };
 		1FBB523B1F74F49B006EDC55 /* CreatePlanAttractionsHotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB523A1F74F49B006EDC55 /* CreatePlanAttractionsHotCell.swift */; };
 		1FBB523D1F750916006EDC55 /* TopRoundedCornerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB523C1F750916006EDC55 /* TopRoundedCornerImageView.swift */; };
-		1FE689061F6A2DB800D50201 /* AttractionDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE689051F6A2DB800D50201 /* AttractionDetailCell.swift */; };
+		1FC350A91FB2A99200AE8A6C /* AttractionChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC350A81FB2A99200AE8A6C /* AttractionChartCell.swift */; };
+		1FC350AB1FB3029800AE8A6C /* WaitTimeChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC350AA1FB3029800AE8A6C /* WaitTimeChart.swift */; };
 		1FF532911F9EF89F00E44B81 /* AttractionEmptyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF532901F9EF89F00E44B81 /* AttractionEmptyPageVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -113,9 +116,11 @@
 		1F4EE8E71F9DD9AD00D76E84 /* GreetingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingCell.swift; sourceTree = "<group>"; };
 		1F5096F71F6784950008B8C1 /* AttractionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionCell.swift; sourceTree = "<group>"; };
 		1F5096F91F67C9A00008B8C1 /* AlamofireImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlamofireImage.framework; path = Carthage/Build/iOS/AlamofireImage.framework; sourceTree = "<group>"; };
-		1F6943761F693E330082E333 /* AttractionDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionDetailVC.swift; sourceTree = "<group>"; };
+		1F5BDF001FB070C400D69560 /* AttractionImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionImageCell.swift; sourceTree = "<group>"; };
+		1F5BDF021FB0713000D69560 /* AttractionOtherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionOtherCell.swift; sourceTree = "<group>"; };
 		1F6F4DF81FAB241800FCE72A /* ShowImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowImageCell.swift; sourceTree = "<group>"; };
 		1F6F4DFA1FAB243100FCE72A /* ShowOtherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowOtherCell.swift; sourceTree = "<group>"; };
+		1F6F4DFC1FB01B9500FCE72A /* AttractionDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionDetailVC.swift; sourceTree = "<group>"; };
 		1F719B851F627E230010CD68 /* BaseInfoTagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoTagCell.swift; sourceTree = "<group>"; };
 		1F719B881F62A10A0010CD68 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		1F719B8E1F663F680010CD68 /* AttractionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionVC.swift; sourceTree = "<group>"; };
@@ -169,7 +174,8 @@
 		1FBB52381F74EEEB006EDC55 /* CreatePlanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanModel.swift; sourceTree = "<group>"; };
 		1FBB523A1F74F49B006EDC55 /* CreatePlanAttractionsHotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanAttractionsHotCell.swift; sourceTree = "<group>"; };
 		1FBB523C1F750916006EDC55 /* TopRoundedCornerImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRoundedCornerImageView.swift; sourceTree = "<group>"; };
-		1FE689051F6A2DB800D50201 /* AttractionDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionDetailCell.swift; sourceTree = "<group>"; };
+		1FC350A81FB2A99200AE8A6C /* AttractionChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionChartCell.swift; sourceTree = "<group>"; };
+		1FC350AA1FB3029800AE8A6C /* WaitTimeChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitTimeChart.swift; sourceTree = "<group>"; };
 		1FF532901F9EF89F00E44B81 /* AttractionEmptyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionEmptyPageVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -294,8 +300,11 @@
 				1FF532901F9EF89F00E44B81 /* AttractionEmptyPageVC.swift */,
 				1F719B8E1F663F680010CD68 /* AttractionVC.swift */,
 				1F5096F71F6784950008B8C1 /* AttractionCell.swift */,
-				1F6943761F693E330082E333 /* AttractionDetailVC.swift */,
-				1FE689051F6A2DB800D50201 /* AttractionDetailCell.swift */,
+				1F6F4DFC1FB01B9500FCE72A /* AttractionDetailVC.swift */,
+				1F5BDF001FB070C400D69560 /* AttractionImageCell.swift */,
+				1FC350A81FB2A99200AE8A6C /* AttractionChartCell.swift */,
+				1F5BDF021FB0713000D69560 /* AttractionOtherCell.swift */,
+				1FC350AA1FB3029800AE8A6C /* WaitTimeChart.swift */,
 				1F93D64F1F7107D100EFE8D5 /* AttractionColor.swift */,
 				1F81E7C01F9F525E0011B6F7 /* RightImageButton.swift */,
 				1F2D51401FA05B53008F2511 /* AttractionSearchVC.swift */,
@@ -478,7 +487,6 @@
 			files = (
 				1F93D6501F7107D100EFE8D5 /* AttractionColor.swift in Sources */,
 				1FBB52371F74EC5C006EDC55 /* CreatePlanAttractionsHot.swift in Sources */,
-				1F6943771F693E330082E333 /* AttractionDetailVC.swift in Sources */,
 				1F0D7C121F5FA85F006AC4DB /* BaseInfoParkPickVC.swift in Sources */,
 				1F719B911F663F7E0010CD68 /* SettingVC.swift in Sources */,
 				1F4EE8E61F99CFB600D76E84 /* ShowCell.swift in Sources */,
@@ -496,6 +504,7 @@
 				1F3436D61F73794800F05EF7 /* CreatePlanTimeAndPark.swift in Sources */,
 				1F4EE8E81F9DD9AD00D76E84 /* GreetingCell.swift in Sources */,
 				1F0D7BF01F5E76CA006AC4DB /* BaseInfoNavigationController.swift in Sources */,
+				1FC350AB1FB3029800AE8A6C /* WaitTimeChart.swift in Sources */,
 				1FF532911F9EF89F00E44B81 /* AttractionEmptyPageVC.swift in Sources */,
 				1F5096F81F6784950008B8C1 /* AttractionCell.swift in Sources */,
 				1F3436D31F736B0F00F05EF7 /* SuggestColor.swift in Sources */,
@@ -507,18 +516,21 @@
 				1F81E7C11F9F525E0011B6F7 /* RightImageButton.swift in Sources */,
 				1F7ADA701F988CC500178A28 /* GreetingVC.swift in Sources */,
 				1FAE3A171F75195F00812C1A /* CreatePlanColor.swift in Sources */,
+				1F5BDF031FB0713000D69560 /* AttractionOtherCell.swift in Sources */,
 				1F111C151F6BB2B4002D2FB6 /* UIViewControllerExtension.swift in Sources */,
 				1FB4DF121F791ABA00198401 /* CreatePlanMainCell.swift in Sources */,
 				1F3436D81F7394C400F05EF7 /* CreatePlanMain.swift in Sources */,
 				1F76247F1FA9BFCF005F3D4A /* ShowDetailVC.swift in Sources */,
-				1FE689061F6A2DB800D50201 /* AttractionDetailCell.swift in Sources */,
 				1FA7999A1F624A9B003EC3F2 /* BaseInfoModel.swift in Sources */,
 				1F6F4DF91FAB241800FCE72A /* ShowImageCell.swift in Sources */,
 				1F0D7BF71F5E807A006AC4DB /* Localize.swift in Sources */,
 				1FB151081F5D354200BE4A7D /* ViewController.swift in Sources */,
 				1F2D51411FA05B53008F2511 /* AttractionSearchVC.swift in Sources */,
 				1F719B891F62A10A0010CD68 /* Main.swift in Sources */,
+				1F5BDF011FB070C400D69560 /* AttractionImageCell.swift in Sources */,
 				1FBB52391F74EEEB006EDC55 /* CreatePlanModel.swift in Sources */,
+				1FC350A91FB2A99200AE8A6C /* AttractionChartCell.swift in Sources */,
+				1F6F4DFD1FB01B9500FCE72A /* AttractionDetailVC.swift in Sources */,
 				1F0D7BF51F5E801B006AC4DB /* BaseInfoEssentialCell.swift in Sources */,
 				1F76247D1FA9A3AF005F3D4A /* StringExtension.swift in Sources */,
 				1FB151061F5D354200BE4A7D /* AppDelegate.swift in Sources */,

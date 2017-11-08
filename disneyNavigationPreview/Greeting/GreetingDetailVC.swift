@@ -218,10 +218,6 @@ class AnalysedGreetingDetail: Localizable {
         analysis()
     }
 
-    required init(from decoder: Decoder) throws {
-        fatalError("init(from:) has not been implemented")
-    }
-
     enum PayloadType {
         case participatingDisneyCharacter
         case barrierFree

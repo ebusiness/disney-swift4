@@ -1,15 +1,15 @@
 //
-//  ShowOtherCell.swift
+//  AttractionOtherCell.swift
 //  disneyNavigationPreview
 //
-//  Created by ebuser on 2017/11/2.
-//  Copyright © 2017年 ebuser. All rights reserved.
+//  Created by ebuser on 2017/11/06.
+//  Copyright © 2017 ebuser. All rights reserved.
 //
 
 import UIKit
 
-class ShowOtherCell: UICollectionViewCell {
-    var payload: AnalysedShowDetail.Payload? {
+class AttractionOtherCell: UICollectionViewCell {
+    var payload: AnalysedAttractionDetail.Payload? {
         didSet {
             titleLabel.text = payload?.title
             textLabel.text = payload?.content
@@ -18,14 +18,18 @@ class ShowOtherCell: UICollectionViewCell {
                 switch type {
                 case .appropriateFor:
                     icon.image = #imageLiteral(resourceName: "ic_accessibility_black_32px")
-                case .showType:
+                case .attractionType:
                     icon.image = #imageLiteral(resourceName: "ic_dns_black_32px")
                 case .barrierFree:
                     icon.image = #imageLiteral(resourceName: "ic_accessible_black_32px")
-                case .reservationsRequired:
-                    icon.image = #imageLiteral(resourceName: "ic_event_available_black_32px")
-                case .seatsAvailableByLottery:
-                    icon.image = #imageLiteral(resourceName: "ic_style_black_32px")
+                case .capacity:
+                    icon.image = #imageLiteral(resourceName: "ic_group_black_32px")
+                case .duration:
+                    icon.image = #imageLiteral(resourceName: "ic_access_time_black_32px")
+                case .fastpassAttraction:
+                    icon.image = #imageLiteral(resourceName: "ic_fastpass_32px")
+                case .limited:
+                    icon.image = #imageLiteral(resourceName: "ic_warning_black_32px")
                 }
             }
         }
@@ -86,7 +90,7 @@ class ShowOtherCell: UICollectionViewCell {
         textLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: -12).isActive = true
     }
 
-    static func autoLayoutSize(payload: AnalysedShowDetail.Payload) -> CGSize {
+    static func autoLayoutSize(payload: AnalysedAttractionDetail.Payload) -> CGSize {
         let width = UIScreen.main.bounds.width - 12 * 2
 
         let labelWithConstraint = width - 12 * 3 - 44
@@ -105,16 +109,16 @@ class ShowOtherCell: UICollectionViewCell {
     }
 }
 
-class ShowNoteCell: ShowOtherCell, Localizable {
+class AttractionNoteCell: AttractionOtherCell, Localizable {
 
     let localizeFileName = "Attraction"
 
-    var detail: AnalysedShowDetail? {
+    var detail: AnalysedAttractionDetail? {
         didSet {
             if let detail = detail {
                 icon.image = #imageLiteral(resourceName: "ic_sentiment_very_satisfied_black_32px")
 
-                titleLabel.text = localize(for: "Show Note")
+                titleLabel.text = localize(for: "Attraction Note")
                 let introduction = detail.parent.introductions
 
                 if let introductionhtmlAttributedString = introduction.htmlAttributedString {
@@ -127,11 +131,11 @@ class ShowNoteCell: ShowOtherCell, Localizable {
         }
     }
 
-    static func autoLayoutSize(detail: AnalysedShowDetail) -> CGSize {
+    static func autoLayoutSize(detail: AnalysedAttractionDetail) -> CGSize {
         let width = UIScreen.main.bounds.width - 12 * 2
 
         let labelWithConstraint = width - 12 * 3 - 44
-        let titleContent = NSLocalizedString("Show Note",
+        let titleContent = NSLocalizedString("Attraction Note",
                                              tableName: "Attraction",
                                              comment: "")
         let titleHeight = (titleContent as NSString).boundingRect(with: CGSize(width: labelWithConstraint, height: 0),

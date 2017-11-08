@@ -40,4 +40,12 @@
 ・每组游客当日可在“明日乐园大厅”参加一次本节目的抽签活动。";
 "Show type" = "娱乐表演分类";
 
+"Attraction type" = "游乐设施分类";
+"Capacity" = "定员";
+"Duration" = "所需时间";
+"Boarding Restrictions" = "搭乘限制";
+"FASTPASS Attraction" = "采用快速通行的游乐设施";
+
 "Greeting Note" = "简介";
+"Show Note" = "简介";
+"Attraction Note" = "简介";

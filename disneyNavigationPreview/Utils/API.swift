@@ -182,6 +182,7 @@ extension API {
         case list(park: TokyoDisneyPark)
         case detail(park: TokyoDisneyPark, id: String)
         case hot(park: TokyoDisneyPark)
+        case waitTime(park: TokyoDisneyPark, id: String, date: String?)
 
         var path: String {
             switch self {
@@ -191,6 +192,12 @@ extension API {
                 return "attractions/\(id)"
             case .hot:
                 return "attractions"
+            case .waitTime(_, let id, let date):
+                if let date = date {
+                    return "attractions/\(id)/waittimes/\(date)"
+                } else {
+                    return "attractions/\(id)/waittimes"
+                }
             }
         }
 
@@ -217,6 +224,8 @@ extension API {
             case .detail(let _park, _):
                 return _park
             case .hot(let _park):
+                return _park
+            case .waitTime(let _park, _, _):
                 return _park
             }
         }

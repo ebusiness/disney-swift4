@@ -14,6 +14,9 @@ final class AttractionVC: UIViewController, Localizable {
 
     var spots = [Attraction]()
 
+    typealias CallBackAction = ((Attraction) -> Void)
+    private var _pushToDetailCallback: CallBackAction?
+
     private let collectionView: UICollectionView
     private let identifierFastpass = "identfierFastpass"
     private let identifierNoneFastpass = "identifierNoneFastpass"
@@ -80,9 +83,14 @@ final class AttractionVC: UIViewController, Localizable {
         collectionView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
     }
 
-    private func pushToDetail(spot: Attraction) {
-        let destination = AttractionDetailVC(attraction: spot)
-        navigationController?.pushViewController(destination, animated: true)
+    private func pushToDetail(attraction: Attraction) {
+        _pushToDetailCallback?(attraction)
+    }
+
+    @discardableResult
+    func pushToDetailCallback(_ pushToDetailCallback: @escaping CallBackAction) -> AttractionVC {
+        _pushToDetailCallback = pushToDetailCallback
+        return self
     }
 
     func reloadAllSpots(_ spots: [Attraction]) {
@@ -114,8 +122,8 @@ extension AttractionVC: UICollectionViewDelegateFlowLayout, UICollectionViewData
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: false)
-        let spot = spots[indexPath.item]
-        pushToDetail(spot: spot)
+        let attraction = spots[indexPath.item]
+        pushToDetail(attraction: attraction)
     }
 
 }
