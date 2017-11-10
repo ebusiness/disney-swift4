@@ -24,6 +24,7 @@
 		1F24BDF71FB45481004C94E7 /* TimelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F24BDF61FB45481004C94E7 /* TimelineCell.swift */; };
 		1F24BDFA1FB45D28004C94E7 /* Timeline.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F24BDFC1FB45D28004C94E7 /* Timeline.strings */; };
 		1F24BE071FB53FE5004C94E7 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F24BE061FB53FE5004C94E7 /* ArrayExtension.swift */; };
+		1F24BE0C1FB59E23004C94E7 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F24BE0B1FB59E23004C94E7 /* MapVC.swift */; };
 		1F2D51411FA05B53008F2511 /* AttractionSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2D51401FA05B53008F2511 /* AttractionSearchVC.swift */; };
 		1F2E56D11F98823800B10912 /* ShowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E56D01F98823800B10912 /* ShowVC.swift */; };
 		1F2E56D31F988AC200B10912 /* AttractionPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E56D21F988AC200B10912 /* AttractionPageVC.swift */; };
@@ -123,6 +124,7 @@
 		1F24BE041FB45D4F004C94E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/CreatePlan.strings; sourceTree = "<group>"; };
 		1F24BE051FB45D52004C94E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Timeline.strings; sourceTree = "<group>"; };
 		1F24BE061FB53FE5004C94E7 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		1F24BE0B1FB59E23004C94E7 /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		1F2D51401FA05B53008F2511 /* AttractionSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionSearchVC.swift; sourceTree = "<group>"; };
 		1F2E56D01F98823800B10912 /* ShowVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowVC.swift; sourceTree = "<group>"; };
 		1F2E56D21F988AC200B10912 /* AttractionPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionPageVC.swift; sourceTree = "<group>"; };
@@ -250,6 +252,14 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		1F24BE081FB59DE2004C94E7 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				1F24BE0B1FB59E23004C94E7 /* MapVC.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		1F2E56CF1F98821B00B10912 /* Show */ = {
 			isa = PBXGroup;
 			children = (
@@ -368,6 +378,7 @@
 		1FB151041F5D354200BE4A7D /* disneyNavigationPreview */ = {
 			isa = PBXGroup;
 			children = (
+				1F24BE081FB59DE2004C94E7 /* Map */,
 				1FC350AC1FB3330300AE8A6C /* Timeline */,
 				1F7ADA6E1F988CB300178A28 /* Greeting */,
 				1F2E56CF1F98821B00B10912 /* Show */,
@@ -562,6 +573,7 @@
 				1FB4DF121F791ABA00198401 /* CreatePlanMainCell.swift in Sources */,
 				1F3436D81F7394C400F05EF7 /* CreatePlanMain.swift in Sources */,
 				1F76247F1FA9BFCF005F3D4A /* ShowDetailVC.swift in Sources */,
+				1F24BE0C1FB59E23004C94E7 /* MapVC.swift in Sources */,
 				1FA7999A1F624A9B003EC3F2 /* BaseInfoModel.swift in Sources */,
 				1F6F4DF91FAB241800FCE72A /* ShowImageCell.swift in Sources */,
 				1F0D7BF71F5E807A006AC4DB /* Localize.swift in Sources */,

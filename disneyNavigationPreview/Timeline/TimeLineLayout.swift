@@ -28,6 +28,7 @@ class TimeLineLayout: UICollectionViewLayout {
     //swiftlint:disable:next function_body_length
     override func prepare() {
         blackLayoutAttributes.removeAll()
+        whiteLayoutAttributes.removeAll()
         if let collectionView = collectionView {
             let numberOfSections = collectionView.numberOfSections
             if numberOfSections > 0 {

@@ -66,6 +66,9 @@ class TabVC: UITabBarController, Localizable {
         attractionPageVC.tabBarItem.title = localize(for: "TabbarAttraction")
         let attractionPageNavi = NavigationVC(rootViewController: attractionPageVC)
 
+        let mapVC = MapVC()
+        mapVC.tabBarItem.image = #imageLiteral(resourceName: "tab_bar_map")
+
         let showVC = ShowVC()
         showVC.tabBarItem.image = #imageLiteral(resourceName: "tab_bar_show")
         showVC.tabBarItem.title = localize(for: "TabbarShow")

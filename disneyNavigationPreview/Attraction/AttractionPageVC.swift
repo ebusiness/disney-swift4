@@ -207,7 +207,7 @@ final class AttractionPageVC: UIViewController, Localizable {
     private func setupSubControllers() {
         showVC.pushToDetailCallback { [weak self] show in
             guard let strongSelf = self else { return }
-            let next = ShowDetailVC(park: strongSelf.park, attraction: show)
+            let next = ShowDetailVC(park: strongSelf.park, attractionId: show.str_id, attractionName: show.name)
             strongSelf.navigationController?.pushViewController(next, animated: true)
         }
         greetingVC.pushToDetailCallback { [weak self] attraction in

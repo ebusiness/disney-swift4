@@ -45,6 +45,12 @@ class TimelineVC: UIViewController, Localizable {
         requestTimeline()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+
     private func setupNavigationBar() {
         let backbuttonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_clear_black_24px"), style: .plain, target: self, action: #selector(backButtonPressed(_:)))
         navigationItem.leftBarButtonItem = backbuttonItem
@@ -123,6 +129,14 @@ extension TimelineVC: UICollectionViewDelegateTimeLineLayout, UICollectionViewDa
         return timeline?.events[safe: indexPath.section]?[safe: indexPath.item]?.duration ?? 0
     }
 
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: false)
+        if let event = timeline?.events[safe: indexPath.section]?[safe: indexPath.item] {
+            let next = ShowDetailVC(park: park, attractionId: event.id, attractionName: event.name)
+            navigationController?.pushViewController(next, animated: true)
+        }
+    }
+
 }
 
 struct AnalysedTimeline {
@@ -136,7 +150,8 @@ struct AnalysedTimeline {
             var allEvents = [Event]()
             filtered.forEach({ timeline in
                 let name = timeline.name
-                let tintColor = ParkArea(rawValue: timeline.area)?.tintColor ?? UIColor.brown
+                let tintColor = ParkArea(rawValue: timeline.area)?.tintColor ?? GlobalColor.primaryRed
+                let id = timeline.id
                 timeline.schedules.forEach({ schedule in
                     guard let startDate = Date(iso8601str: schedule.startTime),
                         let endDate = Date(iso8601str: schedule.endTime) else { return }
@@ -152,7 +167,7 @@ struct AnalysedTimeline {
                     let startHour = CGFloat(starttimeInterval / 3600)
                     let durationHour = CGFloat(durationtimeInterval / 3600)
 
-                    let event = Event(name: name, start: startHour, duration: durationHour, tintColor: tintColor)
+                    let event = Event(id: id, name: name, start: startHour, duration: durationHour, tintColor: tintColor)
                     allEvents.append(event)
                 })
             })
@@ -169,6 +184,7 @@ struct AnalysedTimeline {
     }
 
     struct Event {
+        let id: String
         let name: String
         let start: CGFloat
         let duration: CGFloat
