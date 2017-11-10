@@ -315,7 +315,6 @@ class AnalysedAttractionDetail: Localizable {
         let content: String
     }
 
-    //swiftlint:disable:next cyclomatic_complexity
     private func analysis() {
         for tag in parent.summary_tags {
             if keys(for: .barrierFree).contains(tag.type) {
@@ -367,7 +366,7 @@ class AnalysedAttractionDetail: Localizable {
         }
     }
 
-    //swiftlint:disable:next function_body_length cyclomatic_complexity
+    //swiftlint:disable:next function_body_length
     func detail(for property: PayloadType) -> Payload? {
         switch property {
         case .appropriateFor:

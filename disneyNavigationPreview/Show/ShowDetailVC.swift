@@ -241,7 +241,6 @@ class AnalysedShowDetail: Localizable {
         }
     }
 
-    //swiftlint:disable:next cyclomatic_complexity
     private func analysis() {
         for tag in parent.summary_tags {
             if keys(for: .barrierFree).contains(tag.type) {

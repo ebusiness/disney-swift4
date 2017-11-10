@@ -265,3 +265,37 @@ extension API {
         }
     }
 }
+
+extension API {
+    enum Show: Requestable {
+        case list(park: TokyoDisneyPark, date: String)
+
+        var path: String {
+            switch self {
+            case .list(_, let date):
+                return "show/\(date)"
+            }
+        }
+
+        var method: RequestMethod {
+            switch self {
+            default:
+                return .GET
+            }
+        }
+
+        var parameters: [String : Any]? {
+            switch self {
+            default:
+                return nil
+            }
+        }
+
+        var park: TokyoDisneyPark {
+            switch self {
+            case .list(let _park, _):
+                return _park
+            }
+        }
+    }
+}

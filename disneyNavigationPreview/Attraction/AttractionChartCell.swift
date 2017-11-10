@@ -51,7 +51,6 @@ class AttractionChartCell: UICollectionViewCell {
     }
 }
 
-// swiftlint:disable identifier_name
 extension AttractionChartCell: WaitTimeChartDelegate, WaitTimeChartDataSource {
     var title: String? {
         if let date = data?.date {

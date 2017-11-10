@@ -8,7 +8,6 @@
 
 import UIKit
 
-// swiftlint:disable identifier_name
 class WaitTimeChart: UIView {
 
     var title: String? {

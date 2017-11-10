@@ -15,6 +15,12 @@ extension TimeZone {
 }
 
 extension Date {
+    var dateStringInTokyo: String {
+        let formatter = DateFormatter()
+        formatter.timeZone = .tokyoTimezone
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.string(from: self)
+    }
     func numberOfDaysInMonth() -> Int? {
         let range = Calendar.current.range(of: .day, in: .month, for: self)
         return range?.count

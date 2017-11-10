@@ -20,6 +20,10 @@
 		1F111C151F6BB2B4002D2FB6 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F111C141F6BB2B4002D2FB6 /* UIViewControllerExtension.swift */; };
 		1F1719CB1FA6CB770064C2FD /* GreetingImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1719CA1FA6CB770064C2FD /* GreetingImageCell.swift */; };
 		1F1719CD1FA816B40064C2FD /* GreetingOtherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1719CC1FA816B40064C2FD /* GreetingOtherCell.swift */; };
+		1F24BDF51FB4361F004C94E7 /* TimelineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F24BDF41FB4361F004C94E7 /* TimelineModel.swift */; };
+		1F24BDF71FB45481004C94E7 /* TimelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F24BDF61FB45481004C94E7 /* TimelineCell.swift */; };
+		1F24BDFA1FB45D28004C94E7 /* Timeline.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F24BDFC1FB45D28004C94E7 /* Timeline.strings */; };
+		1F24BE071FB53FE5004C94E7 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F24BE061FB53FE5004C94E7 /* ArrayExtension.swift */; };
 		1F2D51411FA05B53008F2511 /* AttractionSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2D51401FA05B53008F2511 /* AttractionSearchVC.swift */; };
 		1F2E56D11F98823800B10912 /* ShowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E56D01F98823800B10912 /* ShowVC.swift */; };
 		1F2E56D31F988AC200B10912 /* AttractionPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2E56D21F988AC200B10912 /* AttractionPageVC.swift */; };
@@ -81,6 +85,8 @@
 		1FBB523D1F750916006EDC55 /* TopRoundedCornerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB523C1F750916006EDC55 /* TopRoundedCornerImageView.swift */; };
 		1FC350A91FB2A99200AE8A6C /* AttractionChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC350A81FB2A99200AE8A6C /* AttractionChartCell.swift */; };
 		1FC350AB1FB3029800AE8A6C /* WaitTimeChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC350AA1FB3029800AE8A6C /* WaitTimeChart.swift */; };
+		1FC350AE1FB3332B00AE8A6C /* TimelineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC350AD1FB3332B00AE8A6C /* TimelineVC.swift */; };
+		1FC350B01FB3341100AE8A6C /* TimeLineLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC350AF1FB3341100AE8A6C /* TimeLineLayout.swift */; };
 		1FF532911F9EF89F00E44B81 /* AttractionEmptyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF532901F9EF89F00E44B81 /* AttractionEmptyPageVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +110,19 @@
 		1F111C141F6BB2B4002D2FB6 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		1F1719CA1FA6CB770064C2FD /* GreetingImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingImageCell.swift; sourceTree = "<group>"; };
 		1F1719CC1FA816B40064C2FD /* GreetingOtherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingOtherCell.swift; sourceTree = "<group>"; };
+		1F24BDF41FB4361F004C94E7 /* TimelineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineModel.swift; sourceTree = "<group>"; };
+		1F24BDF61FB45481004C94E7 /* TimelineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineCell.swift; sourceTree = "<group>"; };
+		1F24BDFB1FB45D28004C94E7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Timeline.strings; sourceTree = "<group>"; };
+		1F24BDFD1FB45D2A004C94E7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Timeline.strings"; sourceTree = "<group>"; };
+		1F24BDFE1FB45D2E004C94E7 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Timeline.strings"; sourceTree = "<group>"; };
+		1F24BDFF1FB45D2E004C94E7 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Timeline.strings; sourceTree = "<group>"; };
+		1F24BE001FB45D44004C94E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/BaseModel.strings; sourceTree = "<group>"; };
+		1F24BE011FB45D48004C94E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/BaseInfo.strings; sourceTree = "<group>"; };
+		1F24BE021FB45D4A004C94E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Main.strings; sourceTree = "<group>"; };
+		1F24BE031FB45D4D004C94E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Attraction.strings; sourceTree = "<group>"; };
+		1F24BE041FB45D4F004C94E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/CreatePlan.strings; sourceTree = "<group>"; };
+		1F24BE051FB45D52004C94E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Timeline.strings; sourceTree = "<group>"; };
+		1F24BE061FB53FE5004C94E7 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 		1F2D51401FA05B53008F2511 /* AttractionSearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionSearchVC.swift; sourceTree = "<group>"; };
 		1F2E56D01F98823800B10912 /* ShowVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowVC.swift; sourceTree = "<group>"; };
 		1F2E56D21F988AC200B10912 /* AttractionPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionPageVC.swift; sourceTree = "<group>"; };
@@ -176,6 +195,8 @@
 		1FBB523C1F750916006EDC55 /* TopRoundedCornerImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRoundedCornerImageView.swift; sourceTree = "<group>"; };
 		1FC350A81FB2A99200AE8A6C /* AttractionChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionChartCell.swift; sourceTree = "<group>"; };
 		1FC350AA1FB3029800AE8A6C /* WaitTimeChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitTimeChart.swift; sourceTree = "<group>"; };
+		1FC350AD1FB3332B00AE8A6C /* TimelineVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineVC.swift; sourceTree = "<group>"; };
+		1FC350AF1FB3341100AE8A6C /* TimeLineLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineLayout.swift; sourceTree = "<group>"; };
 		1FF532901F9EF89F00E44B81 /* AttractionEmptyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionEmptyPageVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -224,6 +245,7 @@
 				1F76247C1FA9A3AF005F3D4A /* StringExtension.swift */,
 				1FBB523C1F750916006EDC55 /* TopRoundedCornerImageView.swift */,
 				1F111C141F6BB2B4002D2FB6 /* UIViewControllerExtension.swift */,
+				1F24BE061FB53FE5004C94E7 /* ArrayExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -346,6 +368,7 @@
 		1FB151041F5D354200BE4A7D /* disneyNavigationPreview */ = {
 			isa = PBXGroup;
 			children = (
+				1FC350AC1FB3330300AE8A6C /* Timeline */,
 				1F7ADA6E1F988CB300178A28 /* Greeting */,
 				1F2E56CF1F98821B00B10912 /* Show */,
 				1F719B8D1F663EC10010CD68 /* Attraction */,
@@ -366,6 +389,7 @@
 				1F8D0FAF1F666D66006461D1 /* Main.strings */,
 				1F8D0FB71F666F81006461D1 /* Attraction.strings */,
 				1FBB52321F74E444006EDC55 /* CreatePlan.strings */,
+				1F24BDFC1FB45D28004C94E7 /* Timeline.strings */,
 			);
 			path = disneyNavigationPreview;
 			sourceTree = "<group>";
@@ -380,6 +404,17 @@
 				1FB151201F5D479300BE4A7D /* RxSwift.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1FC350AC1FB3330300AE8A6C /* Timeline */ = {
+			isa = PBXGroup;
+			children = (
+				1F24BDF41FB4361F004C94E7 /* TimelineModel.swift */,
+				1FC350AD1FB3332B00AE8A6C /* TimelineVC.swift */,
+				1F24BDF61FB45481004C94E7 /* TimelineCell.swift */,
+				1FC350AF1FB3341100AE8A6C /* TimeLineLayout.swift */,
+			);
+			path = Timeline;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -448,6 +483,7 @@
 				1F0D7BFD1F5E8B8F006AC4DB /* BaseModel.strings in Resources */,
 				1FB151291F5D4B3600BE4A7D /* .swiftlint.yml in Resources */,
 				1FB151131F5D354200BE4A7D /* LaunchScreen.storyboard in Resources */,
+				1F24BDFA1FB45D28004C94E7 /* Timeline.strings in Resources */,
 				1F8D0FB51F666F81006461D1 /* Attraction.strings in Resources */,
 				1F0D7C0B1F5FA343006AC4DB /* BaseInfo.strings in Resources */,
 				1F8D0FAD1F666D66006461D1 /* Main.strings in Resources */,
@@ -502,9 +538,14 @@
 				1FB1510E1F5D354200BE4A7D /* disneyNavigationPreview.xcdatamodeld in Sources */,
 				1F73B4531F5FE06C006FFABB /* ParkPicker.swift in Sources */,
 				1F3436D61F73794800F05EF7 /* CreatePlanTimeAndPark.swift in Sources */,
+				1F24BDF71FB45481004C94E7 /* TimelineCell.swift in Sources */,
+				1FC350B01FB3341100AE8A6C /* TimeLineLayout.swift in Sources */,
 				1F4EE8E81F9DD9AD00D76E84 /* GreetingCell.swift in Sources */,
 				1F0D7BF01F5E76CA006AC4DB /* BaseInfoNavigationController.swift in Sources */,
+				1F24BE071FB53FE5004C94E7 /* ArrayExtension.swift in Sources */,
+				1FC350AE1FB3332B00AE8A6C /* TimelineVC.swift in Sources */,
 				1FC350AB1FB3029800AE8A6C /* WaitTimeChart.swift in Sources */,
+				1F24BDF51FB4361F004C94E7 /* TimelineModel.swift in Sources */,
 				1FF532911F9EF89F00E44B81 /* AttractionEmptyPageVC.swift in Sources */,
 				1F5096F81F6784950008B8C1 /* AttractionCell.swift in Sources */,
 				1F3436D31F736B0F00F05EF7 /* SuggestColor.swift in Sources */,
@@ -559,6 +600,7 @@
 				1F0D7C031F5E8C7C006AC4DB /* zh-Hans */,
 				1F0D7C051F5E8C82006AC4DB /* zh-Hant */,
 				1F0D7C071F5E8C86006AC4DB /* ja */,
+				1F24BE001FB45D44004C94E7 /* Base */,
 			);
 			name = BaseModel.strings;
 			sourceTree = "<group>";
@@ -570,8 +612,21 @@
 				1F0D7C0E1F5FA34D006AC4DB /* zh-Hans */,
 				1F0D7C0F1F5FA34F006AC4DB /* zh-Hant */,
 				1F0D7C101F5FA350006AC4DB /* ja */,
+				1F24BE011FB45D48004C94E7 /* Base */,
 			);
 			name = BaseInfo.strings;
+			sourceTree = "<group>";
+		};
+		1F24BDFC1FB45D28004C94E7 /* Timeline.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F24BDFB1FB45D28004C94E7 /* en */,
+				1F24BDFD1FB45D2A004C94E7 /* zh-Hans */,
+				1F24BDFE1FB45D2E004C94E7 /* zh-Hant */,
+				1F24BDFF1FB45D2E004C94E7 /* ja */,
+				1F24BE051FB45D52004C94E7 /* Base */,
+			);
+			name = Timeline.strings;
 			sourceTree = "<group>";
 		};
 		1F8D0FAF1F666D66006461D1 /* Main.strings */ = {
@@ -581,6 +636,7 @@
 				1F8D0FB01F666D68006461D1 /* zh-Hans */,
 				1F8D0FB11F666D69006461D1 /* zh-Hant */,
 				1F8D0FB21F666D6A006461D1 /* ja */,
+				1F24BE021FB45D4A004C94E7 /* Base */,
 			);
 			name = Main.strings;
 			sourceTree = "<group>";
@@ -592,6 +648,7 @@
 				1F8D0FB81F666F89006461D1 /* zh-Hans */,
 				1F8D0FB91F666F8F006461D1 /* zh-Hant */,
 				1F8D0FBA1F666F90006461D1 /* ja */,
+				1F24BE031FB45D4D004C94E7 /* Base */,
 			);
 			name = Attraction.strings;
 			sourceTree = "<group>";
@@ -611,6 +668,7 @@
 				1FBB52331F74E445006EDC55 /* zh-Hans */,
 				1FBB52341F74E446006EDC55 /* zh-Hant */,
 				1FBB52351F74E447006EDC55 /* ja */,
+				1F24BE041FB45D4F004C94E7 /* Base */,
 			);
 			name = CreatePlan.strings;
 			sourceTree = "<group>";

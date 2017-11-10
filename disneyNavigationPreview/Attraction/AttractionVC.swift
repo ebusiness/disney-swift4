@@ -28,8 +28,6 @@ final class AttractionVC: UIViewController, Localizable {
         layout.minimumLineSpacing = 12
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         super.init(nibName: nil, bundle: nil)
-        automaticallyAdjustsScrollViewInsets = false
-        setupNavigation()
         addSubCollectionView()
     }
 
@@ -39,32 +37,6 @@ final class AttractionVC: UIViewController, Localizable {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-
-    private func setupNavigation() {
-        title = localize(for: "attraction title")
-
-        let rightButton = UIButton(type: .custom)
-        let rightButtonString = NSAttributedString(string: TokyoDisneyPark.land.localize(),
-                                                   attributes: [NSAttributedStringKey.foregroundColor: GlobalColor.primaryBlack,
-                                                                NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 12)])
-        rightButton.setAttributedTitle(rightButtonString, for: .normal)
-        rightButton.contentEdgeInsets = UIEdgeInsets(top: 5.5, left: 10, bottom: 5.5, right: 10)
-        rightButton.backgroundColor = UIColor.white
-        rightButton.layer.cornerRadius = 11.5
-        rightButton.layer.masksToBounds = true
-        let rightButtonItem = UIBarButtonItem(customView: rightButton)
-        navigationItem.rightBarButtonItem = rightButtonItem
-
-        let leftButton = UIButton(type: .custom)
-        let leftButtonString = NSAttributedString(string: " " + localize(for: "attraction filter"),
-                                                  attributes: [NSAttributedStringKey.foregroundColor: UIColor.white,
-                                                               NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15)])
-        leftButton.setImage(#imageLiteral(resourceName: "attraction_filter"), for: .normal)
-        leftButton.setImage(#imageLiteral(resourceName: "attraction_filter"), for: .highlighted)
-        leftButton.setAttributedTitle(leftButtonString, for: .normal)
-        let leftButtonItem = UIBarButtonItem(customView: leftButton)
-        navigationItem.leftBarButtonItem = leftButtonItem
     }
 
     private func addSubCollectionView() {
