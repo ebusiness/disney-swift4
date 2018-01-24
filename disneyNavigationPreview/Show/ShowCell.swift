@@ -13,8 +13,8 @@ class ShowCell: UICollectionViewCell, Localizable {
 
     var data: Attraction? {
         didSet {
-            if let imagePath = data?.images.first, let url = URL(string: imagePath) {
-                myImageView.af_setImage(withURL: url)
+            if let imagePath = data?.images.first, let url = ImageAccessUrl(string: imagePath) {
+                myImageView.af_setImage(withURLRequest: url)
             } else {
                 myImageView.image = nil
             }

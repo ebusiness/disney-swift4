@@ -11,8 +11,8 @@ import UIKit
 class ShowImageCell: UICollectionViewCell {
     var detail: AnalysedShowDetail? {
         didSet {
-            if let imagePath = detail?.parent.images.first, let url = URL(string: imagePath) {
-                imageView.af_setImage(withURL: url)
+            if let imagePath = detail?.parent.images.first, let url = ImageAccessUrl(string: imagePath) {
+                imageView.af_setImage(withURLRequest: url)
             } else {
                 imageView.image = nil
             }

@@ -7,8 +7,10 @@
 */
 
 
-"TabbarShow" = "游行表演";
+"TabbarShow" = "表演时间";
 "TabbarSuggest" = "推荐计划";
 "TabbarAttraction" = "游乐项目";
 "TabbarMyPlan" = "我的行程单";
 "TabbarSetting" = "设置";
+"TabbarMap" = "地图";
+"TabbarHot" = "人气排行";

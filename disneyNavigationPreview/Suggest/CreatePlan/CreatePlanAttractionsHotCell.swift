@@ -13,8 +13,8 @@ final class CreatePlanAttractionsHotCell: UICollectionViewCell {
 
     var data: AttractionHot? {
         didSet {
-            if let data = data {
-                imageView.af_setImage(withURL: data.images[0])
+            if let data = data, let imageRequest = ImageAccessUrl(url: data.images[0]) {
+                imageView.af_setImage(withURLRequest: imageRequest)
 
                 titleLabel.text = data.name
 

@@ -212,12 +212,12 @@ final class AttractionPageVC: UIViewController, Localizable {
         }
         greetingVC.pushToDetailCallback { [weak self] attraction in
             guard let strongSelf = self else { return }
-            let next = GreetingDetailVC(park: strongSelf.park, attraction: attraction)
+            let next = GreetingDetailVC(park: strongSelf.park, attractionId: attraction.str_id, attractionName: attraction.name)
             strongSelf.navigationController?.pushViewController(next, animated: true)
         }
         attractionVC.pushToDetailCallback { [weak self] attraction in
             guard let strongSelf = self else { return }
-            let next = AttractionDetailVC(park: strongSelf.park, attraction: attraction)
+            let next = AttractionDetailVC(park: strongSelf.park, attractionId: attraction.str_id ,attractionName: attraction.name)
             strongSelf.navigationController?.pushViewController(next, animated: true)
         }
     }
@@ -274,12 +274,12 @@ final class AttractionPageVC: UIViewController, Localizable {
 
     private func updateNavigationItem(to index: Int) {
         switch  index {
-        case 0:
-            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: searchButton)
-        case 1:
-            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: timelineButton)
-        case 2:
-            navigationItem.rightBarButtonItem = nil
+//        case 0:
+//            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: searchButton)
+//        case 1:
+//            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: timelineButton)
+//        case 2:
+//            navigationItem.rightBarButtonItem = nil
         default:
             navigationItem.rightBarButtonItem = nil
         }

@@ -14,8 +14,8 @@ class SuggestCell: UICollectionViewCell {
     var planData: SuggestPlan? {
         didSet {
             if let plan = planData {
-                if let imagePath = plan.route.first?.attraction.images.first, let url = URL(string: imagePath) {
-                    imageView.af_setImage(withURL: url)
+                if let imagePath = plan.route.first?.attraction.images.first, let url = ImageAccessUrl(string: imagePath) {
+                    imageView.af_setImage(withURLRequest: url)
                 } else {
                     imageView.image = nil
                 }

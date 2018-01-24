@@ -6,30 +6,168 @@
 //  Copyright © 2017 ebuser. All rights reserved.
 //
 
+import RxSwift
+import MapKit
 import UIKit
 
 class MapVC: UIViewController {
 
+    private let disposeBag = DisposeBag()
+
+    let mapView: MKMapView
+    let landRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 35.632986214654004, longitude: 139.88107060669427),
+                                        span: MKCoordinateSpan(latitudeDelta: 0.014824186546441354, longitudeDelta: 0.01529623965330984))
+
+    let seaRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 35.626069495835196, longitude: 139.88499664946423),
+                                       span: MKCoordinateSpan(latitudeDelta: 0.0073881226143157619, longitudeDelta: 0.012649126298640567))
+
+    var lastValidRegion: MKCoordinateRegion?
+    var currentRegionValid: Bool?
+
+    var tileRenderer: MKTileOverlayRenderer!
+
+    var mapModifyLock = false
+    lazy var setupCamera: Void = {
+        //swiftlint:disable:next force_cast
+        let camera = mapView.camera.copy() as! MKMapCamera
+        camera.heading = 155
+        mapView.camera = camera
+    }()
+
+    var park = TokyoDisneyPark.land {
+        didSet {
+            if oldValue != park {
+                updateMapRegion()
+            }
+        }
+    }
+
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        mapView = MKMapView()
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        addSubViews()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        view.backgroundColor = GlobalColor.primaryRed
+        setupMapView()
+        updateNavigationTitle()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        _ = setupCamera
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
-    */
 
+    private func addSubViews() {
+        view.addSubview(mapView)
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+        if #available(iOS 11.0, *) {
+            mapView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
+            mapView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
+            mapView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+            mapView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        } else {
+            // Fallback on earlier versions
+            mapView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+            mapView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+            mapView.topAnchor.constraint(equalTo: topLayoutGuide.topAnchor).isActive = true
+            mapView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.bottomAnchor).isActive = true
+        }
+
+    }
+
+    private func setupMapView() {
+
+        setupTileRenderer()
+
+        mapView.showsTraffic = false
+        mapView.showsBuildings = false
+        mapView.showsUserLocation = true
+        mapView.showsPointsOfInterest = false
+        mapView.showsCompass = false
+        mapView.isRotateEnabled = false
+        mapView.delegate = self
+        mapView.setRegion(landRegion, animated: false)
+    }
+
+    private func updateNavigationTitle() {
+        if navigationItem.titleView == nil {
+            let button = RightImageButton(type: .custom)
+            button.setImage(#imageLiteral(resourceName: "ic_repeat_black_24px"), for: .normal)
+            button.setImage(#imageLiteral(resourceName: "ic_repeat_black_24px"), for: .highlighted)
+            button.setTitle(park.localize(), for: .normal)
+            button.addTarget(self, action: #selector(titleButtonPressed(_:)), for: .touchUpInside)
+            navigationItem.titleView = button
+        } else {
+            guard let button = navigationItem.titleView as? UIButton else { return }
+            button.setTitle(park.localize(), for: .normal)
+        }
+    }
+
+    private func setupTileRenderer() {
+        let overlay = DisneyOverlay()
+
+        overlay.canReplaceMapContent = true
+        overlay.minimumZ = 17
+        overlay.maximumZ = 19
+        mapView.add(overlay, level: .aboveLabels)
+        tileRenderer = MKTileOverlayRenderer(tileOverlay: overlay)
+    }
+
+    private func updateMapRegion() {
+        switch park {
+        case .land:
+            mapView.setRegion(landRegion, animated: false)
+            //swiftlint:disable:next force_cast
+            let camera = mapView.camera.copy() as! MKMapCamera
+            camera.heading = 155
+            mapView.camera = camera
+        case .sea:
+            mapView.setRegion(seaRegion, animated: false)
+            //swiftlint:disable:next force_cast
+            let camera = mapView.camera.copy() as! MKMapCamera
+            camera.heading = 280
+            mapView.camera = camera
+        }
+    }
+
+    @objc
+    private func titleButtonPressed(_ sender: UIButton) {
+        let parkpicker = BaseInfoParkPickVC(park: park)
+        parkpicker
+            .currentPark
+            .asObservable()
+            .subscribe(onNext: { [weak self] park in
+                self?.park = park
+            })
+            .disposed(by: disposeBag)
+        guard let tabVC = (UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController else { return }
+        tabVC.present(parkpicker, animated: false)
+    }
+}
+
+extension MapVC: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        return tileRenderer
+    }
+
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        if !mapModifyLock && mapView.camera.altitude > 2662 {
+            mapModifyLock = true
+            mapView.camera.altitude = 2662
+            mapModifyLock = false
+        }
+    }
 }

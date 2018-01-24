@@ -16,7 +16,8 @@ class AttractionDetailVC: UIViewController, Localizable {
     private var waitTime: AnalysedWaitTime?
 
     private let park: TokyoDisneyPark
-    private let attraction: Attraction
+    private let attractionId: String
+    private let attractionName: String
 
     private let customizeNavigationBar: UINavigationBar
 
@@ -28,9 +29,10 @@ class AttractionDetailVC: UIViewController, Localizable {
 
     private var dataFetched = DataFetched()
 
-    init(park: TokyoDisneyPark, attraction: Attraction) {
+    init(park: TokyoDisneyPark, attractionId: String, attractionName: String) {
         self.park = park
-        self.attraction = attraction
+        self.attractionId = attractionId
+        self.attractionName = attractionName
 
         customizeNavigationBar = UINavigationBar(frame: .zero)
         let layout = UICollectionViewFlowLayout()
@@ -90,7 +92,7 @@ class AttractionDetailVC: UIViewController, Localizable {
                                       for: .normal)
         leftButton.addTarget(self, action: #selector(backButtonPressed(_:)), for: .touchUpInside)
         let backbuttonItem = UIBarButtonItem(customView: leftButton)
-        let navigationItem = UINavigationItem(title: attraction.name)
+        let navigationItem = UINavigationItem(title: attractionName)
         navigationItem.leftBarButtonItem = backbuttonItem
         customizeNavigationBar.items = [navigationItem]
         view.addSubview(customizeNavigationBar)
@@ -134,7 +136,7 @@ class AttractionDetailVC: UIViewController, Localizable {
     }
 
     private func requestAttractionDetail() {
-        let detailRequest = API.Attractions.detail(park: park, id: attraction.str_id)
+        let detailRequest = API.Attractions.detail(park: park, id: attractionId)
 
         detailRequest.request(AttractionDetail.self) { [weak self] (detail, error) in
             guard let strongSelf = self else { return }
@@ -150,7 +152,7 @@ class AttractionDetailVC: UIViewController, Localizable {
     }
 
     private func requestWaitTime() {
-        let waitTimeRequest = API.Attractions.waitTime(park: park, id: attraction.str_id, date: nil)
+        let waitTimeRequest = API.Attractions.waitTime(park: park, id: attractionId, date: nil)
 
         waitTimeRequest.request(WaitTime.self) { [weak self](waitTime, error) in
             guard let strongSelf = self else { return }
