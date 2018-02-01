@@ -7,24 +7,45 @@
 //
 
 import Foundation
+import UIKit
 
 extension TimeZone {
+
     static let tokyoTimezone: TimeZone = {
         return TimeZone(abbreviation: "JST")!
     }()
+    
 }
 
 extension Date {
+
     var dateStringInTokyo: String {
         let formatter = DateFormatter()
         formatter.timeZone = .tokyoTimezone
         formatter.dateFormat = "yyyy-MM-dd"
         return formatter.string(from: self)
     }
+
+    var dateTimeStringInTokyo: String {
+        let formatter = DateFormatter()
+        formatter.timeZone = .tokyoTimezone
+        formatter.dateFormat = "yyyy-MM-dd-HH-mm-ss"
+        return formatter.string(from: self)
+    }
+
+    var hourInTokyo: CGFloat? {
+        let calendar = Calendar.current
+        let dateComponents = calendar.dateComponents(in: .tokyoTimezone, from: self)
+        guard let hour = dateComponents.hour else { return nil }
+        guard let minute = dateComponents.minute else { return nil }
+        return CGFloat(hour) + CGFloat(minute) / 60
+    }
+
     func numberOfDaysInMonth() -> Int? {
         let range = Calendar.current.range(of: .day, in: .month, for: self)
         return range?.count
     }
+
     func firstWeekdayInMonth() -> Int? {
         var components = Calendar.current.dateComponents([.year, .month, .day], from: self)
         components.day = 1
@@ -34,6 +55,7 @@ extension Date {
             return nil
         }
     }
+
     init?(iso8601str: String?) {
         guard let iso8601str = iso8601str else {
             return nil
@@ -48,9 +70,11 @@ extension Date {
             return nil
         }
     }
+
 }
 
 extension DateComponents {
+
     func format(_ formatString: String) -> String {
         let date = Calendar.current.date(from: self)!
         let formatter = DateFormatter()
@@ -62,4 +86,5 @@ extension DateComponents {
         let date = Calendar.current.date(from: self)!
         return DateFormatter.localizedString(from: date, dateStyle: dateStyle, timeStyle: timeStyle)
     }
+
 }

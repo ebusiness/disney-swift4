@@ -32,14 +32,6 @@ final class AttractionPageVC: UIViewController, Localizable {
         return button
     }()
 
-    lazy var timelineButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.setImage(#imageLiteral(resourceName: "ic_event_black_24px"), for: .normal)
-        button.setImage(#imageLiteral(resourceName: "ic_event_black_24px"), for: .highlighted)
-        button.addTarget(self, action: #selector(timelineButtonPressed(_:)), for: .touchUpInside)
-        return button
-    }()
-
     var park = TokyoDisneyPark.land {
         didSet {
             if oldValue != park {
@@ -274,12 +266,6 @@ final class AttractionPageVC: UIViewController, Localizable {
 
     private func updateNavigationItem(to index: Int) {
         switch  index {
-//        case 0:
-//            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: searchButton)
-//        case 1:
-//            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: timelineButton)
-//        case 2:
-//            navigationItem.rightBarButtonItem = nil
         default:
             navigationItem.rightBarButtonItem = nil
         }
@@ -305,12 +291,6 @@ final class AttractionPageVC: UIViewController, Localizable {
         navigationController?.pushViewController(searchController, animated: true)
     }
 
-    @objc
-    private func timelineButtonPressed(_ sender: UIButton) {
-        let timelineVC = TimelineVC(park: park)
-        let navigationVC = NavigationVC(rootViewController: timelineVC)
-        present(navigationVC, animated: true)
-    }
 }
 
 extension AttractionPageVC: UIPageViewControllerDelegate, UIPageViewControllerDataSource {

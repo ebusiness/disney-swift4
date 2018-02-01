@@ -59,7 +59,11 @@ class TimeLineWhiteCell: UICollectionViewCell {
     var event: AnalysedTimeline.Event? {
         didSet {
             if let event = event {
-                tintColor = event.tintColor
+                if event.outdated {
+                    tintColor = GlobalColor.timelineOutdated
+                } else {
+                    tintColor = event.tintColor
+                }
                 titleLabel.text = event.name
             }
         }

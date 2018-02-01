@@ -35,7 +35,8 @@ type_name:
   max_length: # 警告和错误
     warning: 40
     error: 50
-  excluded: iPhone # 排除某个名字
+  excluded: # 排除某个名字
+    - DB
 identifier_name:
   min_length: # 只有最小长度
     error: 3 # 只有错误
@@ -48,4 +49,5 @@ identifier_name:
     - ja
     - cn
     - tw
+    - str_id
 reporter: "xcode" # 报告类型 (xcode, json, csv, checkstyle, junit, html, emoji)
