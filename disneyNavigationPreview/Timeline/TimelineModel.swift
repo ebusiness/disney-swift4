@@ -13,12 +13,14 @@ struct ShowTimeline: Codable {
     let area: String
     let name: String
     let schedules: [Schedule]
+    let thum: String
 
     enum CodingKeys: CodingKey, String {
         case id = "str_id"
         case area
         case name
         case schedules
+        case thum = "thum_url_pc"
     }
 
     struct Schedule: Codable {

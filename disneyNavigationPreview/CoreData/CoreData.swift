@@ -11,6 +11,11 @@ import UIKit
 
 class DB {
 
+    static var context: NSManagedObjectContext! {
+        guard let app = UIApplication.shared.delegate as? AppDelegate else { return nil }
+        return app.persistentContainer.viewContext
+    }
+
     static func save() {
         guard let app = UIApplication.shared.delegate as? AppDelegate else { return }
         app.saveContext()
@@ -27,6 +32,7 @@ extension DB {
         let lang: Language
         let name: String
         let time: Date
+        let thum: String
         let identifier: String
     }
 
@@ -40,6 +46,7 @@ extension DB {
         entity.lang = alarm.lang.rawValue
         entity.name = alarm.name
         entity.time = alarm.time
+        entity.thum = alarm.thum
         entity.identifier = alarm.identifier
         app.saveContext()
     }

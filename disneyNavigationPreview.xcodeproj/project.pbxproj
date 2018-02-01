@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F018F982022EF510010BEDB /* SettingAlertCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F018F972022EF510010BEDB /* SettingAlertCell.swift */; };
 		1F0D7BEE1F5E7675006AC4DB /* BaseInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7BED1F5E7675006AC4DB /* BaseInfoViewController.swift */; };
 		1F0D7BF01F5E76CA006AC4DB /* BaseInfoNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7BEF1F5E76CA006AC4DB /* BaseInfoNavigationController.swift */; };
 		1F0D7BF31F5E7B47006AC4DB /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D7BF21F5E7B47006AC4DB /* ColorExtension.swift */; };
@@ -87,7 +88,7 @@
 		1FBB52371F74EC5C006EDC55 /* CreatePlanAttractionsHot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB52361F74EC5C006EDC55 /* CreatePlanAttractionsHot.swift */; };
 		1FBB52391F74EEEB006EDC55 /* CreatePlanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB52381F74EEEB006EDC55 /* CreatePlanModel.swift */; };
 		1FBB523B1F74F49B006EDC55 /* CreatePlanAttractionsHotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB523A1F74F49B006EDC55 /* CreatePlanAttractionsHotCell.swift */; };
-		1FBB523D1F750916006EDC55 /* TopRoundedCornerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB523C1F750916006EDC55 /* TopRoundedCornerImageView.swift */; };
+		1FBB523D1F750916006EDC55 /* RoundedCornerImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FBB523C1F750916006EDC55 /* RoundedCornerImageView.swift */; };
 		1FC350A91FB2A99200AE8A6C /* AttractionChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC350A81FB2A99200AE8A6C /* AttractionChartCell.swift */; };
 		1FC350AB1FB3029800AE8A6C /* WaitTimeChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC350AA1FB3029800AE8A6C /* WaitTimeChart.swift */; };
 		1FC350B01FB3341100AE8A6C /* TimeLineLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC350AF1FB3341100AE8A6C /* TimeLineLayout.swift */; };
@@ -103,6 +104,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F018F972022EF510010BEDB /* SettingAlertCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingAlertCell.swift; sourceTree = "<group>"; };
 		1F0D7BED1F5E7675006AC4DB /* BaseInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoViewController.swift; sourceTree = "<group>"; };
 		1F0D7BEF1F5E76CA006AC4DB /* BaseInfoNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoNavigationController.swift; sourceTree = "<group>"; };
 		1F0D7BF21F5E7B47006AC4DB /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
@@ -213,7 +215,7 @@
 		1FBB52361F74EC5C006EDC55 /* CreatePlanAttractionsHot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanAttractionsHot.swift; sourceTree = "<group>"; };
 		1FBB52381F74EEEB006EDC55 /* CreatePlanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanModel.swift; sourceTree = "<group>"; };
 		1FBB523A1F74F49B006EDC55 /* CreatePlanAttractionsHotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanAttractionsHotCell.swift; sourceTree = "<group>"; };
-		1FBB523C1F750916006EDC55 /* TopRoundedCornerImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRoundedCornerImageView.swift; sourceTree = "<group>"; };
+		1FBB523C1F750916006EDC55 /* RoundedCornerImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerImageView.swift; sourceTree = "<group>"; };
 		1FC350A81FB2A99200AE8A6C /* AttractionChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionChartCell.swift; sourceTree = "<group>"; };
 		1FC350AA1FB3029800AE8A6C /* WaitTimeChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitTimeChart.swift; sourceTree = "<group>"; };
 		1FC350AF1FB3341100AE8A6C /* TimeLineLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineLayout.swift; sourceTree = "<group>"; };
@@ -276,8 +278,8 @@
 				1FFA850E20118C5300D0F963 /* ImageAccess.swift */,
 				1F0D7BF61F5E807A006AC4DB /* Localize.swift */,
 				1F9D175C1F79193E009996A9 /* Preferences.swift */,
+				1FBB523C1F750916006EDC55 /* RoundedCornerImageView.swift */,
 				1F76247C1FA9A3AF005F3D4A /* StringExtension.swift */,
-				1FBB523C1F750916006EDC55 /* TopRoundedCornerImageView.swift */,
 				1F111C141F6BB2B4002D2FB6 /* UIViewControllerExtension.swift */,
 				1FFBD63C2020552E004AEFD5 /* UserNotification.swift */,
 			);
@@ -355,6 +357,7 @@
 				1F719B901F663F7D0010CD68 /* SettingVC.swift */,
 				1FA9A649201F051E00E95F59 /* SettingCell.swift */,
 				1FA9A64B201F101400E95F59 /* SettingAlertVC.swift */,
+				1F018F972022EF510010BEDB /* SettingAlertCell.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -599,6 +602,7 @@
 				1F4EE8E61F99CFB600D76E84 /* ShowCell.swift in Sources */,
 				1F2E56D11F98823800B10912 /* ShowVC.swift in Sources */,
 				1F8D0FBC1F66816E006461D1 /* AttractionModel.swift in Sources */,
+				1F018F982022EF510010BEDB /* SettingAlertCell.swift in Sources */,
 				1F9D175D1F79193E009996A9 /* Preferences.swift in Sources */,
 				1F4606251F60E73A00F8CC96 /* DateExtension.swift in Sources */,
 				1F93D6531F721D2200EFE8D5 /* SuggestModel.swift in Sources */,
@@ -665,7 +669,7 @@
 				1FA5B80B1F5FF4F500654E04 /* BaseInfoDatePickVC.swift in Sources */,
 				1F719B951F663FAD0010CD68 /* SuggestVC.swift in Sources */,
 				1F719B861F627E230010CD68 /* BaseInfoTagCell.swift in Sources */,
-				1FBB523D1F750916006EDC55 /* TopRoundedCornerImageView.swift in Sources */,
+				1FBB523D1F750916006EDC55 /* RoundedCornerImageView.swift in Sources */,
 				1FBB523B1F74F49B006EDC55 /* CreatePlanAttractionsHotCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

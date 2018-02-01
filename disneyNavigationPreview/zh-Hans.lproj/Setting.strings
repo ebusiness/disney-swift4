@@ -6,5 +6,8 @@
   Copyright © 2018 ebuser. All rights reserved.
 */
 
+"back button defaul title" = "返回";
+"alarm title" = "闹钟提醒";
+
 "Alert" = "提醒";
 "Collection" = "收藏";

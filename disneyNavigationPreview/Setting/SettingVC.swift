@@ -30,7 +30,14 @@ class SettingVC: UIViewController {
         super.viewDidLoad()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+
     private func addSubTableView() {
+        tableView.backgroundColor = GlobalColor.viewBackgroundLightGray
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(SettingCell.self, forCellReuseIdentifier: cellIdentifier)
@@ -77,5 +84,5 @@ extension SettingVC: UITableViewDelegate, UITableViewDataSource {
         tableView.deselectRow(at: indexPath, animated: false)
         pushToAlertVC()
     }
-    
+
 }

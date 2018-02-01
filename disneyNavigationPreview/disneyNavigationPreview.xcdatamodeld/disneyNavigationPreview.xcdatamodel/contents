@@ -6,9 +6,10 @@
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="park" attributeType="String" syncable="YES"/>
         <attribute name="str_id" attributeType="String" syncable="YES"/>
+        <attribute name="thum" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="time" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Alarm" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="Alarm" positionX="-63" positionY="-18" width="128" height="150"/>
     </elements>
 </model>

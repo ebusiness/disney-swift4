@@ -75,7 +75,7 @@ class ShowScheduleVC: UIViewController, Localizable {
     private func requestTimeline() {
         let now = Date()
         let detailRequest = API.Show.list(park: park, date: now.dateStringInTokyo)
-        
+
         detailRequest.request([ShowTimeline].self) { [weak self](timelines, _) in
             guard let strongSelf = self else { return }
             if let timelines = timelines {
@@ -208,6 +208,7 @@ extension ShowScheduleVC: UICollectionViewDelegateTimeLineLayout, UICollectionVi
                                                                           lang: .cn,
                                                                           name: event.name,
                                                                           time: event.startTime,
+                                                                          thum: event.thum,
                                                                           identifier: event.identifier)
                                                 DB.insert(alarm: alarm)
                                                 // 设置闹钟
@@ -227,6 +228,7 @@ extension ShowScheduleVC: UICollectionViewDelegateTimeLineLayout, UICollectionVi
             if DB.exists(alarmIdentifier: event.identifier) {
                 alertController.addAction(actionCancelAlarm)
             } else {
+                actionAlarm.isEnabled = event.startTime > Date()
                 alertController.addAction(actionAlarm)
             }
             alertController.addAction(actionCancel)
@@ -239,6 +241,7 @@ extension ShowScheduleVC: UICollectionViewDelegateTimeLineLayout, UICollectionVi
 struct AnalysedTimeline {
     let events: [[Event]]
 
+    //swiftlint:disable:next function_body_length
     init(parent: [ShowTimeline]) {
         let filtered = parent.filter { !$0.schedules.isEmpty }
         if filtered.isEmpty {
@@ -272,7 +275,8 @@ struct AnalysedTimeline {
                                       startTime: startDate,
                                       duration: durationHour,
                                       tintColor: tintColor,
-                                      outdated: outdated)
+                                      outdated: outdated,
+                                      thum: timeline.thum)
                     allEvents.append(event)
                 })
             })
@@ -296,6 +300,7 @@ struct AnalysedTimeline {
         let duration: CGFloat
         let tintColor: UIColor
         let outdated: Bool
+        let thum: String
     }
 
 }
