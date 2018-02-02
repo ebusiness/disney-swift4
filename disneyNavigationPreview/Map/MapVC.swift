@@ -15,11 +15,11 @@ class MapVC: UIViewController {
     private let disposeBag = DisposeBag()
 
     let mapView: MKMapView
-    let landRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 35.632986214654004, longitude: 139.88107060669427),
-                                        span: MKCoordinateSpan(latitudeDelta: 0.014824186546441354, longitudeDelta: 0.01529623965330984))
+    let landRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 35.632305555677306, longitude: 139.8807945807259),
+                                        span: MKCoordinateSpan(latitudeDelta: 0.0031998855382155966, longitudeDelta: 0.0033988731172485132))
 
-    let seaRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 35.626069495835196, longitude: 139.88499664946423),
-                                       span: MKCoordinateSpan(latitudeDelta: 0.0073881226143157619, longitudeDelta: 0.012649126298640567))
+    let seaRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 35.626019953443709, longitude: 139.88613796120461),
+                                       span: MKCoordinateSpan(latitudeDelta: 0.0041349957124907633, longitudeDelta: 0.0067588443712338631))
 
     var lastValidRegion: MKCoordinateRegion?
     var currentRegionValid: Bool?
@@ -164,6 +164,7 @@ extension MapVC: MKMapViewDelegate {
     }
 
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
+        print("change region to: \(mapView.region)")
         if !mapModifyLock && mapView.camera.altitude > 2662 {
             mapModifyLock = true
             mapView.camera.altitude = 2662
