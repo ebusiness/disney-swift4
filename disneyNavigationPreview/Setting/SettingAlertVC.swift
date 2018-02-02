@@ -69,7 +69,10 @@ class SettingAlertVC: UIViewController, Localizable {
     private func requestData() {
         let request = NSFetchRequest<Alarm>(entityName: "Alarm")
         let timeSort = NSSortDescriptor(key: "time", ascending: true)
+        let now = Date()
+        let predict = NSPredicate(format: "time > %@", argumentArray: [now])
         request.sortDescriptors = [timeSort]
+        request.predicate = predict
 
         fetchedResultsController = NSFetchedResultsController(fetchRequest: request,
                                                               managedObjectContext: DB.context,

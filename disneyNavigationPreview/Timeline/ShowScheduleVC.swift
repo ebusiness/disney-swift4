@@ -228,7 +228,7 @@ extension ShowScheduleVC: UICollectionViewDelegateTimeLineLayout, UICollectionVi
             if DB.exists(alarmIdentifier: event.identifier) {
                 alertController.addAction(actionCancelAlarm)
             } else {
-                actionAlarm.isEnabled = event.startTime > Date()
+                actionAlarm.isEnabled = event.startTime > Date().addingTimeInterval(30 * 60)
                 alertController.addAction(actionAlarm)
             }
             alertController.addAction(actionCancel)
