@@ -33,6 +33,7 @@
 		1F3436D61F73794800F05EF7 /* CreatePlanTimeAndPark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3436D51F73794800F05EF7 /* CreatePlanTimeAndPark.swift */; };
 		1F3436D81F7394C400F05EF7 /* CreatePlanMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3436D71F7394C400F05EF7 /* CreatePlanMain.swift */; };
 		1F4606251F60E73A00F8CC96 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4606241F60E73A00F8CC96 /* DateExtension.swift */; };
+		1F4B2DDE20297AAA00461507 /* AttractionAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B2DDD20297AAA00461507 /* AttractionAnnotation.swift */; };
 		1F4E36891FA1B51900899F0F /* GreetingDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4E36881FA1B51900899F0F /* GreetingDetailVC.swift */; };
 		1F4EE8E61F99CFB600D76E84 /* ShowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4EE8E51F99CFB600D76E84 /* ShowCell.swift */; };
 		1F4EE8E81F9DD9AD00D76E84 /* GreetingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4EE8E71F9DD9AD00D76E84 /* GreetingCell.swift */; };
@@ -145,6 +146,7 @@
 		1F3436D51F73794800F05EF7 /* CreatePlanTimeAndPark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanTimeAndPark.swift; sourceTree = "<group>"; };
 		1F3436D71F7394C400F05EF7 /* CreatePlanMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanMain.swift; sourceTree = "<group>"; };
 		1F4606241F60E73A00F8CC96 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		1F4B2DDD20297AAA00461507 /* AttractionAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionAnnotation.swift; sourceTree = "<group>"; };
 		1F4E36881FA1B51900899F0F /* GreetingDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingDetailVC.swift; sourceTree = "<group>"; };
 		1F4EE8E51F99CFB600D76E84 /* ShowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCell.swift; sourceTree = "<group>"; };
 		1F4EE8E71F9DD9AD00D76E84 /* GreetingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingCell.swift; sourceTree = "<group>"; };
@@ -290,6 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				1F24BE0B1FB59E23004C94E7 /* MapVC.swift */,
+				1F4B2DDD20297AAA00461507 /* AttractionAnnotation.swift */,
 				1FFA85102011C58700D0F963 /* DisneyOverlay.swift */,
 			);
 			path = Map;
@@ -595,6 +598,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F4B2DDE20297AAA00461507 /* AttractionAnnotation.swift in Sources */,
 				1F93D6501F7107D100EFE8D5 /* AttractionColor.swift in Sources */,
 				1FBB52371F74EC5C006EDC55 /* CreatePlanAttractionsHot.swift in Sources */,
 				1F0D7C121F5FA85F006AC4DB /* BaseInfoParkPickVC.swift in Sources */,
@@ -904,7 +908,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = disneyNavigationPreview/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.e-business.disneyNavigationPreview";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -924,7 +928,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = disneyNavigationPreview/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "jp.co.e-business.disneyNavigationPreview";
 				PRODUCT_NAME = "$(TARGET_NAME)";

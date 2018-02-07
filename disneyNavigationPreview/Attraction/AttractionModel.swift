@@ -21,6 +21,7 @@ struct Attraction: Codable {
     let note: String?
     let str_id: String
     let realtime: AttractionRealtime?
+    let coordinates: [Double]?
 
 }
 

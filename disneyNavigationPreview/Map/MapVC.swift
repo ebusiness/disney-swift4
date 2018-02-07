@@ -26,6 +26,8 @@ class MapVC: UIViewController {
 
     var tileRenderer: MKTileOverlayRenderer!
 
+    var annotationType: AnnotationType = .hot
+
     var mapModifyLock = false
     lazy var setupCamera: Void = {
         //swiftlint:disable:next force_cast
@@ -38,6 +40,7 @@ class MapVC: UIViewController {
         didSet {
             if oldValue != park {
                 updateMapRegion()
+                requestAttractionPoints()
             }
         }
     }
@@ -58,6 +61,8 @@ class MapVC: UIViewController {
         view.backgroundColor = GlobalColor.primaryRed
         setupMapView()
         updateNavigationTitle()
+
+        requestAttractionPoints()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -100,6 +105,9 @@ class MapVC: UIViewController {
         mapView.isRotateEnabled = false
         mapView.delegate = self
         mapView.setRegion(landRegion, animated: false)
+
+        mapView.register(AttractionAnnotationView.self,
+                         forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
     }
 
     private func updateNavigationTitle() {
@@ -156,6 +164,33 @@ class MapVC: UIViewController {
         guard let tabVC = (UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController else { return }
         tabVC.present(parkpicker, animated: false)
     }
+
+    private func requestAttractionPoints() {
+        mapView.removeAnnotations(mapView.annotations)
+        switch annotationType {
+        case .all:
+            let attractionListRequest = API.Attractions.list(park: park)
+            attractionListRequest.request([Attraction].self) { [weak self] (objs, _) in
+                guard let strongSelf = self else { return }
+                if let objs = objs {
+                    let attractions = objs.filter { $0.category == "attraction" }
+                    let annotations = attractions.flatMap { AttractionAnnotation(attraction: $0) }
+                    strongSelf.mapView.addAnnotations(annotations)
+                }
+            }
+        case .hot:
+            let attractionListRequest = API.Attractions.hot(park: park)
+            attractionListRequest.request([Attraction].self) { [weak self] (objs, _) in
+                guard let strongSelf = self else { return }
+                if let objs = objs {
+                    let attractions = objs.filter { $0.category == "attraction" } .prefix(10)
+                    let annotations = attractions.flatMap { AttractionAnnotation(attraction: $0) }
+                    strongSelf.mapView.addAnnotations(annotations)
+                }
+            }
+        }
+
+    }
 }
 
 extension MapVC: MKMapViewDelegate {
@@ -164,11 +199,18 @@ extension MapVC: MKMapViewDelegate {
     }
 
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-        print("change region to: \(mapView.region)")
         if !mapModifyLock && mapView.camera.altitude > 2662 {
             mapModifyLock = true
             mapView.camera.altitude = 2662
             mapModifyLock = false
         }
+    }
+
+}
+
+extension MapVC {
+    enum AnnotationType {
+        case all
+        case hot
     }
 }
