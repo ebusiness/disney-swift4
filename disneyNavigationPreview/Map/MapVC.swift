@@ -71,6 +71,12 @@ class MapVC: UIViewController {
         _ = setupCamera
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
@@ -189,7 +195,11 @@ class MapVC: UIViewController {
                 }
             }
         }
+    }
 
+    func pushToDetail(attraction: Attraction) {
+        let next = AttractionDetailVC(park: park, attractionId: attraction.str_id ,attractionName: attraction.name)
+        navigationController?.pushViewController(next, animated: true)
     }
 }
 
