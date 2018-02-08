@@ -8,7 +8,9 @@
 
 import UIKit
 
-class SettingVC: UIViewController {
+class SettingVC: UIViewController, Localizable {
+
+    let localizeFileName = "Setting"
 
     let tableView: UITableView
     let cellIdentifier = "cellIdentifier"
@@ -28,12 +30,17 @@ class SettingVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigation()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+
+    private func setupNavigation() {
+        navigationItem.title = localize(for: "navigation title")
     }
 
     private func addSubTableView() {
@@ -61,19 +68,49 @@ class SettingVC: UIViewController {
         navigationController?.pushViewController(alertVC, animated: true)
     }
 
+    private func pushToAlertAdvanceVC() {
+        let next = SettingAlertAdvanceVC()
+        next
+            .checked
+            .asObservable()
+            .subscribe { [weak self] _ in
+                self?.tableView.reloadData()
+            }
+            .disposed(by: next.disposeBag)
+        navigationController?.pushViewController(next, animated: true)
+    }
+
 }
 
 extension SettingVC: UITableViewDelegate, UITableViewDataSource {
 
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            return 1
+        default:
+            return 0
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! SettingCell
-        switch indexPath.row {
-        case 0:
+        var cell: SettingCell
+        if let mcell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? SettingCell {
+            cell = mcell
+        } else {
+            cell = SettingCell(style: .value1, reuseIdentifier: cellIdentifier)
+        }
+        switch (indexPath.section, indexPath.row) {
+        case (0, 0):
             cell.cellType = .alert
+        case (1, 0):
+            cell.cellType = .alertAdvance
         default:
             break
         }
@@ -82,7 +119,14 @@ extension SettingVC: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        pushToAlertVC()
+        switch (indexPath.section, indexPath.row) {
+        case (0, 0):
+            pushToAlertVC()
+        case (1, 0):
+            pushToAlertAdvanceVC()
+        default:
+            break
+        }
     }
 
 }

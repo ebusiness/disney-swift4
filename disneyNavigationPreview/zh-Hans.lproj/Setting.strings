@@ -6,8 +6,14 @@
   Copyright © 2018 ebuser. All rights reserved.
 */
 
+"navigation title" = "设置";
 "back button defaul title" = "返回";
-"alarm title" = "闹钟提醒";
 
-"Alert" = "提醒";
-"Collection" = "收藏";
+"Alert Advance" = "提醒时间";
+"Alert" = "闹钟提醒";
+
+"Alert Advance 0" = "当时";
+"Alert Advance 5" = "提前5分钟";
+"Alert Advance 10" = "提前10分钟";
+"Alert Advance 15" = "提前15分钟";
+"Alert Advance 30" = "提前30分钟";

@@ -36,6 +36,8 @@
 		1F4B2DDE20297AAA00461507 /* AttractionAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B2DDD20297AAA00461507 /* AttractionAnnotation.swift */; };
 		1F4B2E01202B28D600461507 /* Map.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F4B2E03202B28D600461507 /* Map.strings */; };
 		1F4B2E09202B2A8B00461507 /* MapFilterPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B2E08202B2A8B00461507 /* MapFilterPicker.swift */; };
+		1F4B2E0B202C24E800461507 /* SettingAlertAdvanceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B2E0A202C24E800461507 /* SettingAlertAdvanceVC.swift */; };
+		1F4B2E0D202C25DF00461507 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B2E0C202C25DF00461507 /* UserDefault.swift */; };
 		1F4E36891FA1B51900899F0F /* GreetingDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4E36881FA1B51900899F0F /* GreetingDetailVC.swift */; };
 		1F4EE8E61F99CFB600D76E84 /* ShowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4EE8E51F99CFB600D76E84 /* ShowCell.swift */; };
 		1F4EE8E81F9DD9AD00D76E84 /* GreetingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4EE8E71F9DD9AD00D76E84 /* GreetingCell.swift */; };
@@ -155,6 +157,8 @@
 		1F4B2E06202B28DA00461507 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Map.strings; sourceTree = "<group>"; };
 		1F4B2E07202B28DF00461507 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Map.strings; sourceTree = "<group>"; };
 		1F4B2E08202B2A8B00461507 /* MapFilterPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapFilterPicker.swift; sourceTree = "<group>"; };
+		1F4B2E0A202C24E800461507 /* SettingAlertAdvanceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingAlertAdvanceVC.swift; sourceTree = "<group>"; };
+		1F4B2E0C202C25DF00461507 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		1F4E36881FA1B51900899F0F /* GreetingDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingDetailVC.swift; sourceTree = "<group>"; };
 		1F4EE8E51F99CFB600D76E84 /* ShowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCell.swift; sourceTree = "<group>"; };
 		1F4EE8E71F9DD9AD00D76E84 /* GreetingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingCell.swift; sourceTree = "<group>"; };
@@ -290,6 +294,7 @@
 				1F9D175C1F79193E009996A9 /* Preferences.swift */,
 				1FBB523C1F750916006EDC55 /* RoundedCornerImageView.swift */,
 				1F76247C1FA9A3AF005F3D4A /* StringExtension.swift */,
+				1F4B2E0C202C25DF00461507 /* UserDefault.swift */,
 				1F111C141F6BB2B4002D2FB6 /* UIViewControllerExtension.swift */,
 				1FFBD63C2020552E004AEFD5 /* UserNotification.swift */,
 			);
@@ -369,6 +374,7 @@
 				1F719B901F663F7D0010CD68 /* SettingVC.swift */,
 				1FA9A649201F051E00E95F59 /* SettingCell.swift */,
 				1FA9A64B201F101400E95F59 /* SettingAlertVC.swift */,
+				1F4B2E0A202C24E800461507 /* SettingAlertAdvanceVC.swift */,
 				1F018F972022EF510010BEDB /* SettingAlertCell.swift */,
 			);
 			path = Setting;
@@ -636,10 +642,12 @@
 				1FFA85182011F3AD00D0F963 /* HotVC.swift in Sources */,
 				1FFA85152011E0EB00D0F963 /* ShowScheduleVC.swift in Sources */,
 				1FC350AB1FB3029800AE8A6C /* WaitTimeChart.swift in Sources */,
+				1F4B2E0B202C24E800461507 /* SettingAlertAdvanceVC.swift in Sources */,
 				1F24BDF51FB4361F004C94E7 /* TimelineModel.swift in Sources */,
 				1FA9A64A201F051E00E95F59 /* SettingCell.swift in Sources */,
 				1FF532911F9EF89F00E44B81 /* AttractionEmptyPageVC.swift in Sources */,
 				1F5096F81F6784950008B8C1 /* AttractionCell.swift in Sources */,
+				1F4B2E0D202C25DF00461507 /* UserDefault.swift in Sources */,
 				1F3436D31F736B0F00F05EF7 /* SuggestColor.swift in Sources */,
 				1FBB522D1F74C162006EDC55 /* CreatePlanCategoryCell.swift in Sources */,
 				1F0D7BEE1F5E7675006AC4DB /* BaseInfoViewController.swift in Sources */,

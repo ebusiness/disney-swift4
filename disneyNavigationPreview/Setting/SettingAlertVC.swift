@@ -24,7 +24,7 @@ class SettingAlertVC: UIViewController, Localizable {
         tableView = UITableView(frame: .zero, style: .plain)
         customizeNavigationBar = UINavigationBar(frame: .zero)
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        
+
         hidesBottomBarWhenPushed = true
         setupNavigationBar()
         addSubTableView()
@@ -117,7 +117,7 @@ class SettingAlertVC: UIViewController, Localizable {
                                       for: .normal)
         leftButton.addTarget(self, action: #selector(backButtonPressed(_:)), for: .touchUpInside)
         let backbuttonItem = UIBarButtonItem(customView: leftButton)
-        let navigationItem = UINavigationItem(title: localize(for: "alarm title"))
+        let navigationItem = UINavigationItem(title: localize(for: "Alert"))
         navigationItem.leftBarButtonItem = backbuttonItem
         customizeNavigationBar.items = [navigationItem]
         view.addSubview(customizeNavigationBar)
