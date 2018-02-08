@@ -5,3 +5,42 @@
   Created by ebuser on 2017/9/11.
   Copyright © 2017年 ebuser. All rights reserved.
 */
+
+"back button defaul title" = "戻る";
+
+"fastpass" = "ファストパス";
+"reserve" = "予約が必要";
+"minute" = "分";
+
+"title attraction" = "アトラクション";
+"title show" = "ショー";
+"title greeting" = "グリーティング";
+
+"empty state loading" = "データロード……";
+"empty state failed" = "データを取得できません，\n画面をクリックして更新します。。";
+
+"Participating Disney Characters" = "キャラクター";
+"Barrier Free" = "バリアフリー";
+"Appropriate for" = "対象";
+"Photo-taking services available for a fee" = "有料 撮影サービスあり";
+"Photo-taking services available for a fee content" = "ディズニーの仲間たちとの思い出の一枚をキレイに残しませんか？\
+\nカメラマンによる有料写真の撮影サービス「ディズニースナップフォト」も行っています。";
+"Reservations required" = "予約が必要";
+"Reservations required content" = "・ショーレストランをお楽しみいただくには、あらかじめインターネットによるご予約が必要です。\
+\nご予約は開催日の1ヶ月前から前日まで受け付けています。いずれも満席になり次第受付終了となりますのでご了承ください。\
+\nなお、当日空席がある場合のみ、モバイルサイトよりご予約いただくことができます。";
+"Seats available by lottery" = "座席抽選あり";
+"Seats available by lottery content" = "・運営状況によっては抽選を行わない場合があります。\
+\n抽選を行わない場合は、一緒にご覧になる方全員そろって、\
+\n直接「シアターオーリンズへお越しください。定員に達した場合、ご案内を終了します。";
+"Show type" = "タイプ";
+
+"Attraction type" = "タイプ";
+"Capacity" = "定員";
+"Duration" = "所要時間";
+"Boarding Restrictions" = "利用制限";
+"FASTPASS Attraction" = "ファストパス対象";
+
+"Greeting Note" = "説明";
+"Attraction Note" = "説明";
+"Show Note" = "説明";

@@ -5,3 +5,8 @@
   Created by ebuser on 2017/11/09.
   Copyright © 2017 ebuser. All rights reserved.
 */
+
+"Detail" = "詳細";
+"Set alarm" = "アラームを設定する";
+"Cancel alarm" = "アラームをキャンセルする";
+"Cancel" = "キャンセル";

@@ -7,6 +7,7 @@
 */
 
 "TabbarShow" = "シュー";
-"TabbarAttraction" = "アトラクション";;
+"TabbarAttraction" = "アトラクション";
 "TabbarMap" = "マップ";
 "TabbarHot" = "人気";
+"TabbarSetting" = "設定";
