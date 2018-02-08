@@ -66,7 +66,7 @@ class AttractionAnnotationView: MKMarkerAnnotationView {
     private func rightButtonPressed(_ sender: UIButton) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
         guard let tabVC = appDelegate.window?.rootViewController as? TabVC else { return }
-        guard let mapVC = (tabVC.viewControllers?[2] as? UINavigationController)?.topViewController as? MapVC else { return }
+        guard let mapVC = (tabVC.viewControllers?[0] as? UINavigationController)?.topViewController as? MapVC else { return }
         guard let attraction = (annotation as? AttractionAnnotation)?.attraction else { return }
         mapVC.pushToDetail(attraction: attraction)
     }

@@ -76,16 +76,6 @@ class TabVC: UITabBarController, Localizable {
         mapVC.tabBarItem.title = localize(for: "TabbarMap")
         let mapNavi = NavigationVC(rootViewController: mapVC)
 
-//        let suggestVC = SuggestVC()
-//        suggestVC.tabBarItem.image = #imageLiteral(resourceName: "tab_bar_suggest")
-//        suggestVC.tabBarItem.title = localize(for: "TabbarSuggest")
-//        let suggestNavi = NavigationVC(rootViewController: suggestVC)
-
-//        let myPlanVC = MyPlanVC()
-//        myPlanVC.tabBarItem.image = #imageLiteral(resourceName: "tab_bar_myplan")
-//        myPlanVC.tabBarItem.title = localize(for: "TabbarMyPlan")
-//        let myPlanNavi = NavigationVC(rootViewController: myPlanVC)
-
         let settingVC = SettingVC()
         settingVC.tabBarItem.image = #imageLiteral(resourceName: "tab_bar_setting")
         settingVC.tabBarItem.title = localize(for: "TabbarSetting")
@@ -96,7 +86,7 @@ class TabVC: UITabBarController, Localizable {
         hotVC.tabBarItem.title = localize(for: "TabbarHot")
         let hotNavi = NavigationVC(rootViewController: hotVC)
 
-        let vcs = [attractionPageNavi, showScheduleNavi, mapNavi, hotNavi, settingNavi]
+        let vcs = [mapNavi, attractionPageNavi, showScheduleNavi, hotNavi, settingNavi]
         setViewControllers(vcs, animated: false)
     }
 
