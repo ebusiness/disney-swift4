@@ -10,7 +10,9 @@ import RxSwift
 import MapKit
 import UIKit
 
-class MapVC: UIViewController {
+class MapVC: UIViewController, Localizable {
+
+    let localizeFileName = "Map"
 
     private let disposeBag = DisposeBag()
 
@@ -61,6 +63,7 @@ class MapVC: UIViewController {
         view.backgroundColor = GlobalColor.primaryRed
         setupMapView()
         updateNavigationTitle()
+        updateNavigationButton()
 
         requestAttractionPoints()
     }
@@ -128,6 +131,40 @@ class MapVC: UIViewController {
             guard let button = navigationItem.titleView as? UIButton else { return }
             button.setTitle(park.localize(), for: .normal)
         }
+    }
+
+    private func updateFilter() {
+        updateNavigationButton()
+        requestAttractionPoints()
+    }
+
+    private func updateNavigationButton() {
+        let leftButton = UIButton(type: .custom)
+        leftButton.setImage(#imageLiteral(resourceName: "attraction_filter"), for: .normal)
+        leftButton.setImage(#imageLiteral(resourceName: "attraction_filter"), for: .highlighted)
+        switch annotationType {
+        case .all:
+            leftButton.setTitle(localize(for: "filter all"), for: .normal)
+        case .hot:
+            leftButton.setTitle(localize(for: "filter hot"), for: .normal)
+        }
+        leftButton.addTarget(self, action: #selector(filterButtonPressed(_:)), for: .touchUpInside)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
+    }
+
+    @objc
+    private func filterButtonPressed(_ sender: UIButton) {
+        let filterPicker = MapFilterPickerVC(filter: annotationType)
+        filterPicker
+            .currentFilter
+            .asObservable()
+            .subscribe(onNext: { [weak self] filter in
+                self?.annotationType = filter
+                self?.updateFilter()
+            })
+            .disposed(by: disposeBag)
+        guard let tabVC = (UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController else { return }
+        tabVC.present(filterPicker, animated: false)
     }
 
     private func setupTileRenderer() {

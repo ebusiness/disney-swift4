@@ -34,6 +34,8 @@
 		1F3436D81F7394C400F05EF7 /* CreatePlanMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3436D71F7394C400F05EF7 /* CreatePlanMain.swift */; };
 		1F4606251F60E73A00F8CC96 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4606241F60E73A00F8CC96 /* DateExtension.swift */; };
 		1F4B2DDE20297AAA00461507 /* AttractionAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B2DDD20297AAA00461507 /* AttractionAnnotation.swift */; };
+		1F4B2E01202B28D600461507 /* Map.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F4B2E03202B28D600461507 /* Map.strings */; };
+		1F4B2E09202B2A8B00461507 /* MapFilterPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B2E08202B2A8B00461507 /* MapFilterPicker.swift */; };
 		1F4E36891FA1B51900899F0F /* GreetingDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4E36881FA1B51900899F0F /* GreetingDetailVC.swift */; };
 		1F4EE8E61F99CFB600D76E84 /* ShowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4EE8E51F99CFB600D76E84 /* ShowCell.swift */; };
 		1F4EE8E81F9DD9AD00D76E84 /* GreetingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4EE8E71F9DD9AD00D76E84 /* GreetingCell.swift */; };
@@ -147,6 +149,12 @@
 		1F3436D71F7394C400F05EF7 /* CreatePlanMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanMain.swift; sourceTree = "<group>"; };
 		1F4606241F60E73A00F8CC96 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		1F4B2DDD20297AAA00461507 /* AttractionAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionAnnotation.swift; sourceTree = "<group>"; };
+		1F4B2E02202B28D600461507 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Map.strings; sourceTree = "<group>"; };
+		1F4B2E04202B28D800461507 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Map.strings"; sourceTree = "<group>"; };
+		1F4B2E05202B28D900461507 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Map.strings"; sourceTree = "<group>"; };
+		1F4B2E06202B28DA00461507 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Map.strings; sourceTree = "<group>"; };
+		1F4B2E07202B28DF00461507 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Map.strings; sourceTree = "<group>"; };
+		1F4B2E08202B2A8B00461507 /* MapFilterPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapFilterPicker.swift; sourceTree = "<group>"; };
 		1F4E36881FA1B51900899F0F /* GreetingDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingDetailVC.swift; sourceTree = "<group>"; };
 		1F4EE8E51F99CFB600D76E84 /* ShowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCell.swift; sourceTree = "<group>"; };
 		1F4EE8E71F9DD9AD00D76E84 /* GreetingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingCell.swift; sourceTree = "<group>"; };
@@ -292,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				1F24BE0B1FB59E23004C94E7 /* MapVC.swift */,
+				1F4B2E08202B2A8B00461507 /* MapFilterPicker.swift */,
 				1F4B2DDD20297AAA00461507 /* AttractionAnnotation.swift */,
 				1FFA85102011C58700D0F963 /* DisneyOverlay.swift */,
 			);
@@ -451,6 +460,7 @@
 				1F0D7C0D1F5FA343006AC4DB /* BaseInfo.strings */,
 				1F8D0FAF1F666D66006461D1 /* Main.strings */,
 				1F8D0FB71F666F81006461D1 /* Attraction.strings */,
+				1F4B2E03202B28D600461507 /* Map.strings */,
 				1FBB52321F74E444006EDC55 /* CreatePlan.strings */,
 				1F24BDFC1FB45D28004C94E7 /* Timeline.strings */,
 				1FA9A645201F04BF00E95F59 /* Setting.strings */,
@@ -565,6 +575,7 @@
 				1F8D0FAD1F666D66006461D1 /* Main.strings in Resources */,
 				1FBB52301F74E444006EDC55 /* CreatePlan.strings in Resources */,
 				1FB151101F5D354200BE4A7D /* Assets.xcassets in Resources */,
+				1F4B2E01202B28D600461507 /* Map.strings in Resources */,
 				1FB1511D1F5D3CDE00BE4A7D /* Cartfile in Resources */,
 				1FFBD65E20215FED004AEFD5 /* Notification.strings in Resources */,
 			);
@@ -647,6 +658,7 @@
 				1F76247F1FA9BFCF005F3D4A /* ShowDetailVC.swift in Sources */,
 				1F24BE0C1FB59E23004C94E7 /* MapVC.swift in Sources */,
 				1FA7999A1F624A9B003EC3F2 /* BaseInfoModel.swift in Sources */,
+				1F4B2E09202B2A8B00461507 /* MapFilterPicker.swift in Sources */,
 				1F6F4DF91FAB241800FCE72A /* ShowImageCell.swift in Sources */,
 				1F0D7BF71F5E807A006AC4DB /* Localize.swift in Sources */,
 				1FB151081F5D354200BE4A7D /* ViewController.swift in Sources */,
@@ -715,6 +727,18 @@
 				1F24BE051FB45D52004C94E7 /* Base */,
 			);
 			name = Timeline.strings;
+			sourceTree = "<group>";
+		};
+		1F4B2E03202B28D600461507 /* Map.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1F4B2E02202B28D600461507 /* en */,
+				1F4B2E04202B28D800461507 /* zh-Hans */,
+				1F4B2E05202B28D900461507 /* zh-Hant */,
+				1F4B2E06202B28DA00461507 /* ja */,
+				1F4B2E07202B28DF00461507 /* Base */,
+			);
+			name = Map.strings;
 			sourceTree = "<group>";
 		};
 		1F8D0FAF1F666D66006461D1 /* Main.strings */ = {

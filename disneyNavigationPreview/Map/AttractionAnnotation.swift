@@ -45,7 +45,7 @@ class AttractionAnnotationView: MKMarkerAnnotationView {
         willSet {
             guard let attractionAnnotation = newValue as? AttractionAnnotation else { return }
             canShowCallout = true
-            let leftView = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: 30, height: 200)))
+            let leftView = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: 18, height: 200)))
             leftView.backgroundColor = GlobalColor.primaryRed
             leftCalloutAccessoryView = leftView
 

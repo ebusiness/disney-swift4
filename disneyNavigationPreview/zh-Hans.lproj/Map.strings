@@ -1,0 +1,11 @@
+/* 
+  Map.strings
+  disneyNavigationPreview
+
+  Created by ebuser on 2018/02/07.
+  Copyright © 2018 ebuser. All rights reserved.
+*/
+
+"choose filter" = "选择过滤器";
+"filter hot" = " 人气";
+"filter all" = " 全部";
