@@ -82,19 +82,8 @@ class AttractionDetailVC: UIViewController, Localizable {
         customizeNavigationBar.barTintColor = UIColor.white
         customizeNavigationBar.tintColor = UIColor.black
         customizeNavigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.black]
-        let leftButtonString = NSAttributedString(string: titleOfPreviousViewController ?? localize(for: "back button defaul title"),
-                                                  attributes: [NSAttributedStringKey.foregroundColor: UIColor.black,
-                                                               NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15)])
-        let leftButton = UIButton(type: .custom)
-        leftButton.setImage(#imageLiteral(resourceName: "backButton"), for: .normal)
-        leftButton.setImage(#imageLiteral(resourceName: "backButton"), for: .highlighted)
-        leftButton.setAttributedTitle(leftButtonString,
-                                      for: .normal)
-        leftButton.addTarget(self, action: #selector(backButtonPressed(_:)), for: .touchUpInside)
-        let backbuttonItem = UIBarButtonItem(customView: leftButton)
-        let navigationItem = UINavigationItem(title: attractionName)
-        navigationItem.leftBarButtonItem = backbuttonItem
-        customizeNavigationBar.items = [navigationItem]
+
+        addNavButtons()
         view.addSubview(customizeNavigationBar)
         customizeNavigationBar.translatesAutoresizingMaskIntoConstraints = false
         customizeNavigationBar.topAnchor.constraint(equalTo: statusBarBackground.bottomAnchor).isActive = true
@@ -105,6 +94,8 @@ class AttractionDetailVC: UIViewController, Localizable {
             customizeNavigationBar.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
             customizeNavigationBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         }
+
+
     }
 
     private func addSubCollectionView() {
@@ -132,6 +123,11 @@ class AttractionDetailVC: UIViewController, Localizable {
 
     @objc
     private func backButtonPressed(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
+    }
+
+    @objc
+    private func rightButtonPressed(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
 
@@ -164,6 +160,33 @@ class AttractionDetailVC: UIViewController, Localizable {
                 strongSelf.collectionView.reloadData()
             }
         }
+    }
+
+    private func addNavButtons() {
+
+        let leftButtonString = NSAttributedString(string: titleOfPreviousViewController ?? localize(for: "back button defaul title"),
+                                                  attributes: [NSAttributedStringKey.foregroundColor: UIColor.black,
+                                                               NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15)])
+        let leftButton = UIButton(type: .custom)
+        leftButton.setImage(#imageLiteral(resourceName: "backButton"), for: .normal)
+        leftButton.setImage(#imageLiteral(resourceName: "backButton"), for: .highlighted)
+        leftButton.setAttributedTitle(leftButtonString,
+                                      for: .normal)
+        leftButton.addTarget(self, action: #selector(backButtonPressed(_:)), for: .touchUpInside)
+        let backbuttonItem = UIBarButtonItem(customView: leftButton)
+        let navigationItem = UINavigationItem(title: attractionName)
+
+        let rightButton = UIButton(type: .custom)
+        rightButton.addTarget(self, action: #selector(rightButtonPressed(_:)), for: .touchUpInside)
+        rightButton.setImage(#imageLiteral(resourceName: "ic_more_horiz_black_24px"), for: .normal)
+        rightButton.setImage(#imageLiteral(resourceName: "ic_more_horiz_black_24px"), for: .highlighted)
+        let rightItem = UIBarButtonItem(customView: rightButton)
+
+        navigationItem.leftBarButtonItem = backbuttonItem
+        navigationItem.rightBarButtonItem = rightItem
+
+        customizeNavigationBar.items = [navigationItem]
+
     }
 
     private struct DataFetched {

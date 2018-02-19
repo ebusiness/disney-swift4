@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17E139j" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17E150g" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Alarm" representedClassName="Alarm" syncable="YES" codeGenerationType="class">
         <attribute name="identifier" attributeType="String" syncable="YES"/>
         <attribute name="isEnabled" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
@@ -10,7 +10,15 @@
         <attribute name="thum" attributeType="String" syncable="YES"/>
         <attribute name="time" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
     </entity>
+    <entity name="Favorite" representedClassName="Favorite" syncable="YES" codeGenerationType="class">
+        <attribute name="lang" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="park" attributeType="String" syncable="YES"/>
+        <attribute name="str_id" attributeType="String" syncable="YES"/>
+        <attribute name="thum" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Alarm" positionX="-63" positionY="-18" width="128" height="165"/>
+        <element name="Favorite" positionX="-63" positionY="45" width="128" height="120"/>
     </elements>
 </model>
