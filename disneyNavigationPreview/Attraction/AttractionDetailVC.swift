@@ -128,7 +128,19 @@ class AttractionDetailVC: UIViewController, Localizable {
 
     @objc
     private func rightButtonPressed(_ sender: UIButton) {
-        navigationController?.popViewController(animated: true)
+        let alertController = UIAlertController(title: nil,
+                                                message: nil,
+                                                preferredStyle: .actionSheet)
+        let collectAction = UIAlertAction(title: "收藏",
+                                          style: .default) { _ in
+                                            print("collect")
+        }
+        let cancelAction = UIAlertAction(title: "取消",
+                                         style: .cancel,
+                                         handler: nil)
+        alertController.addAction(collectAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true)
     }
 
     private func requestAttractionDetail() {
