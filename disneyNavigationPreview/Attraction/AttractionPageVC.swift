@@ -35,7 +35,7 @@ final class AttractionPageVC: UIViewController, Localizable {
     var park = TokyoDisneyPark.land {
         didSet {
             if oldValue != park {
-                updateNavigationTitle()
+                updateNavigationLeftButton()
                 requestAttractionList()
             }
         }
@@ -112,6 +112,7 @@ final class AttractionPageVC: UIViewController, Localizable {
         setupSubControllers()
 
         updateNavigationTitle()
+        updateNavigationLeftButton()
         updateNavigationItem(to: 0)
 
         banner.switchTo(index: 0)
@@ -251,17 +252,22 @@ final class AttractionPageVC: UIViewController, Localizable {
     }
 
     private func updateNavigationTitle() {
-        if navigationItem.titleView == nil {
-            let button = RightImageButton(type: .custom)
-            button.setImage(#imageLiteral(resourceName: "ic_repeat_black_24px"), for: .normal)
-            button.setImage(#imageLiteral(resourceName: "ic_repeat_black_24px"), for: .highlighted)
-            button.setTitle(park.localize(), for: .normal)
-            button.addTarget(self, action: #selector(titleButtonPressed(_:)), for: .touchUpInside)
-            navigationItem.titleView = button
+        title = localize(for: "title")
+    }
+
+    private func updateNavigationLeftButton() {
+
+        if navigationItem.leftBarButtonItem == nil {
+            let leftItem = UIBarButtonItem(title: park.short,
+                                           style: .plain,
+                                           target: self,
+                                           action: #selector(titleButtonPressed(_:)))
+            navigationItem.leftBarButtonItem = leftItem
         } else {
-            guard let button = navigationItem.titleView as? UIButton else { return }
-            button.setTitle(park.localize(), for: .normal)
+            guard let leftItem = navigationItem.leftBarButtonItem else { return }
+            leftItem.title = park.short
         }
+
     }
 
     private func updateNavigationItem(to index: Int) {

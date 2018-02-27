@@ -41,6 +41,7 @@ class MapVC: UIViewController, Localizable {
     var park = TokyoDisneyPark.land {
         didSet {
             if oldValue != park {
+                updateNavigationLeftButton()
                 updateMapRegion()
                 requestAttractionPoints()
             }
@@ -62,8 +63,9 @@ class MapVC: UIViewController, Localizable {
 
         view.backgroundColor = GlobalColor.primaryRed
         setupMapView()
+
         updateNavigationTitle()
-        updateNavigationButton()
+        updateNavigationLeftButton()
 
         requestAttractionPoints()
     }
@@ -119,53 +121,72 @@ class MapVC: UIViewController, Localizable {
                          forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
     }
 
+//    private func updateNavigationTitle() {
+//        if navigationItem.titleView == nil {
+//            let button = RightImageButton(type: .custom)
+//            button.setImage(#imageLiteral(resourceName: "ic_repeat_black_24px"), for: .normal)
+//            button.setImage(#imageLiteral(resourceName: "ic_repeat_black_24px"), for: .highlighted)
+//            button.setTitle(park.localize(), for: .normal)
+//            button.addTarget(self, action: #selector(titleButtonPressed(_:)), for: .touchUpInside)
+//            navigationItem.titleView = button
+//        } else {
+//            guard let button = navigationItem.titleView as? UIButton else { return }
+//            button.setTitle(park.localize(), for: .normal)
+//        }
+//    }
+
     private func updateNavigationTitle() {
-        if navigationItem.titleView == nil {
-            let button = RightImageButton(type: .custom)
-            button.setImage(#imageLiteral(resourceName: "ic_repeat_black_24px"), for: .normal)
-            button.setImage(#imageLiteral(resourceName: "ic_repeat_black_24px"), for: .highlighted)
-            button.setTitle(park.localize(), for: .normal)
-            button.addTarget(self, action: #selector(titleButtonPressed(_:)), for: .touchUpInside)
-            navigationItem.titleView = button
+        title = localize(for: "title")
+    }
+
+    private func updateNavigationLeftButton() {
+
+        if navigationItem.leftBarButtonItem == nil {
+            let leftItem = UIBarButtonItem(title: park.short,
+                                           style: .plain,
+                                           target: self,
+                                           action: #selector(titleButtonPressed(_:)))
+            navigationItem.leftBarButtonItem = leftItem
         } else {
-            guard let button = navigationItem.titleView as? UIButton else { return }
-            button.setTitle(park.localize(), for: .normal)
+            guard let leftItem = navigationItem.leftBarButtonItem else { return }
+            leftItem.title = park.short
         }
+
     }
 
-    private func updateFilter() {
-        updateNavigationButton()
-        requestAttractionPoints()
-    }
+//    private func updateFilter() {
+//        updateNavigationButton()
+//        requestAttractionPoints()
+//    }
 
-    private func updateNavigationButton() {
-        let leftButton = UIButton(type: .custom)
-        leftButton.setImage(#imageLiteral(resourceName: "attraction_filter"), for: .normal)
-        leftButton.setImage(#imageLiteral(resourceName: "attraction_filter"), for: .highlighted)
-        switch annotationType {
-        case .all:
-            leftButton.setTitle(localize(for: "filter all"), for: .normal)
-        case .hot:
-            leftButton.setTitle(localize(for: "filter hot"), for: .normal)
-        }
-        leftButton.addTarget(self, action: #selector(filterButtonPressed(_:)), for: .touchUpInside)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
-    }
+//    private func updateNavigationButton() {
+//        let leftButton = UIButton(type: .custom)
+//        leftButton.setImage(#imageLiteral(resourceName: "attraction_filter"), for: .normal)
+//        leftButton.setImage(#imageLiteral(resourceName: "attraction_filter"), for: .highlighted)
+//        switch annotationType {
+//        case .all:
+//            leftButton.setTitle(localize(for: "filter all"), for: .normal)
+//        case .hot:
+//            leftButton.setTitle(localize(for: "filter hot"), for: .normal)
+//        }
+//        leftButton.addTarget(self, action: #selector(filterButtonPressed(_:)), for: .touchUpInside)
+//        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
+//    }
 
-    @objc
-    private func filterButtonPressed(_ sender: UIButton) {
-        let filterPicker = MapFilterPickerVC(filter: annotationType)
-        filterPicker
-            .currentFilter
-            .asObservable()
-            .subscribe(onNext: { [weak self] filter in
-                self?.annotationType = filter
-                self?.updateFilter()
-            })
-            .disposed(by: disposeBag)
-        guard let tabVC = (UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController else { return }
-        tabVC.present(filterPicker, animated: false)
-    }
+//    @objc
+//    private func filterButtonPressed(_ sender: UIButton) {
+//        let filterPicker = MapFilterPickerVC(filter: annotationType)
+//        filterPicker
+//            .currentFilter
+//            .asObservable()
+//            .subscribe(onNext: { [weak self] filter in
+//                self?.annotationType = filter
+//                self?.updateFilter()
+//            })
+//            .disposed(by: disposeBag)
+//        guard let tabVC = (UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController else { return }
+//        tabVC.present(filterPicker, animated: false)
+//    }
 
     private func setupTileRenderer() {
         let overlay = DisneyOverlay()

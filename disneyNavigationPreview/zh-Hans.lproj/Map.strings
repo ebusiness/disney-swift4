@@ -6,6 +6,7 @@
   Copyright © 2018 ebuser. All rights reserved.
 */
 
+"title" = "地图";
 "choose filter" = "选择过滤器";
 "filter hot" = " 人气";
 "filter all" = " 全部";

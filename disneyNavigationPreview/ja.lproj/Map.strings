@@ -6,6 +6,7 @@
   Copyright © 2018 ebuser. All rights reserved.
 */
 
+"title" = "マップ";
 "choose filter" = "フィルター";
 "filter hot" = " 人気";
 "filter all" = " 全部";
