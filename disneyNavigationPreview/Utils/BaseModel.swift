@@ -25,6 +25,15 @@ enum TokyoDisneyPark: String, Localizable {
         }
     }
 
+    var short: String {
+        switch self {
+        case .land:
+            return "Land"
+        case .sea:
+            return "Sea"
+        }
+    }
+
     var apiComponent: String {
         switch self {
         case .land:

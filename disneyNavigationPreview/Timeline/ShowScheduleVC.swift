@@ -27,10 +27,11 @@ class ShowScheduleVC: UIViewController, Localizable {
     private let whiteIdentifier = "whiteIdentifier"
     private let timelineLayout: TimeLineLayout
 
+    var date = Date()
     var park = TokyoDisneyPark.land {
         didSet {
             if oldValue != park {
-                updateNavigationTitle()
+                updateNavigationLeftButton()
                 requestTimeline()
             }
         }
@@ -56,6 +57,8 @@ class ShowScheduleVC: UIViewController, Localizable {
         super.viewDidLoad()
         view.backgroundColor = GlobalColor.viewBackgroundLightGray
         updateNavigationTitle()
+        updateNavigationLeftButton()
+        updateNavigationRightButton()
 
         requestTimeline()
     }
@@ -73,8 +76,7 @@ class ShowScheduleVC: UIViewController, Localizable {
     }
 
     private func requestTimeline() {
-        let now = Date()
-        let detailRequest = API.Show.list(park: park, date: now.dateStringInTokyo)
+        let detailRequest = API.Show.list(park: park, date: date.dateStringInTokyo)
 
         detailRequest.request([ShowTimeline].self) { [weak self](timelines, _) in
             guard let strongSelf = self else { return }
@@ -106,21 +108,57 @@ class ShowScheduleVC: UIViewController, Localizable {
     }
 
     private func updateNavigationTitle() {
-        if navigationItem.titleView == nil {
-            let button = RightImageButton(type: .custom)
-            button.setImage(#imageLiteral(resourceName: "ic_repeat_black_24px"), for: .normal)
-            button.setImage(#imageLiteral(resourceName: "ic_repeat_black_24px"), for: .highlighted)
-            button.setTitle(park.localize(), for: .normal)
-            button.addTarget(self, action: #selector(titleButtonPressed(_:)), for: .touchUpInside)
-            navigationItem.titleView = button
+        title = localize(for: "title")
+    }
+
+    private func updateNavigationLeftButton() {
+
+        if navigationItem.leftBarButtonItem == nil {
+            let leftItem = UIBarButtonItem(title: park.short,
+                                       style: .plain,
+                                       target: self,
+                                       action: #selector(titleButtonPressed(_:)))
+            navigationItem.leftBarButtonItem = leftItem
         } else {
-            guard let button = navigationItem.titleView as? UIButton else { return }
-            button.setTitle(park.localize(), for: .normal)
+            guard let leftItem = navigationItem.leftBarButtonItem else { return }
+            leftItem.title = park.short
+        }
+
+    }
+
+    private func updateNavigationRightButton() {
+        let day = date.dayInTokyo
+
+        if navigationItem.rightBarButtonItem == nil {
+            let rightButton = UIButton(type: .custom)
+
+            rightButton.addTarget(self,
+                                  action: #selector(rightButtonPressed(_:)),
+                                  for: .touchUpInside)
+
+            rightButton.setBackgroundImage(#imageLiteral(resourceName: "date_empty"), for: .normal)
+            rightButton.setBackgroundImage(#imageLiteral(resourceName: "date_empty"), for: .highlighted)
+            let rightButtonTitle = NSAttributedString(string: day,
+                                                      attributes: [NSAttributedStringKey.foregroundColor: UIColor.white,
+                                                                   NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 10),
+                                                                   NSAttributedStringKey.baselineOffset: -1])
+            rightButton.setAttributedTitle(rightButtonTitle, for: .normal)
+            rightButton.setAttributedTitle(rightButtonTitle, for: .highlighted)
+            let rightItem = UIBarButtonItem(customView: rightButton)
+            navigationItem.rightBarButtonItem = rightItem
+        } else {
+            guard let rightButton = navigationItem.rightBarButtonItem?.customView as? UIButton else { return }
+            let rightButtonTitle = NSAttributedString(string: day,
+                                                      attributes: [NSAttributedStringKey.foregroundColor: UIColor.white,
+                                                                   NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 10),
+                                                                   NSAttributedStringKey.baselineOffset: -1])
+            rightButton.setAttributedTitle(rightButtonTitle, for: .normal)
+            rightButton.setAttributedTitle(rightButtonTitle, for: .highlighted)
         }
     }
 
     @objc
-    private func titleButtonPressed(_ sender: UIButton) {
+    private func titleButtonPressed(_ sender: Any) {
         let parkpicker = BaseInfoParkPickVC(park: park)
         parkpicker
             .currentPark
@@ -131,6 +169,27 @@ class ShowScheduleVC: UIViewController, Localizable {
             .disposed(by: disposeBag)
         guard let tabVC = (UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController else { return }
         tabVC.present(parkpicker, animated: false)
+    }
+
+    @objc
+    private func rightButtonPressed(_ sender: UIButton) {
+        let datePickerVC = ShowScheduleDatePickerVC(date: date)
+        datePickerVC
+            .currentDate
+            .asObservable()
+            .subscribe(onNext: { newDate in
+                if self.date.dateStringInTokyo == newDate.dateStringInTokyo {
+                    return
+                }
+                self.date = newDate
+                self.updateNavigationRightButton()
+                self.requestTimeline()
+            })
+            .disposed(by: disposeBag)
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        guard let tabVC = appDelegate.window?.rootViewController as? TabVC else { return }
+        tabVC.present(datePickerVC,
+                      animated: false)
     }
 
     private func scrollToNow() {

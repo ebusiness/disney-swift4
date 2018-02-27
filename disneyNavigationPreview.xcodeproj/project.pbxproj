@@ -97,6 +97,7 @@
 		1FC350A91FB2A99200AE8A6C /* AttractionChartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC350A81FB2A99200AE8A6C /* AttractionChartCell.swift */; };
 		1FC350AB1FB3029800AE8A6C /* WaitTimeChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC350AA1FB3029800AE8A6C /* WaitTimeChart.swift */; };
 		1FC350B01FB3341100AE8A6C /* TimeLineLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC350AF1FB3341100AE8A6C /* TimeLineLayout.swift */; };
+		1FE064B820453B2600BCD945 /* ShowScheduleDatePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE064B720453B2600BCD945 /* ShowScheduleDatePickerVC.swift */; };
 		1FF532911F9EF89F00E44B81 /* AttractionEmptyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF532901F9EF89F00E44B81 /* AttractionEmptyPageVC.swift */; };
 		1FFA850F20118C5300D0F963 /* ImageAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA850E20118C5300D0F963 /* ImageAccess.swift */; };
 		1FFA85112011C58700D0F963 /* DisneyOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA85102011C58700D0F963 /* DisneyOverlay.swift */; };
@@ -233,6 +234,7 @@
 		1FC350A81FB2A99200AE8A6C /* AttractionChartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionChartCell.swift; sourceTree = "<group>"; };
 		1FC350AA1FB3029800AE8A6C /* WaitTimeChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitTimeChart.swift; sourceTree = "<group>"; };
 		1FC350AF1FB3341100AE8A6C /* TimeLineLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLineLayout.swift; sourceTree = "<group>"; };
+		1FE064B720453B2600BCD945 /* ShowScheduleDatePickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowScheduleDatePickerVC.swift; sourceTree = "<group>"; };
 		1FF532901F9EF89F00E44B81 /* AttractionEmptyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionEmptyPageVC.swift; sourceTree = "<group>"; };
 		1FFA850E20118C5300D0F963 /* ImageAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAccess.swift; sourceTree = "<group>"; };
 		1FFA85102011C58700D0F963 /* DisneyOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisneyOverlay.swift; sourceTree = "<group>"; };
@@ -492,6 +494,7 @@
 			children = (
 				1F24BDF41FB4361F004C94E7 /* TimelineModel.swift */,
 				1FFA85142011E0EB00D0F963 /* ShowScheduleVC.swift */,
+				1FE064B720453B2600BCD945 /* ShowScheduleDatePickerVC.swift */,
 				1F24BDF61FB45481004C94E7 /* TimelineCell.swift */,
 				1FC350AF1FB3341100AE8A6C /* TimeLineLayout.swift */,
 			);
@@ -629,6 +632,7 @@
 				1F93D6531F721D2200EFE8D5 /* SuggestModel.swift in Sources */,
 				1FA5B80D1F5FF6B400654E04 /* DatePicker.swift in Sources */,
 				1F2E56D31F988AC200B10912 /* AttractionPageVC.swift in Sources */,
+				1FE064B820453B2600BCD945 /* ShowScheduleDatePickerVC.swift in Sources */,
 				1F719B8F1F663F680010CD68 /* AttractionVC.swift in Sources */,
 				1F0D7BF91F5E877E006AC4DB /* BaseModel.swift in Sources */,
 				1FB1510E1F5D354200BE4A7D /* disneyNavigationPreview.xcdatamodeld in Sources */,

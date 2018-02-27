@@ -33,6 +33,13 @@ extension Date {
         return formatter.string(from: self)
     }
 
+    var dayInTokyo: String {
+        let formatter = DateFormatter()
+        formatter.timeZone = .tokyoTimezone
+        formatter.dateFormat = "dd"
+        return formatter.string(from: self)
+    }
+
     var hourInTokyo: CGFloat? {
         let calendar = Calendar.current
         let dateComponents = calendar.dateComponents(in: .tokyoTimezone, from: self)

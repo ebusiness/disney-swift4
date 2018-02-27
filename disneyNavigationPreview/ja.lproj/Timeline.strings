@@ -6,6 +6,7 @@
   Copyright © 2017 ebuser. All rights reserved.
 */
 
+"title" = "ショースゲジュール";
 "Detail" = "詳細";
 "Set alarm" = "アラームを設定する";
 "Cancel alarm" = "アラームをキャンセルする";
