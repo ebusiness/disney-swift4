@@ -11,3 +11,6 @@
 "Set alarm" = "アラームを設定する";
 "Cancel alarm" = "アラームをキャンセルする";
 "Cancel" = "キャンセル";
+
+"Save favorite" = "お気に入り";
+"Cancel favorite" = "お気に入りから消す";

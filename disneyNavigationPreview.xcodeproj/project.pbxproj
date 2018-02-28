@@ -99,6 +99,8 @@
 		1FC350B01FB3341100AE8A6C /* TimeLineLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FC350AF1FB3341100AE8A6C /* TimeLineLayout.swift */; };
 		1FE064B820453B2600BCD945 /* ShowScheduleDatePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE064B720453B2600BCD945 /* ShowScheduleDatePickerVC.swift */; };
 		1FE064BB20454FE700BCD945 /* Hot.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1FE064BD20454FE700BCD945 /* Hot.strings */; };
+		1FE064C32046A7BD00BCD945 /* SettingFavoriteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE064C22046A7BD00BCD945 /* SettingFavoriteVC.swift */; };
+		1FE064C52046A84E00BCD945 /* SettingFavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FE064C42046A84E00BCD945 /* SettingFavoriteCell.swift */; };
 		1FF532911F9EF89F00E44B81 /* AttractionEmptyPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FF532901F9EF89F00E44B81 /* AttractionEmptyPageVC.swift */; };
 		1FFA850F20118C5300D0F963 /* ImageAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA850E20118C5300D0F963 /* ImageAccess.swift */; };
 		1FFA85112011C58700D0F963 /* DisneyOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FFA85102011C58700D0F963 /* DisneyOverlay.swift */; };
@@ -241,6 +243,8 @@
 		1FE064BF20454FEA00BCD945 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Hot.strings"; sourceTree = "<group>"; };
 		1FE064C020454FEB00BCD945 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Hot.strings; sourceTree = "<group>"; };
 		1FE064C120454FEF00BCD945 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Hot.strings; sourceTree = "<group>"; };
+		1FE064C22046A7BD00BCD945 /* SettingFavoriteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingFavoriteVC.swift; sourceTree = "<group>"; };
+		1FE064C42046A84E00BCD945 /* SettingFavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingFavoriteCell.swift; sourceTree = "<group>"; };
 		1FF532901F9EF89F00E44B81 /* AttractionEmptyPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionEmptyPageVC.swift; sourceTree = "<group>"; };
 		1FFA850E20118C5300D0F963 /* ImageAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAccess.swift; sourceTree = "<group>"; };
 		1FFA85102011C58700D0F963 /* DisneyOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisneyOverlay.swift; sourceTree = "<group>"; };
@@ -382,8 +386,10 @@
 				1F719B901F663F7D0010CD68 /* SettingVC.swift */,
 				1FA9A649201F051E00E95F59 /* SettingCell.swift */,
 				1FA9A64B201F101400E95F59 /* SettingAlertVC.swift */,
+				1FE064C22046A7BD00BCD945 /* SettingFavoriteVC.swift */,
 				1F4B2E0A202C24E800461507 /* SettingAlertAdvanceVC.swift */,
 				1F018F972022EF510010BEDB /* SettingAlertCell.swift */,
+				1FE064C42046A84E00BCD945 /* SettingFavoriteCell.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -655,6 +661,7 @@
 				1FFA85152011E0EB00D0F963 /* ShowScheduleVC.swift in Sources */,
 				1FC350AB1FB3029800AE8A6C /* WaitTimeChart.swift in Sources */,
 				1F4B2E0B202C24E800461507 /* SettingAlertAdvanceVC.swift in Sources */,
+				1FE064C32046A7BD00BCD945 /* SettingFavoriteVC.swift in Sources */,
 				1F24BDF51FB4361F004C94E7 /* TimelineModel.swift in Sources */,
 				1FA9A64A201F051E00E95F59 /* SettingCell.swift in Sources */,
 				1FF532911F9EF89F00E44B81 /* AttractionEmptyPageVC.swift in Sources */,
@@ -694,6 +701,7 @@
 				1F76247D1FA9A3AF005F3D4A /* StringExtension.swift in Sources */,
 				1FB151061F5D354200BE4A7D /* AppDelegate.swift in Sources */,
 				1FFA85112011C58700D0F963 /* DisneyOverlay.swift in Sources */,
+				1FE064C52046A84E00BCD945 /* SettingFavoriteCell.swift in Sources */,
 				1F1719CB1FA6CB770064C2FD /* GreetingImageCell.swift in Sources */,
 				1FBB522B1F74BFDA006EDC55 /* CreatePlanCategory.swift in Sources */,
 				1F0D7C141F5FCBF4006AC4DB /* BaseInfoColor.swift in Sources */,

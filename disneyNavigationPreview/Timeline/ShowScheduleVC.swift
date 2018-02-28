@@ -283,6 +283,25 @@ extension ShowScheduleVC: UICollectionViewDelegateTimeLineLayout, UICollectionVi
             let actionCancel = UIAlertAction(title: localize(for: "Cancel"), style: .cancel, handler: nil)
             alertController.addAction(actionDetail)
 
+            // 收藏
+            let actionFavorite = UIAlertAction(title: localize(for: "Save favorite"),
+                                               style: .default,
+                                               handler: { [unowned self] _ in
+                                                let favorite = DB.FavoriteModel(park: self.park,
+                                                                                str_id: event.id,
+                                                                                lang: .cn,
+                                                                                name: event.name,
+                                                                                thum: event.thum,
+                                                                                area: event.area,
+                                                                                tintColor: event.tintColor.hex)
+                                                DB.insert(favorite: favorite)
+            })
+            // 取消收藏
+            let actionCancelFavorite = UIAlertAction(title: localize(for: "Cancel favorite"),
+                                                     style: .default,
+                                                     handler: { _ in
+                                                        DB.delete(favoriteId: event.id)
+            })
             // 检查提醒是否已经设置
             if DB.exists(alarmIdentifier: event.identifier) {
                 alertController.addAction(actionCancelAlarm)
@@ -290,6 +309,14 @@ extension ShowScheduleVC: UICollectionViewDelegateTimeLineLayout, UICollectionVi
                 actionAlarm.isEnabled = event.startTime > Date().addingTimeInterval(30 * 60)
                 alertController.addAction(actionAlarm)
             }
+
+            // 检查是否已经收藏
+            if DB.exists(favoriteId: event.id) {
+                alertController.addAction(actionCancelFavorite)
+            } else {
+                alertController.addAction(actionFavorite)
+            }
+
             alertController.addAction(actionCancel)
             present(alertController, animated: true, completion: nil)
         }
@@ -335,7 +362,8 @@ struct AnalysedTimeline {
                                       duration: durationHour,
                                       tintColor: tintColor,
                                       outdated: outdated,
-                                      thum: timeline.thum)
+                                      thum: timeline.thum,
+                                      area: timeline.area)
                     allEvents.append(event)
                 })
             })
@@ -360,6 +388,7 @@ struct AnalysedTimeline {
         let tintColor: UIColor
         let outdated: Bool
         let thum: String
+        let area: String
     }
 
 }

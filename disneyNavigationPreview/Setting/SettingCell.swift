@@ -25,9 +25,14 @@ class SettingCell: UITableViewCell, Localizable {
         didSet {
             switch cellType {
             case .alert:
-                imageView?.tintColor = UIColor.red
+                imageView?.tintColor = GlobalColor.primaryRed
                 imageView?.image = #imageLiteral(resourceName: "ic_alarm_black_24px")
                 textLabel?.text = localize(for: "Alert")
+
+            case .favorite:
+                imageView?.tintColor = GlobalColor.primaryRed
+                imageView?.image = #imageLiteral(resourceName: "ic_favorite_black_24px")
+                textLabel?.text = localize(for: "Favorite")
 
             case .alertAdvance:
                 imageView?.tintColor = UIColor.orange
@@ -42,5 +47,6 @@ class SettingCell: UITableViewCell, Localizable {
 
 enum SettingCellType {
     case alert
+    case favorite
     case alertAdvance
 }

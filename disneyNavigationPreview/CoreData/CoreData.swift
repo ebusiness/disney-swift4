@@ -84,4 +84,63 @@ extension DB {
             print("Delete error!")
         }
     }
+
+    struct FavoriteModel {
+        let park: TokyoDisneyPark
+        let str_id: String
+        let lang: Language
+        let name: String
+        let thum: String
+        let area: String
+        let tintColor: String
+    }
+
+    static func insert(favorite: FavoriteModel) {
+        guard let app = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = app.persistentContainer.viewContext
+
+        guard let entity = NSEntityDescription.insertNewObject(forEntityName: "Favorite", into: managedContext) as? Favorite else { return }
+        entity.park = favorite.park.rawValue
+        entity.str_id = favorite.str_id
+        entity.lang = favorite.lang.rawValue
+        entity.name = favorite.name
+        entity.thum = favorite.thum
+        entity.area = favorite.area
+        entity.tintColor = favorite.tintColor
+        app.saveContext()
+    }
+
+    static func exists(favoriteId: String) -> Bool {
+        guard let app = UIApplication.shared.delegate as? AppDelegate else { return false }
+        let managedContext = app.persistentContainer.viewContext
+        do {
+            let fetchRequest: NSFetchRequest<Favorite> = Favorite.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "str_id = %@", favoriteId)
+            let fetchResult = try managedContext.fetch(fetchRequest)
+            if !fetchResult.isEmpty {
+                return true
+            } else {
+                return false
+            }
+        } catch {
+            print("Fetch error!")
+        }
+        return false
+    }
+
+    static func delete(favoriteId: String) {
+        guard let app = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = app.persistentContainer.viewContext
+        do {
+            let fetchRequest: NSFetchRequest<Favorite> = Favorite.fetchRequest()
+            fetchRequest.predicate = NSPredicate(format: "str_id = %@", favoriteId)
+            let fetchResults = try managedContext.fetch(fetchRequest)
+            for object in fetchResults {
+                managedContext.delete(object)
+            }
+            app.saveContext()
+        } catch {
+            print("Delete error!")
+        }
+    }
 }

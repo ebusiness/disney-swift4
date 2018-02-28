@@ -68,6 +68,11 @@ class SettingVC: UIViewController, Localizable {
         navigationController?.pushViewController(alertVC, animated: true)
     }
 
+    private func pushToFavoriteVC() {
+        let favoriteVC = SettingFavoriteVC()
+        navigationController?.pushViewController(favoriteVC, animated: true)
+    }
+
     private func pushToAlertAdvanceVC() {
         let next = SettingAlertAdvanceVC()
         next
@@ -91,7 +96,7 @@ extension SettingVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return 1
+            return 2
         case 1:
             return 1
         default:
@@ -109,6 +114,8 @@ extension SettingVC: UITableViewDelegate, UITableViewDataSource {
         switch (indexPath.section, indexPath.row) {
         case (0, 0):
             cell.cellType = .alert
+        case (0, 1):
+            cell.cellType = .favorite
         case (1, 0):
             cell.cellType = .alertAdvance
         default:
@@ -122,6 +129,8 @@ extension SettingVC: UITableViewDelegate, UITableViewDataSource {
         switch (indexPath.section, indexPath.row) {
         case (0, 0):
             pushToAlertVC()
+        case (0, 1):
+            pushToFavoriteVC()
         case (1, 0):
             pushToAlertAdvanceVC()
         default:
