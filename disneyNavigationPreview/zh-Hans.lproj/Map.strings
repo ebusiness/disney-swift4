@@ -8,5 +8,7 @@
 
 "title" = "地图";
 "choose filter" = "选择过滤器";
-"filter hot" = " 人气";
-"filter all" = " 全部";
+"filter hot" = "人气";
+"filter all" = "全部";
+"filter favorite" = "收藏";
+"filter other" = "其他";

@@ -31,7 +31,14 @@ class MapVC: UIViewController, Localizable {
 
     var tileRenderer: MKTileOverlayRenderer!
 
-    var annotationType: AnnotationType = .hot
+    let wcAnnotationIdentifier = "wcAnnotationIdentifier"
+    let attractionAnnotationIdentifier = "attractionAnnotationIdentifier"
+
+    var annotationType: AnnotationType = .hot {
+        didSet {
+            updateNavigationRightButton()
+        }
+    }
 
     var mapModifyLock = false
     lazy var setupCamera: Void = {
@@ -70,6 +77,7 @@ class MapVC: UIViewController, Localizable {
 
         updateNavigationTitle()
         updateNavigationLeftButton()
+        updateNavigationRightButton()
 
         requestAttractionPoints()
     }
@@ -155,7 +163,9 @@ class MapVC: UIViewController, Localizable {
         mapView.setRegion(landRegion, animated: false)
 
         mapView.register(AttractionAnnotationView.self,
-                         forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+                         forAnnotationViewWithReuseIdentifier: attractionAnnotationIdentifier)
+        mapView.register(WcAnnotationView.self,
+                         forAnnotationViewWithReuseIdentifier: wcAnnotationIdentifier)
     }
 
     private func updateNavigationTitle() {
@@ -175,6 +185,26 @@ class MapVC: UIViewController, Localizable {
             leftItem.title = park.short
         }
 
+    }
+
+    private func updateNavigationRightButton() {
+        let label = UILabel()
+        label.textColor = UIColor.white
+        label.font = UIFont.boldSystemFont(ofSize: 15)
+        switch annotationType {
+        case .all:
+            label.text = localize(for: "filter all")
+            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: label)
+        case .hot:
+            label.text = localize(for: "filter hot")
+            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: label)
+        case .favorite:
+            label.text = localize(for: "filter favorite")
+            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: label)
+        case .other:
+            label.text = localize(for: "filter other")
+            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: label)
+        }
     }
 
     private func setupTileRenderer() {
@@ -297,6 +327,17 @@ extension MapVC: MKMapViewDelegate {
             mapModifyLock = true
             mapView.camera.altitude = 2662
             mapModifyLock = false
+        }
+    }
+
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        switch annotationType {
+        case .other:
+            let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: wcAnnotationIdentifier, for: annotation)
+            return annotationView
+        default:
+            let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: attractionAnnotationIdentifier, for: annotation)
+            return annotationView
         }
     }
 

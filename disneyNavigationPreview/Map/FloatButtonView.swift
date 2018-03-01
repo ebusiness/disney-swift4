@@ -80,7 +80,7 @@ class FloatButtonView: UIView {
             button.addTarget(self, action: #selector(miniButtonPressed(_:)), for: .touchUpInside)
             button.layer.cornerRadius = 20
             button.layer.masksToBounds = true
-            button.backgroundColor = UIColor(rgb: 0xab47bc)
+            button.backgroundColor = UIColor(rgb: 0xab47bc, alpha: 0.85)
             button.frame.size = CGSize(width: 40, height: 40)
             miniButtons.append(button)
         }

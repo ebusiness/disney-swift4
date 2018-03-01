@@ -8,5 +8,7 @@
 
 "title" = "マップ";
 "choose filter" = "フィルター";
-"filter hot" = " 人気";
-"filter all" = " 全部";
+"filter hot" = "人気";
+"filter all" = "全部";
+"filter favorite" = "気に入り";
+"filter other" = "その他";

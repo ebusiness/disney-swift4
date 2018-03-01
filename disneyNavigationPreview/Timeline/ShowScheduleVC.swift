@@ -244,7 +244,7 @@ extension ShowScheduleVC: UICollectionViewDelegateTimeLineLayout, UICollectionVi
         return timeline?.events[safe: indexPath.section]?[safe: indexPath.item]?.duration ?? 0
     }
 
-    //swiftlint: disable: next function_body_length
+    //swiftlint:disable:next function_body_length
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: false)
         if let event = timeline?.events[safe: indexPath.section]?[safe: indexPath.item] {
