@@ -163,7 +163,7 @@ class AttractionDetailVC: UIViewController, Localizable {
     private func requestAttractionDetail() {
         let detailRequest = API.Attractions.detail(park: park, id: attractionId)
 
-        detailRequest.request(AttractionDetail.self) { [weak self] (detail, error) in
+        detailRequest.request(AttractionDetail.self) { [weak self] (detail, _) in
             guard let strongSelf = self else { return }
 
             if let detail = detail {
@@ -179,7 +179,7 @@ class AttractionDetailVC: UIViewController, Localizable {
     private func requestWaitTime() {
         let waitTimeRequest = API.Attractions.waitTime(park: park, id: attractionId, date: nil)
 
-        waitTimeRequest.request(WaitTime.self) { [weak self](waitTime, error) in
+        waitTimeRequest.request(WaitTime.self) { [weak self](waitTime, _) in
             guard let strongSelf = self else { return }
             strongSelf.dataFetched.waitTime = true
             if let waitTime = waitTime {

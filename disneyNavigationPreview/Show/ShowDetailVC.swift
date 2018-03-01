@@ -136,7 +136,7 @@ class ShowDetailVC: UIViewController, Localizable {
     private func requestAttractionDetail() {
         let detailRequest = API.Attractions.detail(park: park, id: attractionId)
 
-        detailRequest.request(ShowDetail.self) { [weak self] (detail, error) in
+        detailRequest.request(ShowDetail.self) { [weak self] (detail, _) in
             guard let strongSelf = self else { return }
             if let detail = detail {
                 strongSelf.detail = AnalysedShowDetail(parent: detail)

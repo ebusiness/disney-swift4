@@ -14,7 +14,7 @@ extension TimeZone {
     static let tokyoTimezone: TimeZone = {
         return TimeZone(abbreviation: "JST")!
     }()
-    
+
 }
 
 extension Date {

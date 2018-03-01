@@ -334,7 +334,7 @@ extension CreatePlanMain: UICollectionViewDelegateFlowLayout, UICollectionViewDa
             }
             selectEmptyWatcher.value = dataList.filter({ $0.selected }).isEmpty
         } else {
-            
+            return
         }
     }
 }
