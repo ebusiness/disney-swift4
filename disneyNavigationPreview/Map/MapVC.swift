@@ -33,6 +33,7 @@ class MapVC: UIViewController, Localizable {
 
     let wcAnnotationIdentifier = "wcAnnotationIdentifier"
     let attractionAnnotationIdentifier = "attractionAnnotationIdentifier"
+    let favoriteAnnotationIdentifier = "favoriteAnnotationIdentifier"
 
     var annotationType: AnnotationType = .hot {
         didSet {
@@ -166,6 +167,8 @@ class MapVC: UIViewController, Localizable {
                          forAnnotationViewWithReuseIdentifier: attractionAnnotationIdentifier)
         mapView.register(WcAnnotationView.self,
                          forAnnotationViewWithReuseIdentifier: wcAnnotationIdentifier)
+        mapView.register(FavoriteAnnotationView.self,
+                         forAnnotationViewWithReuseIdentifier: favoriteAnnotationIdentifier)
     }
 
     private func updateNavigationTitle() {
@@ -318,6 +321,7 @@ class MapVC: UIViewController, Localizable {
 }
 
 extension MapVC: MKMapViewDelegate {
+
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         return tileRenderer
     }
@@ -332,6 +336,9 @@ extension MapVC: MKMapViewDelegate {
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         switch annotationType {
+        case .favorite:
+            let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: favoriteAnnotationIdentifier, for: annotation)
+            return annotationView
         case .other:
             let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: wcAnnotationIdentifier, for: annotation)
             return annotationView

@@ -1,40 +1,39 @@
 //
-//  AttractionAnnotation.swift
+//  FavoriteAnnotation.swift
 //  disneyNavigationPreview
 //
-//  Created by ebuser on 2018/02/06.
+//  Created by ebuser on 2018/03/01.
 //  Copyright © 2018 ebuser. All rights reserved.
 //
 
 import MapKit
+import UIKit
 
-class AttractionAnnotation: NSObject, MKAnnotation {
+//class FavoriteAnnotation: NSObject, MKAnnotation {
+//    let title: String?
+//    let coordinate: CLLocationCoordinate2D
+//    let subtitle: String?
+//    let attraction: Attraction
+//
+//    init?(attraction: Attraction) {
+//        self.attraction = attraction
+//        self.title = attraction.name
+//        self.subtitle = attraction.introductions
+//        guard let latitude = attraction.coordinates?[0],
+//            let longitude = attraction.coordinates?[1] else { return nil }
+//        self.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+//        super.init()
+//    }
+//}
 
-    let title: String?
-    let coordinate: CLLocationCoordinate2D
-    let subtitle: String?
-    let attraction: Attraction
-
-    init?(attraction: Attraction) {
-        self.attraction = attraction
-        self.title = attraction.name
-        self.subtitle = attraction.introductions
-        guard let latitude = attraction.coordinates?[0],
-            let longitude = attraction.coordinates?[1] else { return nil }
-        self.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        super.init()
-    }
-
-}
-
-class AttractionAnnotationView: MKMarkerAnnotationView {
+class FavoriteAnnotationView: MKMarkerAnnotationView {
 
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
 
-        markerTintColor = UIColor(hex: "9C27B0")
+        markerTintColor = GlobalColor.primaryRed
 
-        glyphImage = #imageLiteral(resourceName: "ferris")
+        glyphImage = #imageLiteral(resourceName: "ic_favorite_border_black_30px")
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -46,11 +45,11 @@ class AttractionAnnotationView: MKMarkerAnnotationView {
             guard let attractionAnnotation = newValue as? AttractionAnnotation else { return }
             canShowCallout = true
             let leftView = UIButton(frame: CGRect(origin: .zero, size: CGSize(width: 18, height: 200)))
-            leftView.backgroundColor = UIColor(hex: "9C27B0")
+            leftView.backgroundColor = GlobalColor.primaryRed
             leftCalloutAccessoryView = leftView
 
             let rightButton = UIButton(type: .detailDisclosure)
-            rightButton.tintColor = UIColor(hex: "9C27B0")
+            rightButton.tintColor = GlobalColor.primaryRed
             rightButton.addTarget(self, action: #selector(rightButtonPressed(_:)), for: .touchUpInside)
             rightCalloutAccessoryView = rightButton
 

@@ -35,6 +35,7 @@
 		1F418EE720479A77005681D8 /* FloatButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F418EE620479A77005681D8 /* FloatButtonView.swift */; };
 		1F4606251F60E73A00F8CC96 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4606241F60E73A00F8CC96 /* DateExtension.swift */; };
 		1F48848F2047D1AC00CB73C2 /* WcAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F48848E2047D1AC00CB73C2 /* WcAnnotation.swift */; };
+		1F4884912047DACC00CB73C2 /* FavoriteAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4884902047DACC00CB73C2 /* FavoriteAnnotation.swift */; };
 		1F4B2DDE20297AAA00461507 /* AttractionAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B2DDD20297AAA00461507 /* AttractionAnnotation.swift */; };
 		1F4B2E01202B28D600461507 /* Map.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F4B2E03202B28D600461507 /* Map.strings */; };
 		1F4B2E0B202C24E800461507 /* SettingAlertAdvanceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B2E0A202C24E800461507 /* SettingAlertAdvanceVC.swift */; };
@@ -157,6 +158,7 @@
 		1F418EE620479A77005681D8 /* FloatButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatButtonView.swift; sourceTree = "<group>"; };
 		1F4606241F60E73A00F8CC96 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		1F48848E2047D1AC00CB73C2 /* WcAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WcAnnotation.swift; sourceTree = "<group>"; };
+		1F4884902047DACC00CB73C2 /* FavoriteAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteAnnotation.swift; sourceTree = "<group>"; };
 		1F4B2DDD20297AAA00461507 /* AttractionAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionAnnotation.swift; sourceTree = "<group>"; };
 		1F4B2E02202B28D600461507 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Map.strings; sourceTree = "<group>"; };
 		1F4B2E04202B28D800461507 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Map.strings"; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 				1F418EE620479A77005681D8 /* FloatButtonView.swift */,
 				1F4B2DDD20297AAA00461507 /* AttractionAnnotation.swift */,
 				1F48848E2047D1AC00CB73C2 /* WcAnnotation.swift */,
+				1F4884902047DACC00CB73C2 /* FavoriteAnnotation.swift */,
 				1FFA85102011C58700D0F963 /* DisneyOverlay.swift */,
 			);
 			path = Map;
@@ -715,6 +718,7 @@
 				1F418EE720479A77005681D8 /* FloatButtonView.swift in Sources */,
 				1F93D6551F72694000EFE8D5 /* SuggestCell.swift in Sources */,
 				1FA5B80B1F5FF4F500654E04 /* BaseInfoDatePickVC.swift in Sources */,
+				1F4884912047DACC00CB73C2 /* FavoriteAnnotation.swift in Sources */,
 				1F719B951F663FAD0010CD68 /* SuggestVC.swift in Sources */,
 				1F719B861F627E230010CD68 /* BaseInfoTagCell.swift in Sources */,
 				1FBB523D1F750916006EDC55 /* RoundedCornerImageView.swift in Sources */,
