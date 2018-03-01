@@ -6,6 +6,7 @@
 //  Copyright © 2017 ebuser. All rights reserved.
 //
 
+import CoreData
 import RxSwift
 import MapKit
 import UIKit
@@ -15,6 +16,8 @@ class MapVC: UIViewController, Localizable {
     let localizeFileName = "Map"
 
     private let disposeBag = DisposeBag()
+
+    let floatButtonView: FloatButtonView
 
     let mapView: MKMapView
     let landRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 35.632305555677306, longitude: 139.8807945807259),
@@ -50,6 +53,7 @@ class MapVC: UIViewController, Localizable {
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         mapView = MKMapView()
+        floatButtonView = FloatButtonView(buttonCount: 4)
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         addSubViews()
     }
@@ -102,6 +106,39 @@ class MapVC: UIViewController, Localizable {
             mapView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.bottomAnchor).isActive = true
         }
 
+        view.addSubview(floatButtonView)
+        floatButtonView.translatesAutoresizingMaskIntoConstraints = false
+        floatButtonView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
+        floatButtonView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+
+        floatButtonView
+            .miniButtons
+            .forEach { button in
+                guard let type = AnnotationType(rawValue: button.tag) else { return }
+                switch type {
+                case .all:
+                    button.setImage(#imageLiteral(resourceName: "map_type_all"), for: .normal)
+                case .favorite:
+                    button.setImage(#imageLiteral(resourceName: "map_type_favorite"), for: .normal)
+                case .hot:
+                    button.setImage(#imageLiteral(resourceName: "map_type_hot"), for: .normal)
+                case .other:
+                    button.setImage(#imageLiteral(resourceName: "ic_more_horiz_black_24px"), for: .normal)
+                }
+        }
+
+        floatButtonView
+            .buttonPressed
+            .asObservable()
+            .subscribe ({ [weak self] buttonTag in
+                if let tag = buttonTag.element,
+                    let type = AnnotationType(rawValue: tag) {
+                    self?.annotationType = type
+                }
+                self?.requestAttractionPoints()
+            })
+            .disposed(by: disposeBag)
+
     }
 
     private func setupMapView() {
@@ -121,20 +158,6 @@ class MapVC: UIViewController, Localizable {
                          forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
     }
 
-//    private func updateNavigationTitle() {
-//        if navigationItem.titleView == nil {
-//            let button = RightImageButton(type: .custom)
-//            button.setImage(#imageLiteral(resourceName: "ic_repeat_black_24px"), for: .normal)
-//            button.setImage(#imageLiteral(resourceName: "ic_repeat_black_24px"), for: .highlighted)
-//            button.setTitle(park.localize(), for: .normal)
-//            button.addTarget(self, action: #selector(titleButtonPressed(_:)), for: .touchUpInside)
-//            navigationItem.titleView = button
-//        } else {
-//            guard let button = navigationItem.titleView as? UIButton else { return }
-//            button.setTitle(park.localize(), for: .normal)
-//        }
-//    }
-
     private func updateNavigationTitle() {
         title = localize(for: "title")
     }
@@ -153,40 +176,6 @@ class MapVC: UIViewController, Localizable {
         }
 
     }
-
-//    private func updateFilter() {
-//        updateNavigationButton()
-//        requestAttractionPoints()
-//    }
-
-//    private func updateNavigationButton() {
-//        let leftButton = UIButton(type: .custom)
-//        leftButton.setImage(#imageLiteral(resourceName: "attraction_filter"), for: .normal)
-//        leftButton.setImage(#imageLiteral(resourceName: "attraction_filter"), for: .highlighted)
-//        switch annotationType {
-//        case .all:
-//            leftButton.setTitle(localize(for: "filter all"), for: .normal)
-//        case .hot:
-//            leftButton.setTitle(localize(for: "filter hot"), for: .normal)
-//        }
-//        leftButton.addTarget(self, action: #selector(filterButtonPressed(_:)), for: .touchUpInside)
-//        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
-//    }
-
-//    @objc
-//    private func filterButtonPressed(_ sender: UIButton) {
-//        let filterPicker = MapFilterPickerVC(filter: annotationType)
-//        filterPicker
-//            .currentFilter
-//            .asObservable()
-//            .subscribe(onNext: { [weak self] filter in
-//                self?.annotationType = filter
-//                self?.updateFilter()
-//            })
-//            .disposed(by: disposeBag)
-//        guard let tabVC = (UIApplication.shared.delegate as? AppDelegate)?.window?.rootViewController else { return }
-//        tabVC.present(filterPicker, animated: false)
-//    }
 
     private func setupTileRenderer() {
         let overlay = DisneyOverlay()
@@ -252,12 +241,49 @@ class MapVC: UIViewController, Localizable {
                     strongSelf.mapView.addAnnotations(annotations)
                 }
             }
+        case .favorite:
+            guard let fav = requestFavorite() else { return }
+            let attractionListRequest = API.Attractions.list(park: park)
+
+            attractionListRequest.request([Attraction].self) { [weak self] (objs, _) in
+                guard let strongSelf = self else { return }
+                if let objs = objs {
+                    let attractions = objs.filter {
+                        let str_id = $0.str_id
+                        return $0.category == "attraction"
+                            && fav.contains(where: { $0.str_id == str_id })
+                    }
+                    let annotations = attractions.flatMap { AttractionAnnotation(attraction: $0) }
+                    strongSelf.mapView.addAnnotations(annotations)
+                }
+            }
+        case .other:
+            let attractionListRequest = API.Attractions.hot(park: park)
+            attractionListRequest.request([Attraction].self) { [weak self] (objs, _) in
+                guard let strongSelf = self else { return }
+                if let objs = objs {
+                    let attractions = objs.filter { $0.category == "attraction" } .suffix(10)
+                    let annotations = attractions.flatMap { AttractionAnnotation(attraction: $0) }
+                    strongSelf.mapView.addAnnotations(annotations)
+                }
+            }
         }
     }
 
     func pushToDetail(attraction: Attraction) {
         let next = AttractionDetailVC(park: park, attractionId: attraction.str_id ,attractionName: attraction.name)
         navigationController?.pushViewController(next, animated: true)
+    }
+
+    private func requestFavorite() -> [Favorite]? {
+        guard let moc = DB.context else { return nil }
+        let request = NSFetchRequest<Favorite>(entityName: "Favorite")
+
+        do {
+            return try moc.fetch(request)
+        } catch {
+            return nil
+        }
     }
 }
 
@@ -277,8 +303,10 @@ extension MapVC: MKMapViewDelegate {
 }
 
 extension MapVC {
-    enum AnnotationType {
-        case all
-        case hot
+    enum AnnotationType: Int {
+        case all = 0
+        case hot = 1
+        case favorite = 2
+        case other = 3
     }
 }

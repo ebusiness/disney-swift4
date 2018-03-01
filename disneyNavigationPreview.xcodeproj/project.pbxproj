@@ -32,10 +32,10 @@
 		1F3436D31F736B0F00F05EF7 /* SuggestColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3436D21F736B0F00F05EF7 /* SuggestColor.swift */; };
 		1F3436D61F73794800F05EF7 /* CreatePlanTimeAndPark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3436D51F73794800F05EF7 /* CreatePlanTimeAndPark.swift */; };
 		1F3436D81F7394C400F05EF7 /* CreatePlanMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3436D71F7394C400F05EF7 /* CreatePlanMain.swift */; };
+		1F418EE720479A77005681D8 /* FloatButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F418EE620479A77005681D8 /* FloatButtonView.swift */; };
 		1F4606251F60E73A00F8CC96 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4606241F60E73A00F8CC96 /* DateExtension.swift */; };
 		1F4B2DDE20297AAA00461507 /* AttractionAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B2DDD20297AAA00461507 /* AttractionAnnotation.swift */; };
 		1F4B2E01202B28D600461507 /* Map.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1F4B2E03202B28D600461507 /* Map.strings */; };
-		1F4B2E09202B2A8B00461507 /* MapFilterPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B2E08202B2A8B00461507 /* MapFilterPicker.swift */; };
 		1F4B2E0B202C24E800461507 /* SettingAlertAdvanceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B2E0A202C24E800461507 /* SettingAlertAdvanceVC.swift */; };
 		1F4B2E0D202C25DF00461507 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B2E0C202C25DF00461507 /* UserDefault.swift */; };
 		1F4E36891FA1B51900899F0F /* GreetingDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4E36881FA1B51900899F0F /* GreetingDetailVC.swift */; };
@@ -153,6 +153,7 @@
 		1F3436D21F736B0F00F05EF7 /* SuggestColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestColor.swift; sourceTree = "<group>"; };
 		1F3436D51F73794800F05EF7 /* CreatePlanTimeAndPark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanTimeAndPark.swift; sourceTree = "<group>"; };
 		1F3436D71F7394C400F05EF7 /* CreatePlanMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePlanMain.swift; sourceTree = "<group>"; };
+		1F418EE620479A77005681D8 /* FloatButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatButtonView.swift; sourceTree = "<group>"; };
 		1F4606241F60E73A00F8CC96 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		1F4B2DDD20297AAA00461507 /* AttractionAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionAnnotation.swift; sourceTree = "<group>"; };
 		1F4B2E02202B28D600461507 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Map.strings; sourceTree = "<group>"; };
@@ -160,7 +161,6 @@
 		1F4B2E05202B28D900461507 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Map.strings"; sourceTree = "<group>"; };
 		1F4B2E06202B28DA00461507 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Map.strings; sourceTree = "<group>"; };
 		1F4B2E07202B28DF00461507 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Map.strings; sourceTree = "<group>"; };
-		1F4B2E08202B2A8B00461507 /* MapFilterPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapFilterPicker.swift; sourceTree = "<group>"; };
 		1F4B2E0A202C24E800461507 /* SettingAlertAdvanceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingAlertAdvanceVC.swift; sourceTree = "<group>"; };
 		1F4B2E0C202C25DF00461507 /* UserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		1F4E36881FA1B51900899F0F /* GreetingDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingDetailVC.swift; sourceTree = "<group>"; };
@@ -317,7 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				1F24BE0B1FB59E23004C94E7 /* MapVC.swift */,
-				1F4B2E08202B2A8B00461507 /* MapFilterPicker.swift */,
+				1F418EE620479A77005681D8 /* FloatButtonView.swift */,
 				1F4B2DDD20297AAA00461507 /* AttractionAnnotation.swift */,
 				1FFA85102011C58700D0F963 /* DisneyOverlay.swift */,
 			);
@@ -685,7 +685,6 @@
 				1F76247F1FA9BFCF005F3D4A /* ShowDetailVC.swift in Sources */,
 				1F24BE0C1FB59E23004C94E7 /* MapVC.swift in Sources */,
 				1FA7999A1F624A9B003EC3F2 /* BaseInfoModel.swift in Sources */,
-				1F4B2E09202B2A8B00461507 /* MapFilterPicker.swift in Sources */,
 				1F6F4DF91FAB241800FCE72A /* ShowImageCell.swift in Sources */,
 				1F0D7BF71F5E807A006AC4DB /* Localize.swift in Sources */,
 				1FB151081F5D354200BE4A7D /* ViewController.swift in Sources */,
@@ -709,6 +708,7 @@
 				1FA799981F623ACA003EC3F2 /* API.swift in Sources */,
 				1F719B931F663F940010CD68 /* MyPlanVC.swift in Sources */,
 				1F6F4DFB1FAB243200FCE72A /* ShowOtherCell.swift in Sources */,
+				1F418EE720479A77005681D8 /* FloatButtonView.swift in Sources */,
 				1F93D6551F72694000EFE8D5 /* SuggestCell.swift in Sources */,
 				1FA5B80B1F5FF4F500654E04 /* BaseInfoDatePickVC.swift in Sources */,
 				1F719B951F663FAD0010CD68 /* SuggestVC.swift in Sources */,

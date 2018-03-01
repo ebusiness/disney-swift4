@@ -95,7 +95,6 @@ class AttractionDetailVC: UIViewController, Localizable {
             customizeNavigationBar.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         }
 
-
     }
 
     private func addSubCollectionView() {
@@ -131,14 +130,32 @@ class AttractionDetailVC: UIViewController, Localizable {
         let alertController = UIAlertController(title: nil,
                                                 message: nil,
                                                 preferredStyle: .actionSheet)
-        let collectAction = UIAlertAction(title: "收藏",
+        let collectAction = UIAlertAction(title: localize(for: "Save favorite"),
                                           style: .default) { _ in
-                                            print("collect")
+                                            guard let detail = self.detail else { return }
+                                            let tintColor = ParkArea(rawValue: detail.parent.area)?.tintColor ?? GlobalColor.primaryRed
+                                            let favorite = DB.FavoriteModel(park: self.park,
+                                                                            str_id: self.attractionId,
+                                                                            lang: .cn,
+                                                                            name: detail.parent.name,
+                                                                            thum: detail.parent.images[0],
+                                                                            area: detail.parent.area,
+                                                                            tintColor: tintColor.hex)
+                                            DB.insert(favorite: favorite)
         }
-        let cancelAction = UIAlertAction(title: "取消",
+        let cancelCollectAction = UIAlertAction(title: localize(for: "Cancel favorite"),
+                                                style: .default) { _ in
+                                                    DB.delete(favoriteId: self.attractionId)
+        }
+        let cancelAction = UIAlertAction(title: localize(for: "Cancel"),
                                          style: .cancel,
                                          handler: nil)
-        alertController.addAction(collectAction)
+        if DB.exists(favoriteId: attractionId) {
+            alertController.addAction(cancelCollectAction)
+        } else {
+            alertController.addAction(collectAction)
+        }
+
         alertController.addAction(cancelAction)
         present(alertController, animated: true)
     }

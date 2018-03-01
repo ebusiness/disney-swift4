@@ -50,4 +50,5 @@ identifier_name:
     - cn
     - tw
     - str_id
+    - π
 reporter: "xcode" # 报告类型 (xcode, json, csv, checkstyle, junit, html, emoji)
