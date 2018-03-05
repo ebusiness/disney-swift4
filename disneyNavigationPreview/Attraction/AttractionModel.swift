@@ -32,7 +32,7 @@ struct AttractionRealtime: Codable {
     let fastpassAvailable: Bool
     let operation_end: String?
     let operation_start: String?
-    let statusInfo: String
+    let statusInfo: String?
     let str_id: String
     let updateTime: String
     let waitTime: Int?
