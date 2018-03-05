@@ -14,7 +14,7 @@ struct ImageAccessUrl: URLRequestConvertible {
 
     init?(url: URL) {
         let headers = [
-            "Host": "www.tokyodisneyresort.jp",
+            "Host": url.host ?? "media1.tokyodisneyresort.jp",
             "Connection": "keep-alive",
             "Pragma": "no-cache",
             "Cache-Control": "no-cache",
