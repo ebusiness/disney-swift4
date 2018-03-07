@@ -9,8 +9,8 @@
 "navigation title" = "設定";
 "back button defaul title" = "戻る";
 
-"Alert Advance" = "アラーム時間";
-"Alert" = "アラーム";
+"Alert Advance" = "通知時間";
+"Alert" = "通知";
 "Favorite" = "お気に入り";
 
 "Alert Advance 0" = "直前";

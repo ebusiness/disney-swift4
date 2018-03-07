@@ -8,8 +8,8 @@
 
 "title" = "ショースゲジュール";
 "Detail" = "詳細";
-"Set alarm" = "アラームを設定する";
-"Cancel alarm" = "アラームをキャンセルする";
+"Set alarm" = "通知を設定する";
+"Cancel alarm" = "通知をキャンセルする";
 "Cancel" = "キャンセル";
 
 "Save favorite" = "お気に入り";
