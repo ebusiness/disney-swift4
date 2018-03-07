@@ -335,6 +335,7 @@ struct AnalysedTimeline {
             events = [[Event]]()
         } else {
             var allEvents = [Event]()
+            let tokyoDateComponentsNow = Calendar.current.dateComponents(in: .tokyoTimezone, from: Date())
             let tokyoTimeNow = Date().hourInTokyo ?? 8
             filtered.forEach({ timeline in
                 let name = timeline.name
@@ -355,7 +356,30 @@ struct AnalysedTimeline {
                     let startHour = CGFloat(starttimeInterval / 3600)
                     let durationHour = CGFloat(durationtimeInterval / 3600)
 
-                    let outdated = startHour + durationHour < tokyoTimeNow
+                    let outdated: Bool
+                    if tokyoDateComponentsNow.year == baseDateComponents.year
+                        && tokyoDateComponentsNow.month == baseDateComponents.month
+                        && tokyoDateComponentsNow.day == baseDateComponents.day {
+                        outdated = startHour + durationHour < tokyoTimeNow
+                    } else {
+                        if tokyoDateComponentsNow.year! < baseDateComponents.year! {
+                            outdated = false
+                        } else if tokyoDateComponentsNow.year! > baseDateComponents.year! {
+                            outdated = true
+                        } else {
+                            if tokyoDateComponentsNow.month! < baseDateComponents.month! {
+                                outdated = false
+                            } else if tokyoDateComponentsNow.month! < baseDateComponents.month! {
+                                outdated = true
+                            } else {
+                                if tokyoDateComponentsNow.day! < baseDateComponents.day! {
+                                    outdated = false
+                                } else {
+                                    outdated = true
+                                }
+                            }
+                        }
+                    }
                     let event = Event(id: id,
                                       name: name,
                                       start: startHour,
